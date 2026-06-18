@@ -2,7 +2,7 @@
 layout: page
 title: Climate Variability & Change
 description: Detecting forced climate signals within natural variability.
-img:
+img: assets/img/research/jetstream.jpg
 importance: 3
 category: research
 ---

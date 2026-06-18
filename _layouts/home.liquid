@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<!-- ===================== HERO: clouds banner with title ON the image =========
+  PLACEHOLDER: shows a sky gradient until a clouds photo is supplied.
+  To use your clouds image: save it to assets/img/hero.jpg (wide, ~1600px+)
+  and uncomment the style="" below (keep the same filename).
+============================================================================== -->
+<section class="lab-banner"
+     {% comment %}style="background-image: url('{{ '/assets/img/hero.jpg' | relative_url }}');"{% endcomment %}>
+  <div class="lab-banner-content">
+    <h1 class="lab-title">Environmental Data Science</h1>
+    <p class="lab-sub">@ <a href="https://www.bu.edu/">Boston University</a></p>
+    <p class="lab-tagline">explainable &amp; interpretable AI&nbsp;&middot;&nbsp; daily-to-decadal prediction&nbsp;&middot;&nbsp; solar climate intervention&nbsp;&middot;&nbsp; human-coupled Earth system futures</p>
+  </div>
+</section>
+
+<!-- ===================== FEATURE CARDS ===================== -->
+<div class="lab-features">
+  <a class="lab-feature" href="{{ '/research/' | relative_url }}" style="--c: #2e6b4f;">
+    <div class="lab-feature-icon"><i class="fa-solid fa-diagram-project"></i></div>
+    <h3>Current Projects</h3>
+    <p>What we work on.</p>
+  </a>
+  <a class="lab-feature" href="{{ '/scicomm/' | relative_url }}" style="--c: #c2703d;">
+    <div class="lab-feature-icon"><i class="fa-solid fa-film"></i></div>
+    <h3>Whiteboard Animations</h3>
+    <p>Short videos explaining our science.</p>
+  </a>
+  <a class="lab-feature" href="{{ '/news/' | relative_url }}" style="--c: #7da83f;">
+    <div class="lab-feature-icon"><i class="fa-solid fa-newspaper"></i></div>
+    <h3>News</h3>
+    <p>The latest from the group.</p>
+  </a>
+</div>
+
+<!-- ===================== INTRO (about.md body) ===================== -->
+<div class="lab-intro">
+  {{ content }}
+</div>
+
+<!-- ===================== SELECTED PUBLICATIONS ===================== -->
+{% if page.selected_papers %}
+<h2>selected publications</h2>
+<div class="publications">
+  {% bibliography --query @*[selected=true] %}
+</div>
+{% endif %}
+
+<!-- ===================== NEWS ===================== -->
+<h2>news</h2>
+{% include news.liquid %}

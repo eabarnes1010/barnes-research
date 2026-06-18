@@ -1,0 +1,37 @@
+---
+# LOCAL OVERRIDE of al_folio_core/assets/css/main.scss.
+# Mirrors the gem's import list (so all theme partials still load) and adds a
+# final `@use "custom"` layer for Barnes-lab BU styling. If you upgrade the
+# al_folio_core gem, re-check this list against the new gem main.scss.
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+/* Built-in Sass modules */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure design tokens BEFORE loading any partials. */
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+/* Theme partials (provided by the al_folio_core gem; variables resolves to our
+   local _sass/_variables.scss via the Sass load path). */
+@use "themes";
+@use "layout";
+
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+/* Barnes-lab custom layer (loads last so it wins). */
+@use "custom";

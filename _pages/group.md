@@ -9,6 +9,8 @@ description: Members of the Barnes Research Group.
 
 {% comment %} Members are defined in _data/members.yml — one YAML block per person. {% endcomment %}
 
+{% include figure.liquid loading="eager" path="assets/img/group_photo.jpg" class="img-fluid rounded z-depth-1" title="The Barnes Research Group" %}
+
 <style>
   .group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
   .member { text-align: center; }

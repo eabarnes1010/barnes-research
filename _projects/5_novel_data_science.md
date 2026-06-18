@@ -2,7 +2,7 @@
 layout: page
 title: Novel Data Science
 description: New computational tools for the Earth sciences.
-img:
+img: assets/img/research/causal_nodes.png
 importance: 5
 category: research
 ---

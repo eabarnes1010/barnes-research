@@ -2,7 +2,7 @@
 layout: page
 title: Subseasonal-to-Decadal Prediction
 description: Finding forecasts of opportunity across weeks-to-years timescales.
-img:
+img: assets/img/research/atmospheric_river.jpg
 importance: 2
 category: research
 ---

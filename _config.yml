@@ -16,7 +16,7 @@ footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: climate, machine learning, explainable AI, environmental data science, Boston University, atmospheric science # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: 🌎 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: favicon.png # favicon: BU-red box with white "EDS" (assets/img/favicon.png)
 
 url: https://barnes-research.com # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root (custom domain)
@@ -531,7 +531,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css?family=Fraunces:400,500,600,700|Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
   highlightjs:
     integrity:
       css:
