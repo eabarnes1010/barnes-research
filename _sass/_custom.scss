@@ -389,11 +389,18 @@ footer.sticky-bottom {
 .honors-more > summary::-webkit-details-marker {
   display: none;
 }
-// Honors expand: align its summary with the bullet list above, and give it
-// breathing room so it doesn't crowd the next section heading.
+// Honors expand: give it breathing room so it doesn't crowd the next heading.
 .honors-more {
-  margin-left: 1.1rem; // line up with the <ul> bullets above
   margin-bottom: 2rem;
+}
+// Indent only the summary so it lines up with the bullet *text* above, while the
+// expanded <ul> stays at the same left edge as the Markdown list above it (so the
+// expanded bullets align with the bullets above).
+.honors-more > summary {
+  margin-left: 0.4rem;
+}
+.honors-more > ul {
+  margin-bottom: 0;
 }
 
 // ===========================================================================

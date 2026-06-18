@@ -14,7 +14,7 @@
 
 - [x] "show all honors and awards" is too close to the next title below and should be indented with the bullets above.
 - [x] submitted/preprint button should be aligned for all pubs. I would say with lighter gray background, under the red abbr (and smaller width than the red abbr)
-- [ ] let's discuss ways to make the front page boxes less generic (i like it, but got feedback it looked too generic)
+- [x] let's discuss ways to make the front page boxes less generic (i like it, but got feedback it looked too generic)
 - [x] submitted preprint should be thin black text with no button.
 - [x] the gray years on the publications page (e.g. 2026) can barely be seen. make it darker
 - [x] the search icon should not have the hot key on it. just the icon
@@ -22,12 +22,15 @@
 - [x] update footer to remove "Powered by Jekyll with al-folio theme. Hosted by GitHub Pages."
 - [x] the footer should not be dark. it stands out too much.
 - [x] find a good way to include assets/img/ai-earth-drawing.png — full-width white card under the hero, above the feature cards
-- [ ] scrape images for current group members off current website
-- [ ] fix link to my bio picture for the "group" page since i changed the name and broke the link
+- [x] scrape images for current group members off current website
+- [x] fix link to my bio picture for the "group" page since i changed the name and broke the link
+- [x] the expanded honors and awards should have their bullets align with the bullets above
+- [ ] fix publication card on home page
 
 ## For Libby to do
 
 - [ ] Edit the keyword/SEO keywords (deferred — do later) on the pubs
 - [ ] update research page
+- [ ] decide how the publication page should look (too many lines, take away red?)
 - [x] add full bio for Libby
 - [x] update homepage since way too much scrolling
