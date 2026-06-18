@@ -15,6 +15,12 @@
   --global-highlight-color: #cc0000;
   --bu-red: #cc0000;
   --bu-red-dark: #990000;
+
+  // Footer should blend with the page (the gem default is a heavy dark bar that
+  // stands out too much). These reference the theme bg/text so they adapt per mode.
+  --global-footer-bg-color: var(--global-bg-color);
+  --global-footer-text-color: var(--global-text-color-light);
+  --global-footer-link-color: var(--global-theme-color);
 }
 html[data-theme="dark"] {
   --global-theme-color: #ff4c4c; // lighter scarlet for contrast on dark bg
@@ -22,14 +28,24 @@ html[data-theme="dark"] {
 }
 
 // ---- Typography: characterful heading font, clean body --------------------
-h1, h2, h3, h4, h5, h6,
-.post-title, .lab-hero-title, .lab-feature h3, .card-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.post-title,
+.lab-hero-title,
+.lab-feature h3,
+.card-title,
 .navbar .navbar-brand.title {
   font-family: "Fraunces", "Roboto Slab", Georgia, serif;
   letter-spacing: -0.01em;
 }
 // Page titles take the accent; sub-headings stay readable with a red accent bar.
-.post .post-title { color: var(--bu-red); }
+.post .post-title {
+  color: var(--bu-red);
+}
 
 // ===========================================================================
 //  LANDING PAGE
@@ -44,9 +60,9 @@ h1, h2, h3, h4, h5, h6,
   min-height: clamp(310px, 50vh, 540px);
   margin-top: -1rem;
   margin-bottom: 2.5rem;
-  display: flex;            // center the content...
-  align-items: center;      // ...vertically...
-  justify-content: center;  // ...and horizontally
+  display: flex; // center the content...
+  align-items: center; // ...vertically...
+  justify-content: center; // ...and horizontally
   background-size: cover;
   background-position: center;
   // sky-gradient PLACEHOLDER until a real clouds photo is dropped in hero.jpg
@@ -74,7 +90,11 @@ h1, h2, h3, h4, h5, h6,
   margin: 0 0 1.1rem;
   color: var(--global-text-color);
 }
-.lab-sub a { color: var(--bu-red); text-decoration: underline; text-underline-offset: 3px; }
+.lab-sub a {
+  color: var(--bu-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .lab-tagline {
   font-size: clamp(0.9rem, 1.6vw, 1.1rem);
   letter-spacing: 0.02em;
@@ -99,7 +119,9 @@ h1, h2, h3, h4, h5, h6,
   border: 1px solid var(--global-divider-color);
   border-top: 4px solid var(--bu-red);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
   color: var(--global-text-color);
 }
 .lab-feature:hover {
@@ -119,74 +141,242 @@ h1, h2, h3, h4, h5, h6,
   color: #fff;
   background: linear-gradient(135deg, #cc0000, #990000);
 }
-.lab-feature h3 { margin: 0 0 0.4rem; color: var(--global-text-color); }
-.lab-feature p { margin: 0; font-size: 0.9rem; color: var(--global-text-color-light); }
+.lab-feature h3 {
+  margin: 0 0 0.4rem;
+  color: var(--global-text-color);
+}
+.lab-feature p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--global-text-color-light);
+}
 
-.lab-intro { margin-bottom: 2rem; }
+.lab-intro {
+  margin-bottom: 2rem;
+}
 
 // ===========================================================================
 //  SITE-WIDE ACCENTS
 // ===========================================================================
 
-#navbar.navbar { border-top: 4px solid var(--bu-red); }
-
-// The theme already has a native brand (site.title, shown on inner pages and
-// hidden on the home page) — so we do NOT add our own. We only widen the navbar
-// and tighten tab spacing so the brand + all 9 tabs fit on ONE line.
-#navbar > .container { max-width: 1160px; }
-.navbar .navbar-nav .nav-link { padding-left: 0.5rem; padding-right: 0.5rem; }
-@media (min-width: 576px) and (max-width: 1200px) {
-  .navbar .navbar-nav .nav-link { font-size: 0.9rem; }
+#navbar.navbar {
+  border-top: 4px solid var(--bu-red);
 }
 
-.post .post-title { position: relative; padding-bottom: 0.3rem; }
+// The theme already has a native brand (site.title, shown on inner pages and
+// hidden on the home page) — so we do NOT add our own. Widen the navbar and give
+// the tabs more breathing room so the brand + all 9 tabs sit on ONE line without
+// the words crowding each other.
+#navbar > .container {
+  max-width: 1320px;
+}
+.navbar .navbar-nav .nav-link {
+  padding-left: 0.95rem;
+  padding-right: 0.95rem;
+}
+@media (min-width: 576px) and (max-width: 1320px) {
+  .navbar .navbar-nav .nav-link {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    font-size: 0.92rem;
+  }
+}
+
+.post .post-title {
+  position: relative;
+  padding-bottom: 0.3rem;
+}
 .post .post-title::after {
   content: "";
   display: block;
-  width: 3rem; height: 4px; margin-top: 0.4rem;
-  background: var(--bu-red); border-radius: 2px;
+  width: 3rem;
+  height: 4px;
+  margin-top: 0.4rem;
+  background: var(--bu-red);
+  border-radius: 2px;
 }
-.post-content h2, .projects h2.category {
+.post-content h2,
+.projects h2.category {
   border-left: 4px solid var(--bu-red);
   padding-left: 0.6rem;
 }
 
-.profile img { border: 3px solid var(--bu-red); border-radius: 6px; }
+.profile img {
+  border: 3px solid var(--bu-red);
+  border-radius: 6px;
+}
 
 .projects .card {
   border-top: 3px solid var(--bu-red);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 .projects .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 22px rgba(204, 0, 0, 0.20);
+  box-shadow: 0 8px 22px rgba(204, 0, 0, 0.2);
 }
-.projects .card .card-title { color: var(--bu-red); font-weight: 600; }
+.projects .card .card-title {
+  color: var(--bu-red);
+  font-weight: 600;
+}
 
 .member .initials {
   background: linear-gradient(135deg, #cc0000, #990000);
-  color: #fff; border: none;
+  color: #fff;
+  border: none;
 }
-.member.alum .initials { background: linear-gradient(135deg, #9a9a9a, #6f6f6f); }
-.member .links a { color: var(--global-theme-color); }
+.member.alum .initials {
+  background: linear-gradient(135deg, #9a9a9a, #6f6f6f);
+}
+.member .links a {
+  color: var(--global-theme-color);
+}
 
-blockquote { border-left: 4px solid var(--bu-red) !important; }
-table thead th { border-bottom: 2px solid var(--bu-red); }
-footer.fixed-bottom, footer.sticky-bottom { border-top: 3px solid var(--bu-red); }
+blockquote {
+  border-left: 4px solid var(--bu-red) !important;
+}
+table thead th {
+  border-bottom: 2px solid var(--bu-red);
+}
+footer.fixed-bottom,
+footer.sticky-bottom {
+  border-top: 3px solid var(--bu-red);
+}
 
-.publications .abbr abbr { background-color: var(--global-theme-color); color: #fff; }
+.publications .abbr abbr {
+  background-color: var(--global-theme-color);
+  color: #fff;
+}
 
-// Don't underline the highlighted (Barnes) author name in the bibliography.
-.publications .author em {
-  text-decoration: none;
-  border-bottom: 0;
-  font-weight: 600; // keep it emphasized without the underline
+// Underline any Barnes-lab group member (current OR former) where they appear
+// as an author. Authors get class .author-group from the local
+// _layouts/bib.liquid override (matched by last name + first initial).
+.publications .author .author-group {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: inherit; // linked members shouldn't turn link-blue
+  font-weight: inherit;
+}
+.publications .author a.author-group:hover {
+  color: var(--global-theme-color);
 }
 
 // The DOI button opens the paper's page — relabel it "Paper".
 // (Button text is gem-generated; swap it via CSS on the doi.org link.)
-.publications .links a.btn[href*="doi.org"] { font-size: 0; }
+// font-size must match the sibling buttons, which inherit .btn-sm (0.64rem) —
+// hardcoding 0.875rem made "Paper" render larger than Bib/Cite.
+.publications .links a.btn[href*="doi.org"] {
+  font-size: 0;
+}
 .publications .links a.btn[href*="doi.org"]::after {
   content: "Paper";
-  font-size: 0.875rem;
+  font-size: 0.64rem;
+}
+
+// "Submitted / Preprint" indicator on publications that have no DOI yet, so a
+// not-yet-published paper isn't read as a published paper of that year.
+// Sits in the left column directly UNDER the venue (abbr) badge — plain thin
+// text (no button/box), consistent placement across every entry.
+.publications .abbr .pub-status {
+  display: block;
+  margin: 0.3rem 0 0;
+  font-size: 0.7rem;
+  font-weight: 300; // thin
+  text-align: center;
+  color: var(--global-text-color); // black in light mode, adapts in dark
+}
+
+// Publications year headings (e.g. "2026"): the gem colors these with the
+// near-invisible divider color — darken so they're readable.
+.publications h2.bibliography {
+  color: var(--global-text-color);
+}
+
+// Search toggle in the navbar: show ONLY the magnifier icon, hide the literal
+// "ctrl k" hotkey text the gem prints before it.
+#search-toggle .nav-link {
+  font-size: 0;
+}
+#search-toggle .nav-link i {
+  font-size: 1rem;
+}
+
+// News archive (/news/) grouped by year, like the publications page.
+.news-archive .news-year {
+  margin: 2rem 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--bu-red);
+  color: var(--global-text-color);
+  font-size: 1.6rem;
+}
+.news-archive .news-year:first-child {
+  margin-top: 0.5rem;
+}
+.news-archive table {
+  margin-bottom: 0;
+}
+
+// Expand/collapse blocks on the prof. Barnes page (full bio, all honors).
+.bio-more,
+.honors-more {
+  margin-top: 0.6rem;
+}
+.bio-more > summary,
+.honors-more > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--bu-red);
+  list-style: none;
+}
+.bio-more > summary::after,
+.honors-more > summary::after {
+  content: " ▸";
+}
+.bio-more[open] > summary::after,
+.honors-more[open] > summary::after {
+  content: " ▾";
+}
+.bio-more > summary::-webkit-details-marker,
+.honors-more > summary::-webkit-details-marker {
+  display: none;
+}
+// Honors expand: align its summary with the bullet list above, and give it
+// breathing room so it doesn't crowd the next section heading.
+.honors-more {
+  margin-left: 1.1rem; // line up with the <ul> bullets above
+  margin-bottom: 2rem;
+}
+
+// ===========================================================================
+//  SCICOMM — whiteboard animation video grid
+// ===========================================================================
+.scicomm-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.25rem 0 2.5rem;
+}
+.video-embed {
+  margin: 0;
+}
+.video-embed .video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.video-embed .video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-embed figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--global-text-color-light);
 }

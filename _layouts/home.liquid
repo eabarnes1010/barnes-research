@@ -1,18 +1,24 @@
 ---
 layout: default
 ---
-
-<!-- ===================== HERO: clouds banner with title ON the image =========
-  PLACEHOLDER: shows a sky gradient until a clouds photo is supplied.
-  To use your clouds image: save it to assets/img/hero.jpg (wide, ~1600px+)
-  and uncomment the style="" below (keep the same filename).
-============================================================================== -->
-<section class="lab-banner"
-     {% comment %}style="background-image: url('{{ '/assets/img/hero.jpg' | relative_url }}');"{% endcomment %}>
+<!--
+  ===================== HERO: clouds banner with title ON the image =========
+    PLACEHOLDER: shows a sky gradient until a clouds photo is supplied.
+    To use your clouds image: save it to assets/img/hero.jpg (wide, ~1600px+)
+    and uncomment the style="" below (keep the same filename).
+  ==============================================================================
+-->
+<section
+  class="lab-banner"
+  {% comment %}style="background-image: url('{{ '/assets/img/hero.jpg' | relative_url }}');"{% endcomment %}
+>
   <div class="lab-banner-content">
     <h1 class="lab-title">Environmental Data Science</h1>
     <p class="lab-sub">@ <a href="https://www.bu.edu/">Boston University</a></p>
-    <p class="lab-tagline">explainable &amp; interpretable AI&nbsp;&middot;&nbsp; daily-to-decadal prediction&nbsp;&middot;&nbsp; solar climate intervention&nbsp;&middot;&nbsp; human-coupled Earth system futures</p>
+    <p class="lab-tagline">
+      explainable &amp; interpretable AI&nbsp;&middot;&nbsp; daily-to-decadal prediction&nbsp;&middot;&nbsp; solar climate
+      intervention&nbsp;&middot;&nbsp; human-coupled Earth system futures
+    </p>
   </div>
 </section>
 
@@ -40,12 +46,13 @@ layout: default
   {{ content }}
 </div>
 
-<!-- ===================== SELECTED PUBLICATIONS ===================== -->
+<!-- ===================== RECENT PUBLICATIONS ===================== -->
 {% if page.selected_papers %}
-<h2>selected publications</h2>
-<div class="publications">
-  {% bibliography --query @*[selected=true] %}
-</div>
+  <h2>recent publications</h2>
+  <div class="publications">
+    {% bibliography --max 5 --group_by none %}
+  </div>
+  <p><a href="{{ '/publications/' | relative_url }}">See all publications &rarr;</a></p>
 {% endif %}
 
 <!-- ===================== NEWS ===================== -->

@@ -11,9 +11,7 @@ contact_note: >
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Environmental Data Science @ Boston University — the Barnes Research Group studies
   Earth system variability, predictability, and change using explainable & interpretable AI.
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+footer_text: "" # removed the "Powered by Jekyll / al-folio / GitHub Pages" credit line
 keywords: climate, machine learning, explainable AI, environmental data science, Boston University, atmospheric science # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.png # favicon: BU-red box with white "EDS" (assets/img/favicon.png)
@@ -91,7 +89,7 @@ posts_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 930px
+max_width: 1100px # widened from 930px to reduce scrolling (esp. publications list)
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
