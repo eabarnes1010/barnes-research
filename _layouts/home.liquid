@@ -22,19 +22,23 @@ layout: default
   </div>
 </section>
 
-<!-- ===================== AI-for-Earth diagram (hand-drawn) ===================== -->
-<figure class="lab-ai-diagram">
-  <img
-    src="{{ '/assets/img/ai-earth-drawing.png' | relative_url }}"
-    alt="Hand-drawn diagram: Earth observations flow through interpretable AI models into predictions of climate impacts."
-    loading="eager"
-  >
-</figure>
-
 <!-- ===================== FEATURE CARDS ===================== -->
 <div class="lab-features">
-  <a class="lab-feature" href="{{ '/research/' | relative_url }}" style="--c: #2e6b4f;">
-    <div class="lab-feature-icon"><i class="fa-solid fa-diagram-project"></i></div>
+  <a class="lab-feature lab-feature--video" href="{{ '/research/' | relative_url }}" style="--c: #2e6b4f;">
+    <div class="lab-feature-video">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        poster="{{ '/assets/img/ai-earth-poster.jpg' | relative_url }}"
+        aria-label="Animated hand-drawn diagram: Earth data flowing through interpretable AI models into climate-impact predictions."
+      >
+        <source src="{{ '/assets/video/ai-earth.webm' | relative_url }}" type="video/webm">
+        <source src="{{ '/assets/video/ai-earth.mp4' | relative_url }}" type="video/mp4">
+      </video>
+    </div>
     <h3>Current Projects</h3>
     <p>What we work on.</p>
   </a>

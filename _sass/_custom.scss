@@ -155,18 +155,22 @@ h6,
   margin-bottom: 2rem;
 }
 
-// Hand-drawn AI-for-Earth diagram under the hero. The PNG has a white
-// background, so sit it on a white card — clean in light mode, intentional
-// (not a floating white blob) in dark mode.
-.lab-ai-diagram {
-  max-width: 860px;
-  margin: 0 auto 2.75rem;
-  padding: 1rem 1.25rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+// Looping hand-drawn AI-for-Earth animation on the "Current Projects" card
+// (replaces the icon circle). The clip has a white background, so a white panel
+// keeps it clean in light mode and intentional in dark mode.
+.lab-feature--video {
+  justify-content: flex-start;
 }
-.lab-ai-diagram img {
+.lab-feature-video {
+  width: 100%;
+  margin: 0 0 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.lab-feature-video video {
   display: block;
   width: 100%;
   height: auto;
