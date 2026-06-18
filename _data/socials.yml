@@ -1,0 +1,9 @@
+# Social media links shown in the footer / about page.
+# Displayed in the order defined here. See https://github.com/george-gca/jekyll-socials
+# cv_pdf: /assets/pdf/cv.pdf   # uncomment once a CV PDF is added to assets/pdf/
+email: eabarnes@bu.edu
+github_username: eabarnes1010
+scholar_userid: zs-BY1sAAAAJ
+orcid_id: 0000-0003-4284-9320
+bluesky_url: https://bsky.app/profile/eabarnes.bsky.social
+rss_icon: true

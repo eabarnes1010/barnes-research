@@ -1,0 +1,245 @@
+# =============================================================================
+# Barnes Research Group members.
+#
+# TO ADD A PERSON: copy one block below, paste it under `current:` (or `former:`),
+# and edit the fields. Only `name` and `role` are required; delete any line you
+# don't need. To add a photo, drop a square image in `assets/img/team/` and set
+# `image: team/their-file.jpg`. With no image, a circle with their initials shows.
+#
+# affiliation: BU | CSU | CSU/BU     role: free text (e.g. "PhD Student")
+# =============================================================================
+
+current:
+  - name: Elizabeth Barnes
+    role: Professor
+    affiliation: BU
+    email: eabarnes@bu.edu
+    website: https://www.barnes-research.com
+    image: prof_pic.jpg
+
+  - name: Cameron Dong
+    role: Postdoctoral Researcher
+    affiliation: CSU
+    email: c.dong@colostate.edu
+
+  - name: Ashley Dwyer
+    role: PhD Candidate
+    affiliation: CSU/BU
+    email: adwyer@bu.edu
+    website: https://sites.google.com/view/ashley-dwyer/home
+
+  - name: Ariel Morrison
+    role: Research Scientist
+    affiliation: CSU
+    email: ariel.morrison@colostate.edu
+    website: https://www.ariel-morrison.com/
+
+  - name: Devin McAfee
+    role: PhD Student
+    affiliation: BU
+    email: dmcafee@bu.edu
+    website: https://sites.google.com/view/devinmcafee/home
+
+  - name: Laura Thapa
+    role: Postdoctoral Researcher
+    affiliation: CSU
+    email: laura.thapa@colostate.edu
+
+  - name: Rebecca Baiman
+    role: Postdoctoral Researcher
+    affiliation: CSU/BU
+    email: rbaiman.earth@gmail.com
+    website: https://rebeccabaiman.com
+
+  - name: Martin Fernandez
+    role: Research Scientist
+    affiliation: CSU/BU
+    email: mafern@colostate.edu
+    website: https://mafern.github.io/
+
+  - name: Mu-Ting Chien
+    role: Postdoctoral Researcher
+    affiliation: CSU/BU
+    email: Mu-Ting.Chien@colostate.edu
+    website: https://sites.google.com/view/mu-tingchien/home
+
+  - name: Jolan von Plutzner
+    role: Masters Student
+    affiliation: CSU/BU
+    email: j.vonplutzner@colostate.edu
+    website: https://jvp-portfolio.com
+
+  - name: Brandon Wolf
+    role: Masters Student
+    affiliation: CSU/BU
+    email: b.wolf@colostate.edu
+
+  - name: Jacob Landsberg
+    role: PhD Student
+    affiliation: CSU/BU
+    email: jlandsbe@colostate.edu
+    website: https://sites.google.com/view/jacob-landsberg/
+
+  - name: Jerry Lin
+    role: Postdoctoral Researcher
+    affiliation: BU
+    email: jlin404@bu.edu
+    website: https://jerrylin96.github.io/
+
+  - name: Vlad Munteanu
+    role: PhD Student
+    affiliation: BU
+    email: vmunte@bu.edu
+
+  - name: Annabel Wade
+    role: PhD Student
+    affiliation: BU
+    email: wade@bu.edu
+    website: https://annabelwade.github.io/
+
+  - name: Eunkyoung (Kyoung) Choi
+    role: Postdoctoral Researcher
+    affiliation: BU
+    email: ekchoi@bu.edu
+    website: https://kyoungyi.github.io/
+
+  - name: Lucas Howard
+    role: Postdoctoral Researcher
+    affiliation: BU
+    email: ljhoward@bu.edu
+    website: https://www.lucasjhoward.com
+
+  - name: Will Kamp
+    role: Postdoctoral Researcher
+    affiliation: BU
+    email: wkamp@bu.edu
+
+former:
+  - name: Charlotte Connolly
+    role: Masters/PhD
+    affiliation: CSU
+    years: 2020–2025
+  - name: Nico Gordillo
+    role: Masters
+    affiliation: CSU
+    years: 2021–2025
+  - name: Marybeth Arcodia
+    role: Research Scientist
+    affiliation: CSU
+    years: 2022–2025
+  - name: Chenrui Diao
+    role: Postdoc
+    affiliation: CSU
+    years: 2022–2025
+  - name: Daniel Hueholt
+    role: Masters/PhD
+    affiliation: CSU
+    years: 2020–2025
+  - name: Jamin Rader
+    role: Masters/PhD
+    affiliation: CSU
+    years: 2019–2024
+  - name: Emily Prewett
+    role: REU Researcher
+    affiliation: CSU
+    years: 2023
+  - name: Kelsey Ennis
+    role: Masters
+    affiliation: CSU
+    years: 2023–2025
+  - name: Zaibeth Carlo Frontera
+    role: Masters
+    affiliation: CSU
+    years: 2021–2023
+  - name: Juliette Rocha
+    role: REU Researcher
+    affiliation: CSU
+    years: 2023
+  - name: Antonios Mamalakis
+    role: Research Scientist
+    affiliation: CSU
+    years: 2020–2023
+  - name: Emily Gordon
+    role: PhD
+    affiliation: CSU
+    years: 2020–2023
+  - name: Frances Davenport
+    role: Postdoc
+    affiliation: CSU
+    years: 2022–2023
+  - name: Elina Valkonen
+    role: Postdoc
+    affiliation: CSU
+    years: 2022–2023
+  - name: Kirsten Mayer
+    role: Masters/PhD
+    affiliation: CSU
+    years: 2017–2022
+  - name: Zack Labe
+    role: Postdoc
+    affiliation: CSU
+    years: 2020–2022
+  - name: Jack Cahill
+    role: Masters
+    affiliation: CSU
+    years: 2021–2023
+  - name: Zane Martin
+    role: Postdoc
+    affiliation: CSU
+    years: 2020–2022
+  - name: Wei-Ting Hsiao
+    role: Masters
+    affiliation: CSU
+    years: 2019–2021
+  - name: Andrea Jenney
+    role: PhD
+    affiliation: CSU
+    years: 2017–2020
+  - name: Ben Toms
+    role: PhD
+    affiliation: CSU
+    years: 2019–2020
+  - name: Hannah Myint
+    role: REU Researcher
+    affiliation: CSU
+    years: 2021
+  - name: Anushka Narayanan
+    role: REU Researcher
+    affiliation: CSU
+    years: 2021
+  - name: Bryn Ronalds
+    role: PhD
+    affiliation: CSU
+    years: 2016–2020
+  - name: Kai-Chih Tseng
+    role: PhD
+    affiliation: CSU
+    years: 2016–2019
+  - name: Steven Brey
+    role: PhD
+    affiliation: CSU
+    years: 2016–2019
+  - name: Savini Samarasinghe
+    role: PhD (Electrical & Computer Engineering)
+    affiliation: CSU
+    years: 2019–2020
+  - name: Cory Baggett
+    role: Research Scientist
+    affiliation: CSU
+    years: 2016–2019
+  - name: Kyle Nardi
+    role: Masters
+    affiliation: CSU
+    years: 2016–2018
+  - name: Chengji Liu
+    role: PhD
+    affiliation: CSU
+    years: 2013–2017
+  - name: Bryan Mundhenk
+    role: PhD
+    affiliation: CSU
+    years: 2014–2017
+  - name: Marie McGraw
+    role: Masters/PhD
+    affiliation: CSU
+    years: 2013–2019
