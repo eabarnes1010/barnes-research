@@ -24,8 +24,8 @@ layout: default
 
 <!-- ===================== FEATURE CARDS ===================== -->
 <div class="lab-features">
-  <a class="lab-feature lab-feature--video" href="{{ '/research/' | relative_url }}" style="--c: #2e6b4f;">
-    <div class="lab-feature-video">
+  <a class="lab-feature" href="{{ '/research/' | relative_url }}">
+    <div class="lab-feature-media lab-feature-media--video">
       <video
         autoplay
         loop
@@ -42,15 +42,17 @@ layout: default
     <h3>Current Projects</h3>
     <p>What we work on.</p>
   </a>
-  <a class="lab-feature" href="{{ '/scicomm/' | relative_url }}" style="--c: #c2703d;">
-    <div class="lab-feature-icon"><i class="fa-solid fa-film"></i></div>
-    <h3>Whiteboard Animations</h3>
-    <p>Short videos explaining our science.</p>
+  <a class="lab-feature" href="{{ '/group/' | relative_url }}">
+    <div class="lab-feature-media">
+      <img src="{{ '/assets/img/people/group_photo_SP26.png' | relative_url }}" alt="The Barnes Research Group" loading="lazy">
+    </div>
+    <h3>Members</h3>
+    <p>Meet the group.</p>
   </a>
-  <a class="lab-feature" href="{{ '/news/' | relative_url }}" style="--c: #7da83f;">
-    <div class="lab-feature-icon"><i class="fa-solid fa-newspaper"></i></div>
-    <h3>News</h3>
-    <p>The latest from the group.</p>
+  <a class="lab-feature" href="{{ '/publications/' | relative_url }}">
+    <div class="lab-feature-media lab-feature-media--icon"><i class="fa-solid fa-book-open"></i></div>
+    <h3>Publications</h3>
+    <p>What we've published.</p>
   </a>
 </div>
 
@@ -58,15 +60,6 @@ layout: default
 <div class="lab-intro">
   {{ content }}
 </div>
-
-<!-- ===================== RECENT PUBLICATIONS ===================== -->
-{% if page.selected_papers %}
-  <h2>recent publications</h2>
-  <div class="publications">
-    {% bibliography --max 5 --group_by none %}
-  </div>
-  <p><a href="{{ '/publications/' | relative_url }}">See all publications &rarr;</a></p>
-{% endif %}
 
 <!-- ===================== NEWS (3 most recent) ===================== -->
 <h2 class="mt-5">news</h2>

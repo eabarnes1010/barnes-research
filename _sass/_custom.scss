@@ -155,25 +155,36 @@ h6,
   margin-bottom: 2rem;
 }
 
-// Looping hand-drawn AI-for-Earth animation on the "Current Projects" card
-// (replaces the icon circle). The clip has a white background, so a white panel
-// keeps it clean in light mode and intentional in dark mode.
-.lab-feature--video {
-  justify-content: flex-start;
-}
-.lab-feature-video {
+// Uniform media tile at the top of each feature card (same 16:9 box across all
+// three so the row stays even): photo fills it (cover), the AI-for-Earth clip
+// fits inside it (contain — no cropping), the publications card centers an icon.
+// White panel keeps the white-background clip clean in light and dark mode.
+.lab-feature-media {
   width: 100%;
+  aspect-ratio: 16 / 9;
   margin: 0 0 1rem;
   border-radius: 8px;
   overflow: hidden;
-  line-height: 0;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.lab-feature-video video {
-  display: block;
+.lab-feature-media img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lab-feature-media--video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; // show the whole wide diagram, never cropped
+  display: block;
+}
+.lab-feature-media--icon i {
+  font-size: 2.8rem;
+  color: var(--bu-red);
 }
 
 // ===========================================================================
