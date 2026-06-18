@@ -21,11 +21,13 @@
 - [x] news should be separated by year (like publications) — /news/ grouped by year; home shows 3 most recent
 - [x] update footer to remove "Powered by Jekyll with al-folio theme. Hosted by GitHub Pages."
 - [x] the footer should not be dark. it stands out too much.
-- [ ] find a good way to include assets/img/ai-earth-drawing.png
+- [x] find a good way to include assets/img/ai-earth-drawing.png — full-width white card under the hero, above the feature cards
+- [ ] scrape images for current group members off current website
+- [ ] fix link to my bio picture for the "group" page since i changed the name and broke the link
 
 ## For Libby to do
 
 - [ ] Edit the keyword/SEO keywords (deferred — do later) on the pubs
 - [ ] update research page
 - [x] add full bio for Libby
-- [ ] update homepage since way too much scrolling
+- [x] update homepage since way too much scrolling
