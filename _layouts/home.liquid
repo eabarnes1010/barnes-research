@@ -55,6 +55,27 @@ layout: default
   <p><a href="{{ '/publications/' | relative_url }}">See all publications &rarr;</a></p>
 {% endif %}
 
-<!-- ===================== NEWS ===================== -->
+<!-- ===================== NEWS (3 most recent) ===================== -->
 <h2>news</h2>
-{% include news.liquid %}
+<div class="news">
+  {% assign recent_news = site.news | sort: 'date' | reverse %}
+  {% if recent_news != blank %}
+    <table class="table table-sm table-borderless">
+      {% for item in recent_news limit: 3 %}
+        <tr>
+          <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
+          <td>
+            {% if item.inline %}
+              {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+            {% else %}
+              <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <p><a href="{{ '/news/' | relative_url }}">All news &rarr;</a></p>
+  {% else %}
+    <p>No news so far...</p>
+  {% endif %}
+</div>
