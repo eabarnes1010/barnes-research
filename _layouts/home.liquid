@@ -52,7 +52,14 @@ layout: default
   <a class="lab-feature" href="{{ '/publications/' | relative_url }}">
     <div class="lab-feature-media lab-feature-media--icon"><i class="fa-solid fa-book-open"></i></div>
     <h3>Publications</h3>
-    <p>What we've published.</p>
+    {%- comment -%} Newest preprint = most recent entry marked note={submitted} (file is newest-first). {%- endcomment -%}
+    {% capture latest_preprint %}{% bibliography --query "@*[note={submitted}]" --max 1 --group_by none --template bib_card %}{% endcapture %}
+    {% assign latest_preprint = latest_preprint | strip_html | strip %}
+    {% if latest_preprint != '' %}
+      <p class="lab-feature-preprint"><span class="lab-feature-preprint-label">Latest preprint</span>{{ latest_preprint }}</p>
+    {% else %}
+      <p>What we've published.</p>
+    {% endif %}
   </a>
 </div>
 
