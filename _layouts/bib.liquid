@@ -203,7 +203,8 @@
       {%- if periodical_text != '' -%}
         . <span class="periodical">{{ periodical_text }}</span>
       {%- endif -%}
-      {%- unless entry.doi -%}
+      {%- comment -%} Barnes-lab: flag as not-yet-published only when there is NO link to a published version (doi/html/url/website). Preprints (which carry only a `preprint` link) still flag; a published paper with no DOI but an article URL — e.g. an Eos opinion piece — does not. {%- endcomment -%}
+      {%- unless entry.doi or entry.html or entry.url or entry.website -%}
         {% if periodical_text != '' %}
           <span class="pub-status">&middot;&nbsp;Submitted&nbsp;/&nbsp;Preprint</span>
         {%- else %}
