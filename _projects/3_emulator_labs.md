@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Emulators as Laboratories
+title: Emulators Beyond Forecasting
 description: Treating fast, differentiable emulators as laboratories for the likelihood of rare events and uncovering hidden physics
 img: assets/img/research/rewind_sandy.png # add an image in assets/img/ and reference it here for a thumbnail
 importance: 1

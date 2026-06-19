@@ -37,7 +37,7 @@
 
 ## For Libby to do
 
-- [ ] update research page
+- [x] update research page
 - [x] decide how the publication page should look (too many lines, take away red?)
 - [x] add full bio for Libby
 - [x] update homepage since way too much scrolling

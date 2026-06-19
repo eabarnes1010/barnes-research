@@ -96,7 +96,7 @@ current:
     website: https://sites.google.com/view/devinmcafee/home
 
   - name: Ariel Morrison
-    role: Research Scientist
+    role: Research Sci.
     affiliation: CSU
     email: ariel.morrison@colostate.edu
     image: people/ariel-morrison.jpg
@@ -107,6 +107,12 @@ current:
     affiliation: BU
     email: vmunte@bu.edu
     image: people/vlad-munteanu.jpg
+
+  - name: Ziqi Tang
+    role: PhD Student
+    affiliation: BU
+    email: ztang20@bu.edu
+    image: people/ziqi-tang.png
 
   - name: Laura Thapa
     role: Postdoc
@@ -141,7 +147,7 @@ former:
     years: 2023–2025
     image: people/kelsey-ennis.jpg
   - name: Marybeth Arcodia
-    role: Research Scientist
+    role: Research Sci.
     affiliation: CSU
     years: 2022–2025
     image: people/marybeth-arcodia.png
@@ -196,7 +202,7 @@ former:
     years: 2020–2023
     image: people/emily-gordon.jpg
   - name: Antonios Mamalakis
-    role: Research Scientist
+    role: Research Sci.
     affiliation: CSU
     years: 2020–2023
     image: people/antonios-mamalakis.jpg
@@ -241,7 +247,7 @@ former:
     years: 2016–2020
     image: people/bryn-ronalds.jpg
   - name: Cory Baggett
-    role: Research Scientist
+    role: Research Sci.
     affiliation: CSU
     years: 2016–2019
     image: people/cory-baggett.jpg
