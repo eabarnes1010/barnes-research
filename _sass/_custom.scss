@@ -68,6 +68,16 @@ h6,
   // sky-gradient PLACEHOLDER until a real clouds photo is dropped in hero.jpg
   background-image: linear-gradient(170deg, #cfe3f5 0%, #eef5fb 55%, #fbe9e2 100%);
 }
+// Dark mode: the light sky gradient washes out the light body text, so swap in a
+// dark dusk gradient (deep blue -> charcoal -> deep maroon) that keeps the title
+// and tagline readable.
+html[data-theme="dark"] .lab-banner {
+  background-image: linear-gradient(170deg, #14233a 0%, #182230 55%, #2c1c1c 100%);
+}
+html[data-theme="dark"] .lab-title,
+html[data-theme="dark"] .lab-sub a {
+  color: #ff5a5a; // lighter scarlet so the red reads on the dark banner
+}
 // No scrim/wash — the image is left exactly as-is. Text is colored for
 // readability instead of recoloring the background.
 .lab-banner-content {
