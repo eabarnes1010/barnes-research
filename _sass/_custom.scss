@@ -430,10 +430,11 @@ footer.sticky-bottom {
 .honors-more > summary::-webkit-details-marker {
   display: none;
 }
-// Honors expand: give it breathing room so it doesn't crowd the next heading.
+// Honors expand: sit close to the list above; keep the gap to the next heading
+// the same as the Education -> Honors gap (i.e. a normal list's bottom margin).
 .honors-more {
   margin-top: 0; // sit closer (vertically) to the bullet list above
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 // Indent only the summary so it lines up with the bullet *text* above, while the
 // expanded <ul> stays at the same left edge as the Markdown list above it (so the

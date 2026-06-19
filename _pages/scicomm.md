@@ -3,7 +3,7 @@ layout: page
 title: sciComm
 permalink: /scicomm/
 nav: true
-nav_order: 5
+nav_order: 6
 description: Whiteboard animations communicating our research in explainable AI and climate intervention.
 ---
 
