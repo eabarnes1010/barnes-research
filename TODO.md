@@ -29,13 +29,14 @@
 - [x] add linked in to Find me online: www.linkedin.com/in/elizabeth-barnes-2a40b6280
 - [x] dark mode doesn't look right for the home page (the fading banner is really bright and i cannot see the text. the banner needs to change to a darker color)
 - [x] news items on the home page should be closer together vertically (too spread out right now)
-- [ ] the publications tab in the header should be moved left. it should be to the right of the "research" tab
-
-
+- [x] the publications tab in the header should be moved left. it should be to the right of the "research" tab
+- [x] on the courses page, the course numbers and titles should be bold and red.
+- [x] remove news on the front page entirely
+- [x] for pubs "Pushing the Frontiers in Climate Modeling and Analysis with Machine Learning" doesn't hide the final authors under "X more authors". Why? — BY DESIGN: max_author_limit=3, but the "never hide a group member" rule shows ALL authors when any hidden author is current/former group; here Barnes (4th author) + Marie McGraw are past the cutoff, so all show.
+- [x] there is a space between the final author and the period for each paper. is this intentional? — NO, bug: whitespace leaked from the more-authors/annotation blocks; fixed with liquid whitespace control.
 
 ## For Libby to do
 
-- [ ] Edit the keyword/SEO keywords (deferred — do later) on the pubs
 - [ ] update research page
 - [x] decide how the publication page should look (too many lines, take away red?)
 - [x] add full bio for Libby

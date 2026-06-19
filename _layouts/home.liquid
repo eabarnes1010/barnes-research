@@ -16,8 +16,7 @@ layout: default
     <h1 class="lab-title">Environmental Data Science</h1>
     <p class="lab-sub">@ <a href="https://www.bu.edu/">Boston University</a></p>
     <p class="lab-tagline">
-      explainable &amp; interpretable AI&nbsp;&middot;&nbsp; daily-to-decadal prediction&nbsp;&middot;&nbsp; solar climate
-      intervention&nbsp;&middot;&nbsp; human-coupled Earth system futures
+      AI for Science &middot;&nbsp; Science of AI &nbsp;&middot;&nbsp; Daily-to-decadal prediction<br />Human-coupled Earth system futures
     </p>
   </div>
 </section>
@@ -77,30 +76,7 @@ layout: default
   {{ content }}
 </div>
 
-<!-- ===================== NEWS (3 most recent) ===================== -->
-<h2 class="mt-5">news</h2>
-<div class="news">
-  {% assign recent_news = site.news | sort: 'date' | reverse %}
-  {% if recent_news != blank %}
-    <table class="table table-sm table-borderless">
-      {% for item in recent_news limit: 3 %}
-        <tr>
-          <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
-          <td>
-            {% if item.inline %}
-              {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-            {% else %}
-              <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-            {% endif %}
-          </td>
-        </tr>
-      {% endfor %}
-    </table>
-    <p><a href="{{ '/news/' | relative_url }}">All news &rarr;</a></p>
-  {% else %}
-    <p>No news so far...</p>
-  {% endif %}
-</div>
+<!-- News intentionally omitted from the home page (still available at /news/). -->
 
 <!--
   ===================== PUBLICATIONS CARD: hand-drawn year chart =============

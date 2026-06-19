@@ -2,7 +2,7 @@
 layout: page
 title: research
 permalink: /research/
-description: What we work on.
+description: To understand Earth system variability, predictability, and change across time and space, with an emphasis on developing and implementing artificial intelligence tools in a way that mimics scientific human reasoning to improve intrinsic interpretability
 nav: true
 nav_order: 4
 display_categories: [research]

@@ -446,6 +446,12 @@ footer.sticky-bottom {
   margin-bottom: 0;
 }
 
+// Courses page: course number + title (the bold lead of each entry) in BU red.
+// Already bold via Markdown `**...**`; this just colors it (dark-mode aware).
+.course-title {
+  color: var(--global-theme-color);
+}
+
 // ===========================================================================
 //  SCICOMM — whiteboard animation video grid
 // ===========================================================================

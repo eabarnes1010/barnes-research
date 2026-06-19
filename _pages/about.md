@@ -14,4 +14,4 @@ Our research covers:
 - impacts of **solar climate intervention**
 - **human-coupled** Earth system futures
 
-Take a look at our [research](/research/), meet the [group](/group/), watch our [whiteboard animations](/scicomm/), and browse our [publications](/publications/). The latest group [news](/news/) is below.
+Take a look at our [research](/research/), meet the [group](/group/), watch our [whiteboard animations](/scicomm/), and browse our [publications](/publications/).

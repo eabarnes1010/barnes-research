@@ -187,8 +187,8 @@
         >
           {{- more_authors_hide -}}
         </span>
-      {% endif %}
-      {% if entry.annotation %}
+      {%- endif -%}
+      {%- if entry.annotation -%}
         <i
           class="fa-solid fa-circle-info ml-1"
           data-toggle="popover"
@@ -197,7 +197,7 @@
           data-content="{{ entry.annotation | escape }}"
         >
         </i>
-      {% endif %}
+      {%- endif -%}
       {%- comment -%} Barnes-lab: venue + year on the same line as the authors (compact), with the not-yet-published (no DOI) status appended INLINE right after the year so it can't be skimmed past as published. {%- endcomment -%}
       {%- assign periodical_text = periodical | strip -%}
       {%- if periodical_text != '' -%}
