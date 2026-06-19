@@ -61,5 +61,6 @@ description: Dalton Family Chair in Environmental Data Science & Sustainability,
 - Google Scholar: [profile](https://scholar.google.com/citations?hl=en&user=zs-BY1sAAAAJ)
 - ORCiD: [0000-0003-4284-9320](https://orcid.org/0000-0003-4284-9320)
 - Bluesky: [@eabarnes.bsky.social](https://bsky.app/profile/eabarnes.bsky.social)
+- LinkedIn: [elizabeth-barnes](https://www.linkedin.com/in/elizabeth-barnes-2a40b6280)
 
 For a full list of work, see the [publications](/publications/) page. Contact details are on the [contact](/contact/) page.

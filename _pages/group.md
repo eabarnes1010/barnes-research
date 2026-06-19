@@ -10,7 +10,7 @@ description: Members of the Barnes Research Group.
 {% comment %} Members are defined in _data/members.yml — one YAML block per person. {% endcomment %}
 
 <style>
-  .group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+  .group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem; margin-top: 1rem; margin-bottom: 2.5rem; }
   .member { text-align: center; }
   .member .avatar, .member .initials {
     width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 0.5rem;

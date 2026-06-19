@@ -139,127 +139,139 @@ former:
     role: Masters
     affiliation: CSU
     years: 2023–2025
+    image: people/kelsey-ennis.jpg
   - name: Marybeth Arcodia
     role: Research Scientist
     affiliation: CSU
     years: 2022–2025
+    image: people/marybeth-arcodia.png
   - name: Chenrui Diao
     role: Postdoc
     affiliation: CSU
     years: 2022–2025
+    image: people/chenrui-diao.jpg
   - name: Nico Gordillo
     role: Masters
     affiliation: CSU
     years: 2021–2025
+    image: people/nico-gordillo.jpg
   - name: Charlotte Connolly
     role: Masters/PhD
     affiliation: CSU
     years: 2020–2025
+    image: people/charlotte-connolly.jpg
   - name: Daniel Hueholt
     role: Masters/PhD
     affiliation: CSU
     years: 2020–2025
+    image: people/daniel-hueholt.jpg
   - name: Jamin Rader
     role: Masters/PhD
     affiliation: CSU
     years: 2019–2024
-  - name: Emily Prewett
-    role: REU Researcher
-    affiliation: CSU
-    years: 2023
-  - name: Juliette Rocha
-    role: REU Researcher
-    affiliation: CSU
-    years: 2023
+    image: people/jamin-rader.jpg
   - name: Frances Davenport
     role: Postdoc
     affiliation: CSU
     years: 2022–2023
+    image: people/frances-davenport.jpg
   - name: Elina Valkonen
     role: Postdoc
     affiliation: CSU
     years: 2022–2023
+    image: people/elina-valkonen.jpg
   - name: Jack Cahill
     role: Masters
     affiliation: CSU
     years: 2021–2023
+    image: people/jack-cahill.jpg
   - name: Zaibeth Carlo Frontera
     role: Masters
     affiliation: CSU
     years: 2021–2023
+    image: people/zaibeth-carlofrontera.jpg
   - name: Emily Gordon
     role: PhD
     affiliation: CSU
     years: 2020–2023
+    image: people/emily-gordon.jpg
   - name: Antonios Mamalakis
     role: Research Scientist
     affiliation: CSU
     years: 2020–2023
+    image: people/antonios-mamalakis.jpg
   - name: Zack Labe
     role: Postdoc
     affiliation: CSU
     years: 2020–2022
+    image: people/zack-labe.jpg
   - name: Zane Martin
     role: Postdoc
     affiliation: CSU
     years: 2020–2022
+    image: people/zane-martin.jpg
   - name: Kirsten Mayer
     role: Masters/PhD
     affiliation: CSU
     years: 2017–2022
-  - name: Hannah Myint
-    role: REU Researcher
-    affiliation: CSU
-    years: 2021
-  - name: Anushka Narayanan
-    role: REU Researcher
-    affiliation: CSU
-    years: 2021
+    image: people/kirsten-mayer.jpg
   - name: Wei-Ting Hsiao
     role: Masters
     affiliation: CSU
     years: 2019–2021
+    image: people/weiting-hsiao.jpg
   - name: Savini Samarasinghe
-    role: PhD (Electrical & Computer Engineering)
+    role: PhD (ECE Dept.)
     affiliation: CSU
     years: 2019–2020
+    image: people/savini-samarasinghe.jpg
   - name: Ben Toms
     role: PhD
     affiliation: CSU
     years: 2019–2020
+    image: people/ben-toms.png
   - name: Andrea Jenney
     role: PhD
     affiliation: CSU
     years: 2017–2020
+    image: people/andrea-jenney.jpg
   - name: Bryn Ronalds
     role: PhD
     affiliation: CSU
     years: 2016–2020
+    image: people/bryn-ronalds.jpg
   - name: Cory Baggett
     role: Research Scientist
     affiliation: CSU
     years: 2016–2019
+    image: people/cory-baggett.jpg
   - name: Steven Brey
     role: PhD
     affiliation: CSU
     years: 2016–2019
+    image: people/steven-brey.jpg
   - name: Kai-Chih Tseng
     role: PhD
     affiliation: CSU
     years: 2016–2019
+    image: people/kaichih-tseng.png
   - name: Marie McGraw
     role: Masters/PhD
     affiliation: CSU
     years: 2013–2019
+    image: people/marie-mcgraw.jpg
   - name: Kyle Nardi
     role: Masters
     affiliation: CSU
     years: 2016–2018
+    image: people/kyle-nardi.jpg
   - name: Bryan Mundhenk
     role: PhD
     affiliation: CSU
     years: 2014–2017
+    image: people/bryan-mundhenk.jpg
   - name: Chengji Liu
     role: PhD
     affiliation: CSU
     years: 2013–2017
+    image: people/chengji-liu.jpg
