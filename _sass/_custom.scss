@@ -105,6 +105,24 @@ html[data-theme="dark"] .lab-sub a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+// BU wordmark in place of the plain-text affiliation line; sized to sit under
+// the title like the old .lab-sub did.
+.lab-sub-logo {
+  // BU brand clear-space: keep generous vertical breathing room (~half the
+  // wordmark height) above and below so nothing crowds the logo.
+  display: inline-block;
+  margin: clamp(1rem, 3vw, 1.9rem) 0 clamp(1.2rem, 3.2vw, 2.1rem);
+}
+.lab-bu-logo {
+  display: block;
+  height: clamp(30px, 5vw, 52px);
+  width: auto;
+}
+// Dark banner: lift the BU red toward the lighter scarlet used for the title
+// so the wordmark stays legible on the dusk gradient.
+html[data-theme="dark"] .lab-bu-logo {
+  filter: brightness(1.35) saturate(0.95);
+}
 .lab-tagline {
   font-size: clamp(0.9rem, 1.6vw, 1.1rem);
   letter-spacing: 0.02em;
