@@ -50,14 +50,19 @@ layout: default
     <p>Meet the group.</p>
   </a>
   <a class="lab-feature" href="{{ '/publications/' | relative_url }}">
-    {%- comment -%} Word cloud auto-built from paper titles by bin/build_pub_wordcloud.py {%- endcomment -%}
-    <div class="lab-feature-media lab-feature-media--cloud">
-      {%- if site.data.pub_wordcloud -%}
-        <ul class="pub-cloud" aria-label="Common topics across our publications">
-          {%- for w in site.data.pub_wordcloud -%}
-            <li class="pub-cloud-t{{ w.tier }}" style="animation-delay: {{ forloop.index0 | times: 45 }}ms">{{ w.word }}</li>
-          {%- endfor -%}
-        </ul>
+    {%- comment -%}
+      Hand-drawn (rough.js) papers-per-year chart, auto-built from
+      papers.bib by bin/build_pub_peryear.py (data in _data/pub_peryear.yml).
+      Drawn by the scoped script at the bottom of this file.
+    {%- endcomment -%}
+    <div class="lab-feature-media lab-feature-media--chart">
+      {%- if site.data.pub_peryear -%}
+        <div
+          class="pub-yearchart"
+          role="img"
+          aria-label="Papers published per year by the group, {{ site.data.pub_peryear.first.year }} to {{ site.data.pub_peryear.last.year }}, drawn in a hand-sketched style."
+          data-peryear="{% for d in site.data.pub_peryear %}{{ d.year }}:{{ d.count }}{% unless forloop.last %},{% endunless %}{% endfor %}"
+        ></div>
       {%- else -%}
         <i class="fa-solid fa-book-open"></i>
       {%- endif -%}
@@ -96,3 +101,105 @@ layout: default
     <p>No news so far...</p>
   {% endif %}
 </div>
+
+<!--
+  ===================== PUBLICATIONS CARD: hand-drawn year chart =============
+    Renders the papers-per-year bars in a whiteboard / rough.js style from the
+    JSON emitted on .pub-yearchart (data from _data/pub_peryear.yml). Scoped to
+    this page; uses the locally vendored rough.js. Sketchy hachure-filled bars,
+    a hand-drawn baseline, Caveat marker font for the label and year ticks.
+  ============================================================================
+-->
+<script src="{{ '/assets/js/rough.min.js' | relative_url }}"></script>
+<script>
+  (function () {
+    var host = document.querySelector('.pub-yearchart');
+    if (!host || typeof rough === 'undefined') return;
+    // data attribute is a quote-free "year:count,year:count,..." string
+    var data = (host.dataset.peryear || '')
+      .split(',')
+      .filter(Boolean)
+      .map(function (p) {
+        var a = p.split(':');
+        return { year: +a[0], count: +a[1] };
+      });
+    if (!data.length) return;
+
+    var SVGNS = 'http://www.w3.org/2000/svg';
+    var W = 320,
+      H = 180; // 16:9 viewBox, scales to the tile
+    var padL = 24,
+      padR = 8,
+      padT = 16,
+      padB = 24;
+    var baseY = H - padB;
+    var plotH = baseY - padT;
+    var plotW = W - padL - padR;
+    var ink = '#222',
+      red = '#cc0000',
+      grid = '#cfcfcf';
+
+    var rawMax = data.reduce(function (m, d) {
+      return Math.max(m, d.count);
+    }, 0);
+    var niceMax = Math.max(10, Math.ceil(rawMax / 10) * 10); // round up to a 10
+    var slot = plotW / data.length;
+    var bw = Math.min(slot * 0.64, 22);
+    function yOf(v) {
+      return baseY - (v / niceMax) * plotH;
+    }
+
+    var svg = document.createElementNS(SVGNS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    svg.setAttribute('class', 'pub-yearchart-svg');
+    host.appendChild(svg);
+
+    function text(x, y, str, cls, anchor) {
+      var t = document.createElementNS(SVGNS, 'text');
+      t.setAttribute('x', x);
+      t.setAttribute('y', y);
+      t.setAttribute('class', cls);
+      if (anchor) t.setAttribute('text-anchor', anchor);
+      t.textContent = str;
+      return t;
+    }
+
+    var rc = rough.svg(svg);
+
+    // y-axis gridlines + numbers every 10 (0 sits on the baseline)
+    for (var v = 0; v <= niceMax; v += 10) {
+      var gy = yOf(v);
+      if (v > 0) {
+        svg.appendChild(rc.line(padL, gy, W - padR, gy, { stroke: grid, strokeWidth: 0.6, roughness: 0.8 }));
+      }
+      svg.appendChild(text(padL - 5, gy + 3.5, String(v), 'pub-yearchart-tick', 'end'));
+    }
+
+    // hachure-filled bars (BU red marker) + two-digit year ticks
+    data.forEach(function (d, i) {
+      var cx = padL + slot * i + slot / 2;
+      var top = yOf(d.count);
+      svg.appendChild(
+        rc.rectangle(cx - bw / 2, top, bw, baseY - top, {
+          fill: red,
+          fillStyle: 'hachure',
+          hachureGap: 3.4,
+          fillWeight: 1.2,
+          stroke: red,
+          strokeWidth: 1.1,
+          roughness: 1.25,
+          bowing: 1,
+        })
+      );
+      svg.appendChild(text(cx, H - 9, '’' + String(d.year).slice(-2), 'pub-yearchart-tick', 'middle'));
+    });
+
+    // hand-drawn axes (L-shape, dark ink) drawn on top
+    svg.appendChild(rc.line(padL, yOf(niceMax) - 2, padL, baseY, { stroke: ink, strokeWidth: 1.4, roughness: 1.1 }));
+    svg.appendChild(rc.line(padL - 2, baseY, W - padR, baseY, { stroke: ink, strokeWidth: 1.6, roughness: 1.1 }));
+
+    // marker-style axis label
+    svg.appendChild(text(W / 2, 11, 'papers / year', 'pub-yearchart-label', 'middle'));
+  })();
+</script>

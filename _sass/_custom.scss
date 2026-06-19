@@ -196,37 +196,36 @@ html[data-theme="dark"] .lab-sub a {
   font-size: 2.8rem;
   color: var(--bu-red);
 }
-// Publications card: packed word cloud auto-built from paper titles by
-// bin/build_pub_wordcloud.py (data in _data/pub_wordcloud.yml). Sits in the same
-// white 16:9 media tile as the other cards, so BU-red reads in light + dark mode.
-.pub-cloud {
-  list-style: none;
-  margin: 0;
-  padding: 0.45rem 0.55rem;
+// Publications card: hand-drawn (rough.js) papers-per-year bar chart, auto-built
+// from papers.bib by bin/build_pub_peryear.py (data in _data/pub_peryear.yml) and
+// drawn by the scoped script in _layouts/home.liquid. Sits in the same white 16:9
+// media tile as the other cards; dark ink + BU-red read in light + dark mode.
+.pub-yearchart {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.05rem 0.45rem;
-  line-height: 1.02;
+  padding: 0.3rem 0.4rem;
 }
-.pub-cloud li {
-  display: inline-block;
+.pub-yearchart-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+// Caveat = legible marker/handwriting face (loaded via the google_fonts URL in
+// _config.yml), matching the whiteboard-animation aesthetic.
+.pub-yearchart-tick {
+  font-family: "Caveat", "Comic Sans MS", cursive;
+  font-size: 12px;
   font-weight: 600;
-  color: var(--bu-red);
-  animation: pub-cloud-in 0.5s ease both;
+  fill: #333;
 }
-.pub-cloud-t1 { font-size: 1.35rem; font-weight: 800; color: #8f0000; }
-.pub-cloud-t2 { font-size: 1.1rem;  font-weight: 700; color: #b30000; }
-.pub-cloud-t3 { font-size: 0.92rem; color: #cc0000; }
-.pub-cloud-t4 { font-size: 0.78rem; font-weight: 500; color: #cc3333; }
-.pub-cloud-t5 { font-size: 0.66rem; font-weight: 500; color: #d97373; }
-@keyframes pub-cloud-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pub-cloud li { animation: none; }
+.pub-yearchart-label {
+  font-family: "Caveat", "Comic Sans MS", cursive;
+  font-size: 13px;
+  font-weight: 700;
+  fill: #555;
 }
 
 // ===========================================================================
@@ -350,21 +349,26 @@ footer.sticky-bottom {
 
 // "Submitted / Preprint" indicator on publications that have no DOI yet, so a
 // not-yet-published paper isn't read as a published paper of that year.
-// Sits in the left column directly UNDER the venue (abbr) badge — plain thin
-// text (no button/box), consistent placement across every entry.
-.publications .abbr .pub-status {
-  display: block;
-  margin: 0.3rem 0 0;
-  font-size: 0.7rem;
-  font-weight: 300; // thin
-  text-align: center;
-  color: var(--global-text-color); // black in light mode, adapts in dark
+// Inline, right after the venue/year — BU red + bold so it reads as a clear
+// "not published" flag when skimming (no button/box).
+.publications .pub-status {
+  font-weight: 700;
+  color: var(--global-theme-color); // BU red, dark-mode aware
 }
 
-// Publications year headings (e.g. "2026"): the gem colors these with the
-// near-invisible divider color — darken so they're readable.
+// "non-refereed" tag, kept only for non-peer-reviewed work. Quiet/muted.
+.publications .pub-note {
+  font-style: normal;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+// Publications year headings (e.g. "2026"): BU red — the one color accent on the
+// page now that the venue badges are gone. var(--global-theme-color) is red in
+// light mode and the lighter scarlet (#ff4c4c) in dark mode for contrast.
 .publications h2.bibliography {
-  color: var(--global-text-color);
+  color: var(--global-theme-color);
+  text-align: left;
 }
 
 // Search toggle in the navbar: show ONLY the magnifier icon, hide the literal
