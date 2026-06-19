@@ -19,7 +19,7 @@ category: research
   </div>
 </div>
 
-<p class="caption" style="color: var(--global-text-color-light);">Figure caption — result + source</p>
+<p class="caption" style="color: var(--global-text-color-light);">Using cbottle-video we steer the trajectories of tropical cyclones in AI emulators to simulate a range of possibilities for use in planning and scenario design. By Jerry Lin.</p>
 
 A fast emulator is more than a forecast engine. Because it runs cheaply and can be differentiated, it lets us run experiments that conventional models are too slow or too rigid to allow — on the climate it represents, and on the model itself. We use emulators as instruments: to ask what-if, to estimate how often rare events should occur, and to interrogate what a model has actually learned.
 
