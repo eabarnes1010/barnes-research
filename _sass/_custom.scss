@@ -391,6 +391,16 @@ footer.sticky-bottom {
   margin-bottom: 0;
 }
 
+// Home-page news (.news): tighten vertical spacing between the 3 recent items.
+.news table {
+  td,
+  th {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    line-height: 1.4;
+  }
+}
+
 // Expand/collapse blocks on the prof. Barnes page (full bio, all honors).
 .bio-more,
 .honors-more {

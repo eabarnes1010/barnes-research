@@ -28,12 +28,15 @@
 - [x] fix publication card on home page
 - [x] add linked in to Find me online: www.linkedin.com/in/elizabeth-barnes-2a40b6280
 - [x] dark mode doesn't look right for the home page (the fading banner is really bright and i cannot see the text. the banner needs to change to a darker color)
+- [x] news items on the home page should be closer together vertically (too spread out right now)
+- [ ] the publications tab in the header should be moved left. it should be to the right of the "research" tab
+
 
 
 ## For Libby to do
 
 - [ ] Edit the keyword/SEO keywords (deferred — do later) on the pubs
 - [ ] update research page
-- [ ] decide how the publication page should look (too many lines, take away red?)
+- [x] decide how the publication page should look (too many lines, take away red?)
 - [x] add full bio for Libby
 - [x] update homepage since way too much scrolling

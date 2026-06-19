@@ -6,7 +6,7 @@ This README is written for group members who want to add or update their own con
 
 ---
 
-## How to make a change (the short version)
+## How to make a change (the short version all via the GitHub website)
 
 1. Find the file you need below (e.g. `_data/members.yml` to add yourself).
 2. Edit it — easiest is directly on GitHub: open the file, click the ✏️ pencil icon, make your change.
@@ -18,21 +18,6 @@ If anything looks wrong after it goes live, tell Libby or whoever maintains the 
 ---
 
 ## Common things you'll want to do
-
-### Add yourself (or another member)
-
-Edit [`_data/members.yml`](_data/members.yml). Copy an existing block, paste it under `current:` (in alphabetical order by last name), and edit the fields. Only `name` and `role` are required.
-
-```yaml
-  - name: Jane Doe
-    role: PhD Student          # free text: "PhD Student", "Postdoc", "Masters Student", ...
-    affiliation: BU            # BU | CSU | CSU/BU
-    email: jdoe@bu.edu
-    website: https://janedoe.github.io   # optional
-    image: people/jane-doe.jpg           # optional — see Photos below
-```
-
-When you leave, move your block from `current:` to `former:` and add a `years:` field (e.g. `years: 2025–2029`).
 
 ### Add or update a publication
 
@@ -54,9 +39,24 @@ Edit [`_bibliography/papers.bib`](_bibliography/papers.bib). The `/publications/
 
 **To update a paper** (e.g. a submitted paper gets accepted), find its entry and edit the fields in place — remove `note = {submitted}`, fix the `journal` and `year`, and so on. For a paper still in review, add `note = {submitted}`.
 
-### Add your photo
+### Add someone
 
-Drop a **square** image into [`assets/img/people/`](assets/img/people/), named like `jane-doe.jpg`, then set `image: people/jane-doe.jpg` in your members block. No photo is fine — the site shows a circle with your initials instead.
+Edit [`_data/members.yml`](_data/members.yml). Copy an existing block, paste it under `current:` (in alphabetical order by last name), and edit the fields. Only `name` and `role` are required.
+
+```yaml
+  - name: Jane Doe
+    role: PhD Student          # free text: "PhD Student", "Postdoc", "Masters Student", ...
+    affiliation: BU            # BU | CSU | CSU/BU
+    email: jdoe@bu.edu
+    website: https://janedoe.github.io   # optional
+    image: people/jane-doe.jpg           # optional — see Photos below
+```
+
+When you leave, move your block from `current:` to `former:` and add a `years:` field (e.g. `years: 2025–2029`).
+
+### Add or change your photo
+
+Drop (or replace) a **square** image into [`assets/img/people/`](assets/img/people/), named like `jane-doe.jpg`, then set `image: people/jane-doe.jpg` in your members block. No photo is fine — the site shows a circle with your initials instead.
 
 ### Add a news item
 
