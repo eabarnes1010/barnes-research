@@ -349,10 +349,11 @@ footer.sticky-bottom {
 
 // "Submitted / Preprint" indicator on publications that have no DOI yet, so a
 // not-yet-published paper isn't read as a published paper of that year.
-// Inline, right after the venue/year — BU red + bold so it reads as a clear
-// "not published" flag when skimming (no button/box).
+// Inline, right after the venue/year — BU red (normal weight) so it reads as a
+// clear "not published" flag when skimming, without competing with the red year
+// headings (no button/box).
 .publications .pub-status {
-  font-weight: 700;
+  font-size: 0.8em; // a touch smaller than the venue/year it trails
   color: var(--global-theme-color); // BU red, dark-mode aware
 }
 
