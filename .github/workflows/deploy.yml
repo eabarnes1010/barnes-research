@@ -91,6 +91,10 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
+      - name: Refresh publications-per-year chart data 📊
+        # Regenerate _data/pub_peryear.yml from papers.bib so the home-page
+        # hand-drawn chart always reflects the latest bibliography (stdlib only).
+        run: python3 bin/build_pub_peryear.py
       - name: Install and Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
