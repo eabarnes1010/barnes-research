@@ -7,7 +7,17 @@ importance: 1
 category: research
 ---
 
-{% include figure.liquid loading="eager" path="assets/img/research/rewind_sandy.png" class="img-fluid rounded z-depth-1" alt="Emulators as Laboratories research figure" %}
+<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
+  <div style="flex: 1 1 200px;">
+    {% include figure.liquid loading="eager" path="assets/img/research/rewind_1.gif" class="img-fluid rounded z-depth-1" avoid_scaling=true alt="Rewound climate trajectory 1" %}
+  </div>
+  <div style="flex: 1 1 200px;">
+    {% include figure.liquid loading="eager" path="assets/img/research/rewind_2.gif" class="img-fluid rounded z-depth-1" avoid_scaling=true alt="Rewound climate trajectory 2" %}
+  </div>
+  <div style="flex: 1 1 200px;">
+    {% include figure.liquid loading="eager" path="assets/img/research/rewind_3.gif" class="img-fluid rounded z-depth-1" avoid_scaling=true alt="Rewound climate trajectory 3" %}
+  </div>
+</div>
 
 <p class="caption" style="color: var(--global-text-color-light);">Figure caption — result + source</p>
 
