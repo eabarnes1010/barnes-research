@@ -7,7 +7,7 @@ importance: 1
 category: research
 ---
 
-{% include figure.liquid loading="eager" path="assets/img/emulator_labs.png" class="img-fluid rounded z-depth-1" alt="Emulators as Laboratories research figure" %}
+{% include figure.liquid loading="eager" path="assets/img/research/rewind_sandy.png" class="img-fluid rounded z-depth-1" alt="Emulators as Laboratories research figure" %}
 
 <p class="caption" style="color: var(--global-text-color-light);">Figure caption — result + source</p>
 
@@ -15,6 +15,6 @@ A fast emulator is more than a forecast engine. Because it runs cheaply and can 
 
 In practice:
 
-- Counterfactual and rewound climates — running the system forward from altered states to see how it responds
+- Counterfactual and rewinding weather trajectories to run the system backwards
 - Estimating the likelihood of rare and unprecedented events from large emulator ensembles
 - Reinforcement learning as a diagnostic — using an emulator as an environment to surface what a model knows and where it breaks
