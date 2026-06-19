@@ -50,13 +50,19 @@ layout: default
     <p>Meet the group.</p>
   </a>
   <a class="lab-feature" href="{{ '/publications/' | relative_url }}">
-    <div class="lab-feature-media lab-feature-media--icon"><i class="fa-solid fa-book-open"></i></div>
+    {%- comment -%} Word cloud auto-built from paper titles by bin/build_pub_wordcloud.py {%- endcomment -%}
+    <div class="lab-feature-media lab-feature-media--cloud">
+      {%- if site.data.pub_wordcloud -%}
+        <ul class="pub-cloud" aria-label="Common topics across our publications">
+          {%- for w in site.data.pub_wordcloud -%}
+            <li class="pub-cloud-t{{ w.tier }}" style="animation-delay: {{ forloop.index0 | times: 45 }}ms">{{ w.word }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <i class="fa-solid fa-book-open"></i>
+      {%- endif -%}
+    </div>
     <h3>Publications</h3>
-    {%- comment -%}
-      TEMP: "latest preprint" bibliography query disabled — it crashed the build
-      (jekyll-scholar "Cannot dump object" -> nil -> select error). Restore once the
-      jekyll-scholar/al_folio_core version issue is resolved.
-    {%- endcomment -%}
     <p>What we've published.</p>
   </a>
 </div>

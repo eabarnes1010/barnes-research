@@ -196,21 +196,37 @@ html[data-theme="dark"] .lab-sub a {
   font-size: 2.8rem;
   color: var(--bu-red);
 }
-// Publications card: show the newest preprint title under the heading.
-.lab-feature-preprint {
+// Publications card: packed word cloud auto-built from paper titles by
+// bin/build_pub_wordcloud.py (data in _data/pub_wordcloud.yml). Sits in the same
+// white 16:9 media tile as the other cards, so BU-red reads in light + dark mode.
+.pub-cloud {
+  list-style: none;
   margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.35;
-  color: var(--global-text-color-light);
+  padding: 0.45rem 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05rem 0.45rem;
+  line-height: 1.02;
 }
-.lab-feature-preprint-label {
-  display: block;
-  margin-bottom: 0.15rem;
-  font-size: 0.62rem;
+.pub-cloud li {
+  display: inline-block;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--bu-red);
+  animation: pub-cloud-in 0.5s ease both;
+}
+.pub-cloud-t1 { font-size: 1.35rem; font-weight: 800; color: #8f0000; }
+.pub-cloud-t2 { font-size: 1.1rem;  font-weight: 700; color: #b30000; }
+.pub-cloud-t3 { font-size: 0.92rem; color: #cc0000; }
+.pub-cloud-t4 { font-size: 0.78rem; font-weight: 500; color: #cc3333; }
+.pub-cloud-t5 { font-size: 0.66rem; font-weight: 500; color: #d97373; }
+@keyframes pub-cloud-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pub-cloud li { animation: none; }
 }
 
 // ===========================================================================

@@ -25,7 +25,7 @@
 - [x] scrape images for current group members off current website
 - [x] fix link to my bio picture for the "group" page since i changed the name and broke the link
 - [x] the expanded honors and awards should have their bullets align with the bullets above
-- [ ] fix publication card on home page
+- [x] fix publication card on home page
 - [x] add linked in to Find me online: www.linkedin.com/in/elizabeth-barnes-2a40b6280
 - [x] dark mode doesn't look right for the home page (the fading banner is really bright and i cannot see the text. the banner needs to change to a darker color)
 
