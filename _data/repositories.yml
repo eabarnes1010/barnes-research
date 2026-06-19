@@ -1,14 +1,10 @@
+# Drives the optional /repositories/ page (no such page in _pages/ yet, so currently inert).
+# Add real repos under github_repos to show GitHub stat cards. Example:
+#   github_repos:
+#     - eabarnes1010/<repo>
 github_users:
-  - torvalds
-  - alshedivat
+  - eabarnes1010
 
 repo_description_lines_max: 2
 
-github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+github_repos: []

@@ -1,9 +1,6 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
-
-"PhysRev":
-  url: https://journals.aps.org/
-
-"Vision":
-  color: "#009f36"
+# Maps a publication venue/journal abbreviation to a URL and/or badge color,
+# used to style venue tags on the publications page. Add real venues as needed, e.g.:
+#
+# "J. Climate":
+#   url: https://journals.ametsoc.org/view/journals/clim/clim-overview.xml
+#   color: "#b31b1b"
