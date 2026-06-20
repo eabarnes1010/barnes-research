@@ -32,29 +32,10 @@ on:
     branches:
       - master
       - main
-    paths:
-      - "assets/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!docs/CONTRIBUTING.md"
-      - "!docs/CUSTOMIZE.md"
-      - "!docs/FAQ.md"
-      - "!docs/INSTALL.md"
-      - "!README.md"
+    # No paths filter: the "deploy" build runs on EVERY PR so the required
+    # status check always reports. A paths filter here can deadlock merges —
+    # a PR touching only excluded files (e.g. README.md) would never run the
+    # check, leaving it permanently "Expected" and blocking the merge.
   workflow_dispatch:
 
 permissions:
