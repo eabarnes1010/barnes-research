@@ -6,7 +6,7 @@
     initTheme();
   </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item active"> <a class="nav-link" href="/">home <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/prof-barnes/">prof. barnes </a> </li> <li class="nav-item "> <a class="nav-link" href="/group/">group </a> </li> <li class="nav-item "> <a class="nav-link" href="/research/">research </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/scicomm/">sciComm </a> </li> <li class="nav-item "> <a class="nav-link" href="/news/">news </a> </li> <li class="nav-item "> <a class="nav-link" href="/courses/">courses </a> </li> <li class="nav-item "> <a class="nav-link" href="/contact/">contact </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <section class="lab-banner"> <div class="lab-banner-content"> <h1 class="lab-title">Environmental Data Science</h1> <a class="lab-sub-logo" href="https://www.bu.edu/" aria-label="Boston University" rel="external nofollow noopener" target="_blank"> <img src="/assets/img/BOSTON_UNIV_fixed.png" alt="Boston University" class="lab-bu-logo" loading="eager"> </a> <p class="lab-tagline"> AI for Science ·  Science of AI  ·  Daily-to-decadal prediction<br> Human-coupled Earth system futures </p> </div> </section> <div class="lab-features"> <a class="lab-feature" href="/research/"> <div class="lab-feature-media lab-feature-media--video"> <video id="lab-feature-video" data-start="0.7" autoplay muted playsinline preload="metadata" poster="/assets/img/ai-earth-poster.jpg" aria-label="Animated hand-drawn diagram: Earth data flowing through interpretable AI models into climate-impact predictions."> <source src="/assets/video/ai-earth.webm" type="video/webm"> <source src="/assets/video/ai-earth.mp4" type="video/mp4"> </source></source></video> <script>
         (function () {
-          var v = document.getElementById("lab-feature-video");
+          var v = document.getElementById('lab-feature-video');
           if (!v) return;
           var start = parseFloat(v.dataset.start) || 0; // seconds to skip at start of each loop — tweak data-start
           var seek = function () {
@@ -14,8 +14,8 @@
               v.currentTime = start;
             } catch (e) {}
           };
-          v.addEventListener("loadedmetadata", seek);
-          v.addEventListener("ended", function () {
+          v.addEventListener('loadedmetadata', seek);
+          v.addEventListener('ended', function () {
             seek();
             v.play();
           });
