@@ -544,6 +544,7 @@ footer.sticky-bottom {
   color: var(--bu-red-dark);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
   transform: translateY(-50%) scale(1.08);
+  text-decoration: none; // suppress the gem's global a:hover underline
 }
 .research-pager__btn--prev {
   left: clamp(0.5rem, 2.5vw, 1.75rem);
