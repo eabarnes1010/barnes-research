@@ -6,6 +6,7 @@ nav: true
 nav_order: 6
 description: Science communication through whiteboard animations.
 ---
+
 Watch them all on our [YouTube channel](https://www.youtube.com/@elizabethbarnes4077).
 
 ## Explainable AI

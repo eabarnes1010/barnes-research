@@ -7,7 +7,7 @@ nav_order: 3
 description: Members of the Barnes Research Group.
 ---
 
-{% comment %} Members are defined in _data/members.yml — one YAML block per person. {% endcomment %}
+{% comment %} Members are defined in \_data/members.yml — one YAML block per person. {% endcomment %}
 
 <style>
   .group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem; margin-top: 1rem; margin-bottom: 2.5rem; }
@@ -26,8 +26,8 @@ description: Members of the Barnes Research Group.
 
 {% assign cohorts = "current,former" | split: "," %}
 {% for cohort in cohorts %}
-  {% assign people = site.data.members[cohort] %}
-  {% if people and people.size > 0 %}
+{% assign people = site.data.members[cohort] %}
+{% if people and people.size > 0 %}
 
 ## {% if cohort == "current" %}Current members{% else %}Former members{% endif %}
 
@@ -51,7 +51,7 @@ description: Members of the Barnes Research Group.
 {% endfor %}
 </div>
 
-  {% endif %}
+{% endif %}
 {% endfor %}
 
 <p class="mt-4"><em>Interested in joining? See the <a href="/contact/">contact</a> page.</em></p>

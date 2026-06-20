@@ -3,6 +3,7 @@ permalink: /home/
 title: Redirecting…
 sitemap: false
 ---
+
 <!-- Legacy URL from the old Google Sites; redirect to the landing page. -->
 <!doctype html>
 <html lang="en">

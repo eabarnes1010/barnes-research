@@ -44,12 +44,12 @@ Edit [`_bibliography/papers.bib`](_bibliography/papers.bib). The `/publications/
 Edit [`_data/members.yml`](_data/members.yml). Copy an existing block, paste it under `current:` (in alphabetical order by last name), and edit the fields. Only `name` and `role` are required.
 
 ```yaml
-  - name: Jane Doe
-    role: PhD Student          # free text: "PhD Student", "Postdoc", "Masters Student", ...
-    affiliation: BU            # BU | CSU | CSU/BU
-    email: jdoe@bu.edu
-    website: https://janedoe.github.io   # optional
-    image: people/jane-doe.jpg           # optional — see Photos below
+- name: Jane Doe
+  role: PhD Student # free text: "PhD Student", "Postdoc", "Masters Student", ...
+  affiliation: BU # BU | CSU | CSU/BU
+  email: jdoe@bu.edu
+  website: https://janedoe.github.io # optional
+  image: people/jane-doe.jpg # optional — see Photos below
 ```
 
 When you leave, move your block from `current:` to `former:` and add a `years:` field (e.g. `years: 2025–2029`).
@@ -79,17 +79,17 @@ Keep it to a sentence or two — these show as short lines on the news page.
 
 Each page in the top navigation is one file in [`_pages/`](_pages/):
 
-| Page on the site | File to edit |
-| --- | --- |
-| Home (landing page) | `_pages/about.md` |
-| Prof. Barnes | `_pages/prof-barnes.md` |
-| Group | `_pages/group.md` (people come from `_data/members.yml`) |
-| Research | `_pages/projects.md` + the theme files in `_projects/` |
-| Publications | generated from `_bibliography/papers.bib` |
-| Teaching / Courses | `_pages/teaching.md` |
-| SciComm | `_pages/scicomm.md` |
-| News | `_pages/news.md` (items come from `_news/`) |
-| Contact | `_pages/contact.md` |
+| Page on the site    | File to edit                                             |
+| ------------------- | -------------------------------------------------------- |
+| Home (landing page) | `_pages/about.md`                                        |
+| Prof. Barnes        | `_pages/prof-barnes.md`                                  |
+| Group               | `_pages/group.md` (people come from `_data/members.yml`) |
+| Research            | `_pages/projects.md` + the theme files in `_projects/`   |
+| Publications        | generated from `_bibliography/papers.bib`                |
+| Teaching / Courses  | `_pages/teaching.md`                                     |
+| SciComm             | `_pages/scicomm.md`                                      |
+| News                | `_pages/news.md` (items come from `_news/`)              |
+| Contact             | `_pages/contact.md`                                      |
 
 The text below the `---` block is plain [Markdown](https://www.markdownguide.org/basic-syntax/). Leave the part **between** the two `---` lines (the "front matter") alone unless you know what it does.
 
@@ -109,16 +109,16 @@ Each theme on the Research page is a file in [`_projects/`](_projects/) (e.g. `1
 
 ## Where everything lives (reference)
 
-| Path | What's in it |
-| --- | --- |
-| `_pages/` | the pages in the top navigation |
-| `_data/members.yml` | the group roster |
-| `_news/` | news / announcement snippets |
-| `_projects/` | research themes shown on the Research page |
-| `_bibliography/papers.bib` | all publications |
-| `assets/img/people/` | member photos |
-| `assets/img/` | other images |
-| `_config.yml` | site-wide settings (don't edit casually) |
+| Path                       | What's in it                               |
+| -------------------------- | ------------------------------------------ |
+| `_pages/`                  | the pages in the top navigation            |
+| `_data/members.yml`        | the group roster                           |
+| `_news/`                   | news / announcement snippets               |
+| `_projects/`               | research themes shown on the Research page |
+| `_bibliography/papers.bib` | all publications                           |
+| `assets/img/people/`       | member photos                              |
+| `assets/img/`              | other images                               |
+| `_config.yml`              | site-wide settings (don't edit casually)   |
 
 ---
 
