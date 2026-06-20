@@ -123,6 +123,13 @@ html[data-theme="dark"] .lab-sub a {
 html[data-theme="dark"] .lab-bu-logo {
   filter: brightness(1.35) saturate(0.95);
 }
+
+// The gem sets every page's description (the lede under the title, e.g. on
+// /research/) to 0.875rem, which reads too small as an intro line. Bump it up.
+.post-description {
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
 .lab-tagline {
   font-size: clamp(0.9rem, 1.6vw, 1.1rem);
   letter-spacing: 0.02em;
