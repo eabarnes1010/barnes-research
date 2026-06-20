@@ -34,8 +34,9 @@ layout: default
   <a class="lab-feature" href="{{ '/research/' | relative_url }}">
     <div class="lab-feature-media lab-feature-media--video">
       <video
+        id="lab-feature-video"
+        data-start="0.7"
         autoplay
-        loop
         muted
         playsinline
         preload="metadata"
@@ -45,6 +46,23 @@ layout: default
         <source src="{{ '/assets/video/ai-earth.webm' | relative_url }}" type="video/webm">
         <source src="{{ '/assets/video/ai-earth.mp4' | relative_url }}" type="video/mp4">
       </video>
+      <script>
+        (function () {
+          var v = document.getElementById("lab-feature-video");
+          if (!v) return;
+          var start = parseFloat(v.dataset.start) || 0; // seconds to skip at start of each loop — tweak data-start
+          var seek = function () {
+            try {
+              v.currentTime = start;
+            } catch (e) {}
+          };
+          v.addEventListener("loadedmetadata", seek);
+          v.addEventListener("ended", function () {
+            seek();
+            v.play();
+          });
+        })();
+      </script>
     </div>
     <h3>Current Projects</h3>
     <p>What we work on.</p>
@@ -75,7 +93,7 @@ layout: default
       {%- endif -%}
     </div>
     <h3>Publications</h3>
-    <p>What we've published.</p>
+    <p>Read our papers.</p>
   </a>
 </div>
 

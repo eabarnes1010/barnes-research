@@ -4,7 +4,7 @@ title: contact
 permalink: /contact/
 nav: true
 nav_order: 9
-description: How to reach the Barnes Research Group.
+description:
 ---
 
 The best way to reach Prof. Barnes is by **email**: [eabarnes@bu.edu](mailto:eabarnes@bu.edu)
@@ -23,6 +23,7 @@ The best way to reach Prof. Barnes is by **email**: [eabarnes@bu.edu](mailto:eab
 ## Elsewhere
 
 - GitHub: [eabarnes1010](https://github.com/eabarnes1010)
+- LinkedIn: [profile](https://www.linkedin.com/in/elizabeth-barnes-2a40b6280)
 - Google Scholar: [profile](https://scholar.google.com/citations?hl=en&user=zs-BY1sAAAAJ)
 - ORCiD: [0000-0003-4284-9320](https://orcid.org/0000-0003-4284-9320)
 - Bluesky: [@eabarnes.bsky.social](https://bsky.app/profile/eabarnes.bsky.social)

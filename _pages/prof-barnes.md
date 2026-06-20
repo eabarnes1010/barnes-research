@@ -4,7 +4,7 @@ title: prof. barnes
 permalink: /prof-barnes/
 nav: true
 nav_order: 2
-description: Dalton Family Chair in Environmental Data Science & Sustainability, Boston University
+description:
 ---
 
 <div class="row justify-content-sm-center">

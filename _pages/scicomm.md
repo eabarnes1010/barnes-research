@@ -4,10 +4,9 @@ title: sciComm
 permalink: /scicomm/
 nav: true
 nav_order: 6
-description: Whiteboard animations communicating our research.
+description: Science communication through whiteboard animations.
 ---
-
-We co-create short **whiteboard animations** to share our research with a broad audience. Watch them all on our [YouTube channel](https://www.youtube.com/@elizabethbarnes4077).
+Watch them all on our [YouTube channel](https://www.youtube.com/@elizabethbarnes4077).
 
 ## Explainable AI
 
