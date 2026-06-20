@@ -17,3 +17,5 @@ Some examples include:
 
 - Large ensembles and emulators to characterize the frequency and drivers of compound extremes
 - Internal variability vs. forced response: detection and attribution
+
+{% include research_pager.liquid %}
