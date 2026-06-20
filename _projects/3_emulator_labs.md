@@ -28,3 +28,5 @@ Some examples include:
 - Rewinding weather trajectories to run the system backwards
 - Estimating the likelihood of rare and unprecedented events from large emulator ensembles
 - Reinforcement learning as a diagnostic — using an emulator as an environment to uncover what a model knows and where it breaks
+
+{% include research_pager.liquid %}

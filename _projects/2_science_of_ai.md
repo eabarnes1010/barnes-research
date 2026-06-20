@@ -18,3 +18,5 @@ Some examples include:
 - Training dynamics — what a network learns over the course of training, treated as evidence in its own right
 - Separating what a model doesn't know (epistemic) from what is genuinely unknowable (aleatoric), and letting it abstain when it should
 - Probing emulator behavior: stability over long rollouts, out-of-distribution drift, and what latent representations encode
+
+{% include research_pager.liquid %}

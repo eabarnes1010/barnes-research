@@ -1,0 +1,41 @@
+{%- comment -%}
+  Prev/next pager for the research theme pages. Builds the same ordered set the
+  /research/ cards use (category == research, sorted by importance) and links to
+  the previous/next project with wraparound, so visitors can flip through all of
+  them without going back to the grid. Renders nothing if the current page isn't
+  one of the research projects.
+{%- endcomment -%}
+{%- assign research_projects = site.projects | where: 'category', 'research' | sort: 'importance' -%}
+{%- assign total = research_projects | size -%}
+{%- assign current_index = -1 -%}
+{%- for project in research_projects -%}
+  {%- if project.url == page.url -%}
+    {%- assign current_index = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if current_index >= 0 and total > 1 -%}
+  {%- assign prev_index = current_index | minus: 1 -%}
+  {%- if prev_index < 0 -%}{%- assign prev_index = total | minus: 1 -%}{%- endif -%}
+  {%- assign next_index = current_index | plus: 1 -%}
+  {%- if next_index >= total -%}{%- assign next_index = 0 -%}{%- endif -%}
+  {%- assign prev_project = research_projects[prev_index] -%}
+  {%- assign next_project = research_projects[next_index] -%}
+  <nav class="research-pager" aria-label="Research themes">
+    <a
+      class="research-pager__btn research-pager__btn--prev"
+      href="{{ prev_project.url | relative_url }}"
+      title="{{ prev_project.title }}"
+      aria-label="Previous research theme: {{ prev_project.title }}"
+    >
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </a>
+    <a
+      class="research-pager__btn research-pager__btn--next"
+      href="{{ next_project.url | relative_url }}"
+      title="{{ next_project.title }}"
+      aria-label="Next research theme: {{ next_project.title }}"
+    >
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </a>
+  </nav>
+{%- endif -%}

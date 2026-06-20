@@ -509,3 +509,54 @@ footer.sticky-bottom {
   line-height: 1.4;
   color: var(--global-text-color-light);
 }
+
+// ---- Research theme pager: fixed circular prev/next arrows ----------------
+// Big chevrons in a light, shadowed circle pinned to the left/right edges so
+// visitors can flip through the six research pages without returning to the
+// grid. Markup comes from _includes/research_pager.liquid (position:fixed, so
+// where the include sits in the page body doesn't matter).
+.research-pager__btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(42px, 5vw, 58px);
+  height: clamp(42px, 5vw, 58px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  color: var(--bu-red);
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  text-decoration: none;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease,
+    color 0.15s ease;
+}
+.research-pager__btn:hover {
+  background: #fff;
+  color: var(--bu-red-dark);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+  transform: translateY(-50%) scale(1.08);
+}
+.research-pager__btn--prev {
+  left: clamp(0.5rem, 2.5vw, 1.75rem);
+}
+.research-pager__btn--next {
+  right: clamp(0.5rem, 2.5vw, 1.75rem);
+}
+html[data-theme="dark"] .research-pager__btn {
+  background: rgba(40, 40, 46, 0.85);
+  color: #ff5a5a;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+html[data-theme="dark"] .research-pager__btn:hover {
+  background: #2c2c32;
+  color: #ff8080;
+}

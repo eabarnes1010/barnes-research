@@ -18,3 +18,5 @@ Some examples include:
 - Building fast, interpretable prediction systems that can be used to explore the predictability of the Earth system
 - Identifying climate patterns that provide enhanced predictability across time scales
 - Developing statistical approaches to quantify uncertainty due to a range of sources, including data drift and out-of-distribution data
+
+{% include research_pager.liquid %}

@@ -18,3 +18,5 @@ Some examples include:
 - Modeling the potential environmental impacts of solar climate intervention under a range of scenarios
 - Sampling a range of possibilities of interactions between global trade and climate variability
 - Mapping the human footprint on the land surface
+
+{% include research_pager.liquid %}

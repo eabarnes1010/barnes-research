@@ -17,3 +17,5 @@ Some examples include:
 
 - Exploring the sensitivity of rainfall to sea-surface temperature patterns
 - Addressing how past tropical cyclone activity varied with climate and solar forcing
+
+{% include research_pager.liquid %}
