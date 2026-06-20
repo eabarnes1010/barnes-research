@@ -19,12 +19,12 @@ category: research
   </div>
 </div>
 
-<p class="caption" style="color: var(--global-text-color-light);">Using cbottle-video we steer the trajectories of tropical cyclones in AI emulators to simulate a range of possibilities for use in planning and scenario design. By Jerry Lin.</p>
+<p class="caption" style="color: var(--global-text-color-light);">Using cbottle-video we steer the trajectories of tropical cyclones in AI emulators to simulate a range of possibilities for use in planning and scenario design. Figure by Dr. Jerry Lin.</p>
 
-A fast emulator is more than a forecast engine. Because it runs cheaply and can be differentiated, it lets us run experiments that conventional models are too slow or too rigid to allow — on the climate it represents, and on the model itself. We use emulators as instruments: to ask what-if, to estimate how often rare events should occur, and to interrogate what a model has actually learned.
+A fast emulator is more than a forecast machine. Because it runs cheaply and can be differentiated, it lets us run experiments that conventional models are too slow or too rigid to allow. We use emulators as instruments: to ask what-if, to estimate how often rare events should occur, and to interrogate what a model has actually learned.
 
-In practice:
+Some examples include:
 
-- Counterfactual and rewinding weather trajectories to run the system backwards
+- Rewinding weather trajectories to run the system backwards
 - Estimating the likelihood of rare and unprecedented events from large emulator ensembles
-- Reinforcement learning as a diagnostic — using an emulator as an environment to surface what a model knows and where it breaks
+- Reinforcement learning as a diagnostic — using an emulator as an environment to uncover what a model knows and where it breaks

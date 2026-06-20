@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Luke Howard joins the group as a postdoc.
+Luke Howard joins the group as a postdoc!

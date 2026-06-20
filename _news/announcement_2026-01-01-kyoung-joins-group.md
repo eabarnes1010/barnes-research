@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Kyoung joins the group as a postdoc.
+Kyoung joins the group as a postdoc!

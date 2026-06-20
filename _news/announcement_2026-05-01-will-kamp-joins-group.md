@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Will Kamp joins the group as a postdoc.
+Will Kamp joins the group as a postdoc!
