@@ -48,10 +48,12 @@ description:
     transform:translate(2px,-50%) rotate(45deg);}
 
   /* ---------- lineage (desktop absolute) ---------- */
-  .lineage{position:relative;max-width:880px;height:1812px;margin-top:8px;}
+  .lineage{position:relative;max-width:880px;height:2856px;margin-top:8px;}
   .spine{position:absolute;left:0;top:0;z-index:1;overflow:visible;}
   .flowpath{stroke-dasharray:2400;stroke-dashoffset:0;animation:draw 2.8s cubic-bezier(.65,0,.35,1) .15s backwards;}
   @keyframes draw{from{stroke-dashoffset:2400;}to{stroke-dashoffset:0;}}
+  .flowtail{opacity:0;animation:fadein 1.4s ease 2.4s forwards;}
+  @keyframes fadein{to{opacity:1;}}
 
   .portrait-wrap{position:absolute;left:0;top:0;width:150px;
     transform:translateY(-50%);z-index:3;display:flex;justify-content:center;}
@@ -83,6 +85,30 @@ description:
   .blurb{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.5;
     color:var(--body);margin:11px 0 0;max-width:54ch;}
 
+  /* deep-roots band */
+  .deepband{position:absolute;left:204px;right:0;transform:translateY(-50%);z-index:2;}
+  .deep-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a93a0;
+    padding-bottom:9px;border-bottom:1px solid var(--line);margin-bottom:11px;}
+  .deep-sub{font-family:var(--serif);font-style:italic;font-size:13.5px;line-height:1.55;color:#8a93a0;max-width:50ch;}
+
+  /* tail nodes (no portraits — fading dots) */
+  .tail-node{position:absolute;left:0;right:0;opacity:var(--op);}
+  .tail-wrap{position:absolute;left:0;top:0;width:150px;transform:translateY(-50%);z-index:3;display:flex;justify-content:center;}
+  .tail-dot{width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid var(--ring);
+    box-shadow:0 0 0 4px var(--paper);}
+  .tail-dot.diamond{width:13px;height:13px;border-radius:2px;transform:rotate(45deg);background:var(--ring);
+    box-shadow:0 0 0 4px var(--paper),0 6px 16px -6px rgba(122,15,42,.5);}
+  .tcard{position:absolute;left:204px;top:0;right:0;transform:translateY(-50%);z-index:2;}
+  .trel{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#9aa2ae;margin:0 0 4px;}
+  .term-rel{color:#9c4f5e;letter-spacing:.1em;}
+  .tname{font-family:var(--serif);font-weight:500;color:#2f3947;font-size:16.5px;line-height:1.2;margin:0;}
+  .term .tname{font-weight:600;color:var(--ink);font-size:18px;}
+  .tmeta{font-family:var(--mono);font-size:11px;color:#9aa2ae;margin:4px 0 0;display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+  .tmeta .tyr{color:#9c4f5e;font-weight:500;} .tmeta .dot{opacity:.5;}
+
+  .wisp{position:absolute;left:204px;transform:translateY(-50%);font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.08em;color:#b7bdc6;font-style:normal;z-index:2;}
+
   /* tighten footer note */
   .lin-foot{max-width:880px;margin:44px 0 0;padding-top:20px;border-top:1px solid var(--line);
     font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--muted);line-height:1.7;}
@@ -92,8 +118,8 @@ description:
   @media (max-width:760px){
     .lineage-root{padding:44px 20px 56px;}
     .lineage{height:auto;position:relative;max-width:560px;}
-    .lineage::before{content:"";position:absolute;left:31px;top:14px;bottom:24px;width:3px;
-      border-radius:3px;background:linear-gradient(#e8608c,#cc0000 45%,#7a0f2a);z-index:0;}
+    .lineage::before{content:"";position:absolute;left:31px;top:14px;bottom:120px;width:3px;
+      border-radius:3px;background:linear-gradient(#e8608c,#cc0000 38%,#7a0f2a 70%,rgba(58,8,20,0));z-index:0;}
     .spine{display:none;}
     .node{position:relative;left:auto;right:auto;display:grid;
       grid-template-columns:64px 1fr;column-gap:16px;align-items:start;
@@ -108,28 +134,42 @@ description:
     .card{position:relative;left:auto;right:auto;top:auto;transform:none;padding:14px 16px;}
     .name{font-size:19px;} .blurb{font-size:14px;margin-top:8px;}
     .head{margin-bottom:38px;}
+
+    .deepband{position:relative;left:auto;right:auto;top:auto !important;transform:none;margin:6px 0 22px;padding-left:80px;}
+    .tail-node{position:relative;left:auto;right:auto;top:auto !important;display:grid;grid-template-columns:64px 1fr;column-gap:16px;align-items:start;padding:0 0 20px;}
+    .tail-wrap{position:relative;top:auto !important;transform:none;width:64px;z-index:2;padding-top:3px;justify-content:center;}
+    .tcard{position:relative;left:auto;right:auto;top:auto;transform:none;}
+    .wisp{position:relative;left:auto;top:auto !important;transform:none;padding-left:80px;}
   }
   @media (prefers-reduced-motion:reduce){
     .flowpath{animation:none;stroke-dashoffset:0;}
+    .flowtail{animation:none;opacity:1;}
   }
 </style>
 
 <header class="head">
   <p class="eyebrow">Barnes Research Group</p>
   <h1>Academic <em>Lineage</em></h1>
-  <p>Eight generations of academic lineage dating back to 19th-century physiology and physics.</p>
-  <div class="span"><b>1822</b><span class="bar"></span><b>2012</b><span class="cont" aria-hidden="true"></span></div>
+  <p>Eight generations of academic lineage dating back to 19th-century physiology and physics &mdash; with a fainter doctoral trail running four centuries further back, to Renaissance Padua.</p>
+  <div class="span"><b>1559</b><span class="bar"></span><b>2012</b><span class="cont" aria-hidden="true"></span></div>
 </header>
 
 <div class="lineage">
-  <svg class="spine" width="150" height="1812" viewBox="0 0 150 1812" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <svg class="spine" width="150" height="2856" viewBox="0 0 150 2856" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
-    <linearGradient id="flow" x1="0" y1="0" x2="0" y2="1812" gradientUnits="userSpaceOnUse">
+    <linearGradient id="flow" x1="0" y1="0" x2="0" y2="1692" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#e8608c"/>
       <stop offset="0.45" stop-color="#cc0000"/>
       <stop offset="1" stop-color="#7a0f2a"/>
     </linearGradient>
+    <linearGradient id="flowtail" x1="0" y1="1692" x2="0" y2="2760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7a0f2a" stop-opacity="0.95"/>
+      <stop offset="0.7" stop-color="#3a0814" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#3a0814" stop-opacity="0"/>
+    </linearGradient>
   </defs>
+  <path d="M 75 1692 C 91 1743, 91 1791, 75 1842 C 59 1904.67, 59 1967.33, 75 2030 C 91 2058, 91 2086, 75 2114 C 59 2142, 59 2170, 75 2198 C 91 2226, 91 2254, 75 2282 C 59 2310, 59 2338, 75 2366 C 91 2394, 91 2422, 75 2450 C 59 2478, 59 2506, 75 2534 C 91 2562, 91 2590, 75 2618 C 59 2646, 59 2674, 75 2702 C 91 2721.33, 91 2740.67, 75 2760" stroke="url(#flowtail)" stroke-width="2.7" stroke-linecap="round"
+        stroke-dasharray="2 8" class="flowtail"/>
   <path d="M 75 92 C 115 160.0, 115 224.0, 75 292 C 35 360.0, 35 424.0, 75 492 C 115 560.0, 115 624.0, 75 692 C 35 760.0, 35 824.0, 75 892 C 115 960.0, 115 1024.0, 75 1092 C 35 1160.0, 35 1224.0, 75 1292 C 115 1360.0, 115 1424.0, 75 1492 C 35 1560.0, 35 1624.0, 75 1692" stroke="url(#flow)" stroke-width="3.5" stroke-linecap="round"
         class="flowpath"/>
 </svg>
@@ -143,7 +183,7 @@ description:
         <div class="rel">Scientific Grandfather</div>
         <h3 class="name">Dennis L. Hartmann</h3>
         <div class="meta"><span class="inst">Princeton University</span><span class="dot">&middot;</span><span class="yr">1975</span></div>
-        <p class="blurb">Atmospheric scientist known for work on climate dynamics, radiative feedbacks, and atmospheric circulation, and for the text Global Physical Climatology.</p>
+        <p class="blurb">Atmospheric scientist known for work on climate dynamics, radiative feedbacks, and atmospheric circulation.</p>
       </div></div>
 <div class="node" style="top:492px" data-i="2"><div class="portrait-wrap"><div class="portrait" style="--ring:#da3046"><img src="{{ '/assets/img/lineage/oort.jpg' | relative_url }}" alt="Abraham H. Oort" loading="lazy"></div></div><div class="card" style="--ring:#da3046">
         <div class="rel">Great-Grandfather</div>
@@ -161,19 +201,19 @@ description:
         <div class="rel">3× Great-Grandfather</div>
         <h3 class="name">Carl-Gustaf Rossby</h3>
         <div class="meta"><span class="inst">University of Stockholm</span><span class="dot">&middot;</span><span class="yr">1925</span></div>
-        <p class="blurb">Swedish–American meteorologist who explained atmospheric motion through fluid mechanics and helped found atmospheric chemistry; the Rossby number bears his name.</p>
+        <p class="blurb">Swedish–American meteorologist who explained atmospheric motion through fluid mechanics; the Rossby number bears his name.</p>
       </div></div>
 <div class="node" style="top:1092px" data-i="5"><div class="portrait-wrap"><div class="portrait" style="--ring:#b7040b"><img src="{{ '/assets/img/lineage/bjerknes.jpg' | relative_url }}" alt="Vilhelm Bjerknes" loading="lazy"></div></div><div class="card" style="--ring:#b7040b">
         <div class="rel">4× Great-Grandfather</div>
         <h3 class="name">Vilhelm Bjerknes</h3>
         <div class="meta"><span class="inst">Karlsruhe Institute of Technology</span><span class="dot">&middot;</span><span class="yr">1890</span></div>
-        <p class="blurb">Norwegian physicist and meteorologist whose early work on electric resonance gave way to uniting fluid and thermodynamics into the primitive equations behind modern forecast models.</p>
+        <p class="blurb">Norwegian physicist and meteorologist who united fluid mechanics and thermodynamics into the primitive equations behind modern forecasting.</p>
       </div></div>
 <div class="node" style="top:1292px" data-i="6"><div class="portrait-wrap"><div class="portrait" style="--ring:#a30815"><img src="{{ '/assets/img/lineage/hertz.jpg' | relative_url }}" alt="Heinrich Rudolph Hertz" loading="lazy"></div></div><div class="card" style="--ring:#a30815">
         <div class="rel">5× Great-Grandfather</div>
         <h3 class="name">Heinrich Rudolph Hertz</h3>
         <div class="meta"><span class="inst">Humboldt University of Berlin</span><span class="dot">&middot;</span><span class="yr">1880</span></div>
-        <p class="blurb">German physicist who, building on Maxwell’s electromagnetic theory of light, experimentally proved the existence of electromagnetic waves; the unit of frequency bears his name.</p>
+        <p class="blurb">German physicist who, building on Maxwell’s theory, experimentally proved the existence of electromagnetic waves; the unit of frequency bears his name.</p>
       </div></div>
 <div class="node" style="top:1492px" data-i="7"><div class="portrait-wrap"><div class="portrait" style="--ring:#8e0b20"><img src="{{ '/assets/img/lineage/helmholtz.jpg' | relative_url }}" alt="Hermann von Helmholtz" loading="lazy"></div></div><div class="card" style="--ring:#8e0b20">
         <div class="rel">6× Great-Grandfather</div>
@@ -185,12 +225,25 @@ description:
         <div class="rel">7× Great-Grandfather</div>
         <h3 class="name">Johannes Peter Müller</h3>
         <div class="meta"><span class="inst">University of Bonn</span><span class="dot">&middot;</span><span class="yr">1822</span></div>
-        <p class="blurb">German physiologist, comparative anatomist, ichthyologist, and herpetologist, celebrated as much for his discoveries as for his gift for synthesizing knowledge.</p>
+        <p class="blurb">German physiologist, ichthyologist, and herpetologist, celebrated for his discoveries and his gift for synthesizing knowledge.</p>
       </div></div>
+  <div class="deepband" style="top:1898px"><div class="deep-eyebrow">Deep roots &middot; Mathematics Genealogy Project</div><div class="deep-sub">Müller&rsquo;s line runs on past the well-attested record — through 18th-century Tübingen and Halle medicine, into 17th-century Jena, and back to the anatomists of Renaissance Padua. Edges below are reconstructed and contested.</div></div>
+  <div class="tail-node" style="top:2030px;--op:0.92"><div class="tail-wrap"><span class="tail-dot" style="--ring:#6e0d24"></span></div><div class="tcard"><div class="trel">8×</div><div class="tname">August F. J. K. Mayer</div><div class="tmeta"><span class="tinst">University of Tübingen</span></div></div></div>
+<div class="tail-node" style="top:2114px;--op:0.87"><div class="tail-wrap"><span class="tail-dot" style="--ring:#660c22"></span></div><div class="tcard"><div class="trel">9×</div><div class="tname">Wilhelm Gottfried Ploucquet</div><div class="tmeta"><span class="tinst">University of Tübingen</span></div></div></div>
+<div class="tail-node" style="top:2198px;--op:0.82"><div class="tail-wrap"><span class="tail-dot" style="--ring:#5e0b1f"></span></div><div class="tcard"><div class="trel">10×</div><div class="tname">Ferdinand Christoph Oetinger</div><div class="tmeta"><span class="tinst">University of Halle</span><span class="dot">&middot;</span><span class="tyr">1739</span></div></div></div>
+<div class="tail-node" style="top:2282px;--op:0.77"><div class="tail-wrap"><span class="tail-dot" style="--ring:#550a1d"></span></div><div class="tcard"><div class="trel">11×</div><div class="tname">Michael Alberti</div><div class="tmeta"><span class="tinst">University of Halle</span></div></div></div>
+<div class="tail-node" style="top:2366px;--op:0.72"><div class="tail-wrap"><span class="tail-dot" style="--ring:#4d091b"></span></div><div class="tcard"><div class="trel">12×</div><div class="tname">Friedrich Hoffmann</div><div class="tmeta"><span class="tinst">University of Jena</span></div></div></div>
+<div class="tail-node" style="top:2450px;--op:0.67"><div class="tail-wrap"><span class="tail-dot" style="--ring:#450819"></span></div><div class="tcard"><div class="trel">13×</div><div class="tname">Augustin Heinrich Fasch</div><div class="tmeta"><span class="tinst">University of Jena</span><span class="dot">&middot;</span><span class="tyr">1663</span></div></div></div>
+<div class="tail-node" style="top:2534px;--op:0.62"><div class="tail-wrap"><span class="tail-dot" style="--ring:#3c0716"></span></div><div class="tcard"><div class="trel">14×</div><div class="tname">Werner Rolfinck</div><div class="tmeta"><span class="tinst">University of Jena</span><span class="dot">&middot;</span><span class="tyr">1625</span></div></div></div>
+<div class="tail-node" style="top:2618px;--op:0.57"><div class="tail-wrap"><span class="tail-dot" style="--ring:#340714"></span></div><div class="tcard"><div class="trel">15×</div><div class="tname">Adriaan van den Spieghel</div><div class="tmeta"><span class="tinst">University of Padua</span><span class="dot">&middot;</span><span class="tyr">1603</span></div></div></div>
+<div class="tail-node term" style="top:2702px;--op:0.96"><div class="tail-wrap"><span class="tail-dot diamond" style="--ring:#2c0612"></span></div><div class="tcard"><div class="trel term-rel">16× great-grandfather &middot; the trail&rsquo;s deepest firm node</div><div class="tname">Hieronymus Fabricius ab Aquapendente</div><div class="tmeta"><span class="tinst">University of Padua</span><span class="dot">&middot;</span><span class="tyr">1559</span></div></div></div>
+  <div class="wisp" style="top:2760px">&hellip; and earlier; the record thins</div>
 </div>
 
 <p class="lin-foot">
-  Doctoral lineage &mdash; each scientist advised the one above.
-  Years denote PhD completion.
+  Doctoral lineage &mdash; each scientist advised the one above; years denote PhD completion.
+  Below Müller, edges follow the
+  <a href="https://www.mathgenealogy.org/" target="_blank" rel="noopener">Mathematics Genealogy Project</a>;
+  pre-1800 links are reconstructed from dissertation and disputation records and are contested.
 </p>
 </div>
