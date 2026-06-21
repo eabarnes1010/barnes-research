@@ -22,6 +22,11 @@ description: Members of the Barnes Research Group.
   .member .role { font-size: 0.85rem; color: var(--global-text-color-light, #828282); }
   .member .links a { margin: 0 4px; font-size: 0.9rem; }
   .member.alum { font-size: 0.9rem; }
+  /* section-header action row */
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0 1rem; }
+  .section-head h2 { margin: 0; }
+  .lin-link { font-size: 0.85rem; color: var(--global-text-color-light, #828282); text-decoration: none; white-space: nowrap; border-bottom: 1px dotted var(--global-divider-color, #ddd); padding-bottom: 1px; }
+  .lin-link:hover { color: var(--global-theme-color, #cc0000); border-bottom-color: var(--global-theme-color, #cc0000); }
 </style>
 
 {% assign cohorts = "current,former" | split: "," %}
@@ -29,7 +34,14 @@ description: Members of the Barnes Research Group.
 {% assign people = site.data.members[cohort] %}
 {% if people and people.size > 0 %}
 
-## {% if cohort == "current" %}Current members{% else %}Former members{% endif %}
+{% if cohort == "current" %}
+<div class="section-head">
+  <h2>Current members</h2>
+  <a class="lin-link" href="{{ '/group/lineage/' | relative_url }}">Academic lineage <span aria-hidden="true">&rarr;</span></a>
+</div>
+{% else %}
+## Former members
+{% endif %}
 
 <div class="group-grid">
 {% for m in people %}

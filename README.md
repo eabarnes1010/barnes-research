@@ -139,6 +139,25 @@ bundle install
 bundle exec jekyll serve     # preview at http://localhost:4000/
 ```
 
+## Local preview with Docker (maintainers only)
+
+The repo ships a Docker setup that runs Jekyll for you, so you don't have to install Ruby. The container serves the site at **`http://localhost:8080/`** (this site uses a custom domain, so there's **no** `/al-folio` path).
+
+**From a terminal** (in the repo root):
+
+```bash
+docker compose up -d                # start (first run builds; give it a minute)
+docker compose logs --tail=80       # watch the build finish / catch errors
+docker compose down                 # stop and remove the container
+```
+
+Then open `http://localhost:8080/`. Editing `_config.yml` auto-restarts Jekyll inside the container; editing content hot-reloads.
+
+**From Docker Desktop:**
+
+- If the container was only **stopped** (not removed), it's still listed under the `github_pages` group in the **Containers** tab — hit the **▶ Start** button on that row, then open `http://localhost:8080/`. Use the **Logs** tab to watch the build.
+- If you **killed/removed** it (e.g. `docker compose down`), it's gone from the list and Docker Desktop can't recreate it on its own. Run `docker compose up -d` once from a terminal from the roote file; after that it reappears and the Start/Stop buttons work going forward.
+
 ## License
 
 Built on [al-folio](https://github.com/alshedivat/al-folio), MIT-licensed. Site content © Barnes Research Group.
