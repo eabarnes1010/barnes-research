@@ -22,31 +22,26 @@ description: Members of the Barnes Research Group.
   .member .role { font-size: 0.85rem; color: var(--global-text-color-light, #828282); }
   .member .links a { margin: 0 4px; font-size: 0.9rem; }
   .member.alum { font-size: 0.9rem; }
-  /* academic-lineage callout card */
-  .lin-card { display: flex; align-items: center; gap: 0.9rem; max-width: 520px; margin: 0.25rem 0 1.75rem; padding: 0.85rem 1.1rem;
-    border: 1px solid var(--global-divider-color, #e4e7ec); border-radius: 12px;
-    background: linear-gradient(90deg, rgba(204,0,0,0.045), rgba(204,0,0,0)); text-decoration: none; color: inherit;
-    transition: border-color .15s, box-shadow .15s; }
-  .lin-card:hover { border-color: var(--global-theme-color, #cc0000); box-shadow: 0 6px 18px -12px rgba(20,32,46,.4); }
-  .lin-card .dot { flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, #e8608c, #cc0000); }
-  .lin-card .txt { line-height: 1.3; }
-  .lin-card .txt b { display: block; font-size: 0.9rem; font-weight: 600; color: var(--global-text-color, #333); }
-  .lin-card .txt span { font-size: 0.8rem; color: var(--global-text-color-light, #828282); }
-  .lin-card .arr { margin-left: auto; color: var(--global-theme-color, #cc0000); font-size: 1.15rem; }
+  /* section-header action row */
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0 1rem; }
+  .section-head h2 { margin: 0; }
+  .lin-link { font-size: 0.85rem; color: var(--global-text-color-light, #828282); text-decoration: none; white-space: nowrap; border-bottom: 1px dotted var(--global-divider-color, #ddd); padding-bottom: 1px; }
+  .lin-link:hover { color: var(--global-theme-color, #cc0000); border-bottom-color: var(--global-theme-color, #cc0000); }
 </style>
-
-<a class="lin-card" href="{{ '/group/lineage/' | relative_url }}">
-  <span class="dot" aria-hidden="true"></span>
-  <span class="txt"><b>Eight generations and counting&hellip;</b><span>Explore the group&rsquo;s academic lineage</span></span>
-  <span class="arr" aria-hidden="true">&rarr;</span>
-</a>
 
 {% assign cohorts = "current,former" | split: "," %}
 {% for cohort in cohorts %}
 {% assign people = site.data.members[cohort] %}
 {% if people and people.size > 0 %}
 
-## {% if cohort == "current" %}Current members{% else %}Former members{% endif %}
+{% if cohort == "current" %}
+<div class="section-head">
+  <h2>Current members</h2>
+  <a class="lin-link" href="{{ '/group/lineage/' | relative_url }}">Academic lineage <span aria-hidden="true">&rarr;</span></a>
+</div>
+{% else %}
+## Former members
+{% endif %}
 
 <div class="group-grid">
 {% for m in people %}
