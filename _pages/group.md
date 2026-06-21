@@ -35,6 +35,7 @@ description: Members of the Barnes Research Group.
 {% if people and people.size > 0 %}
 
 {% if cohort == "current" %}
+
 <div class="section-head">
   <h2>Current members</h2>
   <a class="lin-link" href="{{ '/group/lineage/' | relative_url }}">Academic lineage <span aria-hidden="true">&rarr;</span></a>
