@@ -1,0 +1,196 @@
+---
+layout: page
+title: academic lineage
+permalink: /group/lineage/
+nav: false
+description:
+---
+
+<!-- Academic lineage schematic — Barnes Research Group -->
+<div class="lineage-root">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  .lineage-root{
+    --ink:#15202e; --body:#3c4655; --muted:#737e8b; --line:#e4e7ec;
+    --paper:#f6f7f9; --card:#ffffff;
+    --serif:'Newsreader',Georgia,serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    color:var(--body); background:
+      radial-gradient(120% 60% at 12% 0%, #fdeef2 0%, rgba(253,238,242,0) 55%),
+      var(--paper);
+    font-family:var(--serif); line-height:1.5;
+    padding:64px clamp(20px,5vw,72px) 80px; box-sizing:border-box;
+    -webkit-font-smoothing:antialiased;
+  }
+  .lineage-root *{box-sizing:border-box;}
+
+  /* ---------- header ---------- */
+  .head{max-width:760px;margin:0 0 56px;}
+  .head .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 34px;}
+  .head h1{font-family:var(--serif);font-weight:500;color:var(--ink);
+    font-size:clamp(34px,5.4vw,56px);line-height:1.04;letter-spacing:-.01em;margin:0;}
+  .head h1 em{font-style:italic;font-weight:400;
+    background:linear-gradient(95deg,#e8608c,#cc0000 55%,#7a0f2a);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .head p{font-size:clamp(15px,2vw,18px);color:var(--body);max-width:60ch;
+    margin:20px 0 0;}
+  .head .span{font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+    color:var(--muted);margin-top:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .head .span b{color:var(--ink);font-weight:600;}
+  .head .span .bar{flex:1;min-width:60px;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,#7a0f2a,#cc0000,#e8608c);opacity:.7;}
+  .head .span .cont{position:relative;flex:0 0 48px;height:2px;border-radius:2px;
+    background:#e8608c;opacity:.75;}
+  .head .span .cont::after{content:"";position:absolute;right:0;top:50%;
+    width:7px;height:7px;border-top:2px solid #e8608c;border-right:2px solid #e8608c;
+    transform:translate(2px,-50%) rotate(45deg);}
+
+  /* ---------- lineage (desktop absolute) ---------- */
+  .lineage{position:relative;max-width:880px;height:1812px;margin-top:8px;}
+  .spine{position:absolute;left:0;top:0;z-index:1;overflow:visible;}
+  .flowpath{stroke-dasharray:2400;stroke-dashoffset:0;animation:draw 2.8s cubic-bezier(.65,0,.35,1) .15s backwards;}
+  @keyframes draw{from{stroke-dashoffset:2400;}to{stroke-dashoffset:0;}}
+
+  .portrait-wrap{position:absolute;left:0;top:0;width:150px;
+    transform:translateY(-50%);z-index:3;display:flex;justify-content:center;}
+  .portrait{width:120px;height:120px;border-radius:50%;overflow:hidden;
+    background:#fff;box-shadow:0 0 0 4px #fff,0 0 0 5.5px var(--ring),
+      0 10px 26px -10px rgba(20,32,46,.45);}
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block;
+    filter:saturate(.96);}
+  .portrait.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:4px;background:repeating-linear-gradient(135deg,#fbfcfd 0 7px,#f1f4f7 7px 14px);
+    border:1.5px dashed var(--ring);box-shadow:0 0 0 4px #fff,0 10px 26px -12px rgba(20,32,46,.35);}
+  .ph-ic{font-family:var(--mono);font-size:26px;line-height:1;color:var(--ring);font-weight:500;}
+  .ph-tx{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+    text-align:center;color:var(--muted);}
+
+  .node{position:absolute;left:0;right:0;}
+  .card{position:absolute;left:204px;top:0;right:0;transform:translateY(-50%);
+    z-index:2;padding:20px 26px;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;
+    box-shadow:0 1px 2px rgba(20,32,46,.05),0 16px 34px -20px rgba(20,32,46,.30);}
+  .rel{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ring);margin:0 0 7px;}
+  .name{font-family:var(--serif);font-weight:600;color:var(--ink);
+    font-size:clamp(20px,2.4vw,25px);line-height:1.12;letter-spacing:-.005em;margin:0;}
+  .meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin:7px 0 0;
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .meta .yr{color:var(--ink);font-weight:500;}
+  .meta .dot{opacity:.5;}
+  .blurb{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.5;
+    color:var(--body);margin:11px 0 0;max-width:54ch;}
+
+  /* tighten footer note */
+  .lin-foot{max-width:880px;margin:44px 0 0;padding-top:20px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--muted);line-height:1.7;}
+  .lin-foot a{color:#cc0000;text-decoration:none;border-bottom:1px solid #f3cdd8;}
+
+  /* ---------- mobile / narrow: stacked flow, straight gradient rail ---------- */
+  @media (max-width:760px){
+    .lineage-root{padding:44px 20px 56px;}
+    .lineage{height:auto;position:relative;max-width:560px;}
+    .lineage::before{content:"";position:absolute;left:31px;top:14px;bottom:24px;width:3px;
+      border-radius:3px;background:linear-gradient(#e8608c,#cc0000 45%,#7a0f2a);z-index:0;}
+    .spine{display:none;}
+    .node{position:relative;left:auto;right:auto;display:grid;
+      grid-template-columns:64px 1fr;column-gap:16px;align-items:start;
+      padding:0 0 30px;}
+    .node[style]{top:auto !important;}
+    .portrait-wrap{position:relative;top:auto !important;transform:none;width:64px;z-index:2;
+      padding-top:2px;}
+    .portrait{width:56px;height:56px;box-shadow:0 0 0 3px var(--paper),0 0 0 4.5px var(--ring),
+      0 6px 14px -8px rgba(20,32,46,.5);}
+    .portrait.ph{box-shadow:0 0 0 3px var(--paper);}
+    .ph-ic{font-size:18px;} .ph-tx{font-size:7px;}
+    .card{position:relative;left:auto;right:auto;top:auto;transform:none;padding:14px 16px;}
+    .name{font-size:19px;} .blurb{font-size:14px;margin-top:8px;}
+    .head{margin-bottom:38px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .flowpath{animation:none;stroke-dashoffset:0;}
+  }
+</style>
+
+<header class="head">
+  <p class="eyebrow">Barnes Research Group</p>
+  <h1>Academic <em>Lineage</em></h1>
+  <p>Eight generations of academic lineage dating back to 19th-century physiology and physics.</p>
+  <div class="span"><b>1822</b><span class="bar"></span><b>2012</b><span class="cont" aria-hidden="true"></span></div>
+</header>
+
+<div class="lineage">
+  <svg class="spine" width="150" height="1812" viewBox="0 0 150 1812" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="flow" x1="0" y1="0" x2="0" y2="1812" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e8608c"/>
+      <stop offset="0.45" stop-color="#cc0000"/>
+      <stop offset="1" stop-color="#7a0f2a"/>
+    </linearGradient>
+  </defs>
+  <path d="M 75 92 C 115 160.0, 115 224.0, 75 292 C 35 360.0, 35 424.0, 75 492 C 115 560.0, 115 624.0, 75 692 C 35 760.0, 35 824.0, 75 892 C 115 960.0, 115 1024.0, 75 1092 C 35 1160.0, 35 1224.0, 75 1292 C 115 1360.0, 115 1424.0, 75 1492 C 35 1560.0, 35 1624.0, 75 1692" stroke="url(#flow)" stroke-width="3.5" stroke-linecap="round"
+        class="flowpath"/>
+</svg>
+  <div class="node" style="top:92px" data-i="0"><div class="portrait-wrap"><div class="portrait" style="--ring:#e8608c"><img src="{{ '/assets/img/people/prof_pic.jpg' | relative_url }}" alt="Elizabeth A. Barnes" loading="lazy"></div></div><div class="card" style="--ring:#e8608c">
+        <div class="rel">Scientific Mother</div>
+        <h3 class="name">Elizabeth A. Barnes</h3>
+        <div class="meta"><span class="inst">University of Washington</span><span class="dot">&middot;</span><span class="yr">2012</span></div>
+        <p class="blurb">Atmospheric scientist developing interpretable machine learning for climate variability, prediction, and the Earth system.</p>
+      </div></div>
+<div class="node" style="top:292px" data-i="1"><div class="portrait-wrap"><div class="portrait" style="--ring:#e14869"><img src="{{ '/assets/img/lineage/hartmann.jpg' | relative_url }}" alt="Dennis L. Hartmann" loading="lazy"></div></div><div class="card" style="--ring:#e14869">
+        <div class="rel">Scientific Grandfather</div>
+        <h3 class="name">Dennis L. Hartmann</h3>
+        <div class="meta"><span class="inst">Princeton University</span><span class="dot">&middot;</span><span class="yr">1975</span></div>
+        <p class="blurb">Atmospheric scientist known for work on climate dynamics, radiative feedbacks, and atmospheric circulation, and for the text Global Physical Climatology.</p>
+      </div></div>
+<div class="node" style="top:492px" data-i="2"><div class="portrait-wrap"><div class="portrait" style="--ring:#da3046"><img src="{{ '/assets/img/lineage/oort.jpg' | relative_url }}" alt="Abraham H. Oort" loading="lazy"></div></div><div class="card" style="--ring:#da3046">
+        <div class="rel">Great-Grandfather</div>
+        <h3 class="name">Abraham H. Oort</h3>
+        <div class="meta"><span class="inst">University of Utrecht</span><span class="dot">&middot;</span><span class="yr">1964</span></div>
+        <p class="blurb">Dutch–American meteorologist known for foundational observational studies of the global atmospheric circulation and the physics of climate.</p>
+      </div></div>
+<div class="node" style="top:692px" data-i="3"><div class="portrait-wrap"><div class="portrait" style="--ring:#d31823"><img src="{{ '/assets/img/lineage/starr.jpg' | relative_url }}" alt="Victor P. Starr" loading="lazy"></div></div><div class="card" style="--ring:#d31823">
+        <div class="rel">2× Great-Grandfather</div>
+        <h3 class="name">Victor P. Starr</h3>
+        <div class="meta"><span class="inst">University of Chicago</span><span class="dot">&middot;</span><span class="yr">1946</span></div>
+        <p class="blurb">American meteorologist known for theories of the general circulation and the transport of atmospheric angular momentum and energy.</p>
+      </div></div>
+<div class="node" style="top:892px" data-i="4"><div class="portrait-wrap"><div class="portrait" style="--ring:#cc0000"><img src="{{ '/assets/img/lineage/rossby.jpg' | relative_url }}" alt="Carl-Gustaf Rossby" loading="lazy"></div></div><div class="card" style="--ring:#cc0000">
+        <div class="rel">3× Great-Grandfather</div>
+        <h3 class="name">Carl-Gustaf Rossby</h3>
+        <div class="meta"><span class="inst">University of Stockholm</span><span class="dot">&middot;</span><span class="yr">1925</span></div>
+        <p class="blurb">Swedish–American meteorologist who explained atmospheric motion through fluid mechanics and helped found atmospheric chemistry; the Rossby number bears his name.</p>
+      </div></div>
+<div class="node" style="top:1092px" data-i="5"><div class="portrait-wrap"><div class="portrait" style="--ring:#b7040b"><img src="{{ '/assets/img/lineage/bjerknes.jpg' | relative_url }}" alt="Vilhelm Bjerknes" loading="lazy"></div></div><div class="card" style="--ring:#b7040b">
+        <div class="rel">4× Great-Grandfather</div>
+        <h3 class="name">Vilhelm Bjerknes</h3>
+        <div class="meta"><span class="inst">Karlsruhe Institute of Technology</span><span class="dot">&middot;</span><span class="yr">1890</span></div>
+        <p class="blurb">Norwegian physicist and meteorologist whose early work on electric resonance gave way to uniting fluid and thermodynamics into the primitive equations behind modern forecast models.</p>
+      </div></div>
+<div class="node" style="top:1292px" data-i="6"><div class="portrait-wrap"><div class="portrait" style="--ring:#a30815"><img src="{{ '/assets/img/lineage/hertz.jpg' | relative_url }}" alt="Heinrich Rudolph Hertz" loading="lazy"></div></div><div class="card" style="--ring:#a30815">
+        <div class="rel">5× Great-Grandfather</div>
+        <h3 class="name">Heinrich Rudolph Hertz</h3>
+        <div class="meta"><span class="inst">Humboldt University of Berlin</span><span class="dot">&middot;</span><span class="yr">1880</span></div>
+        <p class="blurb">German physicist who, building on Maxwell’s electromagnetic theory of light, experimentally proved the existence of electromagnetic waves; the unit of frequency bears his name.</p>
+      </div></div>
+<div class="node" style="top:1492px" data-i="7"><div class="portrait-wrap"><div class="portrait" style="--ring:#8e0b20"><img src="{{ '/assets/img/lineage/helmholtz.jpg' | relative_url }}" alt="Hermann von Helmholtz" loading="lazy"></div></div><div class="card" style="--ring:#8e0b20">
+        <div class="rel">6× Great-Grandfather</div>
+        <h3 class="name">Hermann von Helmholtz</h3>
+        <div class="meta"><span class="inst">University of Berlin</span><span class="dot">&middot;</span><span class="yr">1842</span></div>
+        <p class="blurb">German physician and physicist known for the optics of vision and color, the conservation of energy, electrodynamics, and thermodynamics.</p>
+      </div></div>
+<div class="node" style="top:1692px" data-i="8"><div class="portrait-wrap"><div class="portrait" style="--ring:#7a0f2a"><img src="{{ '/assets/img/lineage/muller.jpg' | relative_url }}" alt="Johannes Peter Müller" loading="lazy"></div></div><div class="card" style="--ring:#7a0f2a">
+        <div class="rel">7× Great-Grandfather</div>
+        <h3 class="name">Johannes Peter Müller</h3>
+        <div class="meta"><span class="inst">University of Bonn</span><span class="dot">&middot;</span><span class="yr">1822</span></div>
+        <p class="blurb">German physiologist, comparative anatomist, ichthyologist, and herpetologist, celebrated as much for his discoveries as for his gift for synthesizing knowledge.</p>
+      </div></div>
+</div>
+
+<p class="lin-foot">
+  Doctoral lineage &mdash; each scientist advised the one above.
+  Years denote PhD completion.
+</p>
+</div>
