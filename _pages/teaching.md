@@ -25,8 +25,7 @@ Overview of machine learning methods used to interpret data sets in the atmosphe
 **ATS 601 — Atmospheric Dynamics I**{:.course-title} _(Fall 2016–2021)_
 Basics of atmospheric dynamics and geophysical fluid dynamics on a rotating sphere. [Typed notes](https://drive.google.com/file/d/1WJhF3kz0QEkaSE1q5Red7y5DxJb07zdV/view).
 
-**ATS 780 — Atmosphere's Response to Climate Change**{:.course-title} _(Fall 2014)_
-[Course webpage](http://barnes.atmos.colostate.edu/COURSES/AT780_F14/index.html).
+**ATS 780 — Atmosphere's Response to Climate Change**{:.course-title} _(Fall 2014)_.
 
 ## Tutorials & resources
 
