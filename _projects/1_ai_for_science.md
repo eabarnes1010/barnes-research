@@ -11,7 +11,7 @@ category: research
 
 <p class="caption" style="color: var(--global-text-color-light);">We evaluated the performance of AI climate models (right) to simulate tropical cyclone genesis. Figure by Dr. Mu-Ting Chien and adapated from Chien et al. (2025).</p>
 
-We build and use deep-learning to study and understandthe Earth system.
+We build and use deep-learning to study and understand the Earth system.
 
 Some examples include:
 
