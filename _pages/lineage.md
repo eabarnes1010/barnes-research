@@ -190,68 +190,68 @@ description:
         class="flowpath"/>
 </svg>
   <div class="node" style="top:242px" data-i="0"><div class="portrait-wrap"><div class="portrait" style="--ring:#e8608c"><img src="{{ '/assets/img/people/prof_pic.jpg' | relative_url }}" alt="Elizabeth A. Barnes" loading="lazy"></div></div><div class="card" style="--ring:#e8608c">
-        <div class="rel">Scientific Mother</div>
+        <div class="rel">Depth 1x</div>
         <h3 class="name">Elizabeth A. Barnes</h3>
         <div class="meta"><span class="inst">University of Washington</span><span class="dot">&middot;</span><span class="yr">2012</span></div>
         <p class="blurb">Atmospheric scientist developing interpretable machine learning for climate variability, prediction, and the Earth system.</p>
       </div></div>
 <div class="node" style="top:442px" data-i="1"><div class="portrait-wrap"><div class="portrait" style="--ring:#e14869"><img src="{{ '/assets/img/lineage/hartmann.jpg' | relative_url }}" alt="Dennis L. Hartmann" loading="lazy"></div></div><div class="card" style="--ring:#e14869">
-        <div class="rel">Scientific Grandfather</div>
+        <div class="rel">Depth 2x</div>
         <h3 class="name">Dennis L. Hartmann</h3>
         <div class="meta"><span class="inst">Princeton University</span><span class="dot">&middot;</span><span class="yr">1975</span></div>
         <p class="blurb">Atmospheric scientist known for work on climate dynamics, radiative feedbacks, and atmospheric circulation.</p>
       </div></div>
 <div class="node" style="top:642px" data-i="2"><div class="portrait-wrap"><div class="portrait" style="--ring:#da3046"><img src="{{ '/assets/img/lineage/oort.jpg' | relative_url }}" alt="Abraham H. Oort" loading="lazy"></div></div><div class="card" style="--ring:#da3046">
-        <div class="rel">Great-Grandfather</div>
+        <div class="rel">Depth 3x</div>
         <h3 class="name">Abraham H. Oort</h3>
         <div class="meta"><span class="inst">University of Utrecht</span><span class="dot">&middot;</span><span class="yr">1964</span></div>
         <p class="blurb">Dutch–American meteorologist known for foundational observational studies of the global atmospheric circulation and the physics of climate.</p>
       </div></div>
 <div class="node" style="top:842px" data-i="3"><div class="portrait-wrap"><div class="portrait" style="--ring:#d31823"><img src="{{ '/assets/img/lineage/starr.jpg' | relative_url }}" alt="Victor P. Starr" loading="lazy"></div></div><div class="card" style="--ring:#d31823">
-        <div class="rel">2× Great-Grandfather</div>
+        <div class="rel">Depth 4x</div>
         <h3 class="name">Victor P. Starr</h3>
         <div class="meta"><span class="inst">University of Chicago</span><span class="dot">&middot;</span><span class="yr">1946</span></div>
         <p class="blurb">American meteorologist known for theories of the general circulation and the transport of atmospheric angular momentum and energy.</p>
       </div></div>
 <div class="node" style="top:1042px" data-i="4"><div class="portrait-wrap"><div class="portrait" style="--ring:#cc0000"><img src="{{ '/assets/img/lineage/rossby.jpg' | relative_url }}" alt="Carl-Gustaf Rossby" loading="lazy"></div></div><div class="card" style="--ring:#cc0000">
-        <div class="rel">3× Great-Grandfather</div>
+        <div class="rel">Depth 5x</div>
         <h3 class="name">Carl-Gustaf Rossby</h3>
         <div class="meta"><span class="inst">University of Stockholm</span><span class="dot">&middot;</span><span class="yr">1925</span></div>
         <p class="blurb">Swedish–American meteorologist who explained atmospheric motion through fluid mechanics; the Rossby number bears his name.</p>
       </div></div>
 <div class="node" style="top:1242px" data-i="5"><div class="portrait-wrap"><div class="portrait" style="--ring:#b7040b"><img src="{{ '/assets/img/lineage/bjerknes.jpg' | relative_url }}" alt="Vilhelm Bjerknes" loading="lazy"></div></div><div class="card" style="--ring:#b7040b">
-        <div class="rel">4× Great-Grandfather</div>
+        <div class="rel">Depth 6x</div>
         <h3 class="name">Vilhelm Bjerknes</h3>
         <div class="meta"><span class="inst">Karlsruhe Institute of Technology</span><span class="dot">&middot;</span><span class="yr">1890</span></div>
         <p class="blurb">Norwegian physicist and meteorologist who united fluid mechanics and thermodynamics into the primitive equations behind modern forecasting.</p>
       </div></div>
 <div class="node" style="top:1442px" data-i="6"><div class="portrait-wrap"><div class="portrait" style="--ring:#a30815"><img src="{{ '/assets/img/lineage/hertz.jpg' | relative_url }}" alt="Heinrich Rudolph Hertz" loading="lazy"></div></div><div class="card" style="--ring:#a30815">
-        <div class="rel">5× Great-Grandfather</div>
+        <div class="rel">Depth 7x</div>
         <h3 class="name">Heinrich Rudolph Hertz</h3>
         <div class="meta"><span class="inst">Humboldt University of Berlin</span><span class="dot">&middot;</span><span class="yr">1880</span></div>
         <p class="blurb">German physicist who, building on Maxwell’s theory, experimentally proved the existence of electromagnetic waves; the unit of frequency bears his name.</p>
       </div></div>
 <div class="node" style="top:1642px" data-i="7"><div class="portrait-wrap"><div class="portrait" style="--ring:#8e0b20"><img src="{{ '/assets/img/lineage/helmholtz.jpg' | relative_url }}" alt="Hermann von Helmholtz" loading="lazy"></div></div><div class="card" style="--ring:#8e0b20">
-        <div class="rel">6× Great-Grandfather</div>
+        <div class="rel">Depth 8x</div>
         <h3 class="name">Hermann von Helmholtz</h3>
         <div class="meta"><span class="inst">University of Berlin</span><span class="dot">&middot;</span><span class="yr">1842</span></div>
         <p class="blurb">German physician and physicist known for the optics of vision and color, the conservation of energy, electrodynamics, and thermodynamics.</p>
       </div></div>
 <div class="node" style="top:1842px" data-i="8"><div class="portrait-wrap"><div class="portrait" style="--ring:#7a0f2a"><img src="{{ '/assets/img/lineage/muller.jpg' | relative_url }}" alt="Johannes Peter Müller" loading="lazy"></div></div><div class="card" style="--ring:#7a0f2a">
-        <div class="rel">7× Great-Grandfather</div>
+        <div class="rel">Depth 9x</div>
         <h3 class="name">Johannes Peter Müller</h3>
         <div class="meta"><span class="inst">University of Bonn</span><span class="dot">&middot;</span><span class="yr">1822</span></div>
         <p class="blurb">German physiologist, ichthyologist, and herpetologist, celebrated for his discoveries and his gift for synthesizing knowledge.</p>
       </div></div>
   <div class="deepband" style="top:2048px"><div class="deep-eyebrow">Further back &middot; Mathematics Genealogy Project</div><div class="deep-sub">Müller&rsquo;s line runs on past the well-attested record — through 18th-century Tübingen and Halle medicine, into 17th-century Jena, and back to the anatomists of Renaissance Padua. Edges below are reconstructed and contested.</div></div>
-  <div class="tail-node" style="top:2180px;--op:0.92"><div class="tail-wrap"><span class="tail-dot" style="--ring:#6e0d24"></span></div><div class="tcard"><div class="trel">8×</div><div class="tname">August F. J. K. Mayer</div><div class="tmeta"><span class="tinst">University of Tübingen</span></div></div></div>
-<div class="tail-node" style="top:2264px;--op:0.87"><div class="tail-wrap"><span class="tail-dot" style="--ring:#660c22"></span></div><div class="tcard"><div class="trel">9×</div><div class="tname">Wilhelm Gottfried Ploucquet</div><div class="tmeta"><span class="tinst">University of Tübingen</span></div></div></div>
-<div class="tail-node" style="top:2348px;--op:0.82"><div class="tail-wrap"><span class="tail-dot" style="--ring:#5e0b1f"></span></div><div class="tcard"><div class="trel">10×</div><div class="tname">Ferdinand Christoph Oetinger</div><div class="tmeta"><span class="tinst">University of Halle</span><span class="dot">&middot;</span><span class="tyr">1739</span></div></div></div>
-<div class="tail-node" style="top:2432px;--op:0.77"><div class="tail-wrap"><span class="tail-dot" style="--ring:#550a1d"></span></div><div class="tcard"><div class="trel">11×</div><div class="tname">Michael Alberti</div><div class="tmeta"><span class="tinst">University of Halle</span></div></div></div>
-<div class="tail-node" style="top:2516px;--op:0.72"><div class="tail-wrap"><span class="tail-dot" style="--ring:#4d091b"></span></div><div class="tcard"><div class="trel">12×</div><div class="tname">Friedrich Hoffmann</div><div class="tmeta"><span class="tinst">University of Jena</span></div></div></div>
-<div class="tail-node" style="top:2600px;--op:0.67"><div class="tail-wrap"><span class="tail-dot" style="--ring:#450819"></span></div><div class="tcard"><div class="trel">13×</div><div class="tname">Augustin Heinrich Fasch</div><div class="tmeta"><span class="tinst">University of Jena</span><span class="dot">&middot;</span><span class="tyr">1663</span></div></div></div>
-<div class="tail-node" style="top:2684px;--op:0.62"><div class="tail-wrap"><span class="tail-dot" style="--ring:#3c0716"></span></div><div class="tcard"><div class="trel">14×</div><div class="tname">Werner Rolfinck</div><div class="tmeta"><span class="tinst">University of Jena</span><span class="dot">&middot;</span><span class="tyr">1625</span></div></div></div>
-<div class="tail-node" style="top:2768px;--op:0.57"><div class="tail-wrap"><span class="tail-dot" style="--ring:#340714"></span></div><div class="tcard"><div class="trel">15×</div><div class="tname">Adriaan van den Spieghel</div><div class="tmeta"><span class="tinst">University of Padua</span><span class="dot">&middot;</span><span class="tyr">1603</span></div></div></div>
+  <div class="tail-node" style="top:2180px;--op:0.92"><div class="tail-wrap"><span class="tail-dot" style="--ring:#6e0d24"></span></div><div class="tcard"><div class="trel">9×</div><div class="tname">August F. J. K. Mayer</div><div class="tmeta"><span class="tinst">University of Tübingen</span></div></div></div>
+<div class="tail-node" style="top:2264px;--op:0.87"><div class="tail-wrap"><span class="tail-dot" style="--ring:#660c22"></span></div><div class="tcard"><div class="trel">10×</div><div class="tname">Wilhelm Gottfried Ploucquet</div><div class="tmeta"><span class="tinst">University of Tübingen</span></div></div></div>
+<div class="tail-node" style="top:2348px;--op:0.82"><div class="tail-wrap"><span class="tail-dot" style="--ring:#5e0b1f"></span></div><div class="tcard"><div class="trel">11×</div><div class="tname">Ferdinand Christoph Oetinger</div><div class="tmeta"><span class="tinst">University of Halle</span><span class="dot">&middot;</span><span class="tyr">1739</span></div></div></div>
+<div class="tail-node" style="top:2432px;--op:0.77"><div class="tail-wrap"><span class="tail-dot" style="--ring:#550a1d"></span></div><div class="tcard"><div class="trel">12×</div><div class="tname">Michael Alberti</div><div class="tmeta"><span class="tinst">University of Halle</span></div></div></div>
+<div class="tail-node" style="top:2516px;--op:0.72"><div class="tail-wrap"><span class="tail-dot" style="--ring:#4d091b"></span></div><div class="tcard"><div class="trel">13×</div><div class="tname">Friedrich Hoffmann</div><div class="tmeta"><span class="tinst">University of Jena</span></div></div></div>
+<div class="tail-node" style="top:2600px;--op:0.67"><div class="tail-wrap"><span class="tail-dot" style="--ring:#450819"></span></div><div class="tcard"><div class="trel">14×</div><div class="tname">Augustin Heinrich Fasch</div><div class="tmeta"><span class="tinst">University of Jena</span><span class="dot">&middot;</span><span class="tyr">1663</span></div></div></div>
+<div class="tail-node" style="top:2684px;--op:0.62"><div class="tail-wrap"><span class="tail-dot" style="--ring:#3c0716"></span></div><div class="tcard"><div class="trel">15×</div><div class="tname">Werner Rolfinck</div><div class="tmeta"><span class="tinst">University of Jena</span><span class="dot">&middot;</span><span class="tyr">1625</span></div></div></div>
+<div class="tail-node" style="top:2768px;--op:0.57"><div class="tail-wrap"><span class="tail-dot" style="--ring:#340714"></span></div><div class="tcard"><div class="trel">16×</div><div class="tname">Adriaan van den Spieghel</div><div class="tmeta"><span class="tinst">University of Padua</span><span class="dot">&middot;</span><span class="tyr">1603</span></div></div></div>
 <div class="tail-node term" style="top:2852px;--op:0.96"><div class="tail-wrap"><span class="tail-dot diamond" style="--ring:#2c0612"></span></div><div class="tcard"><div class="trel term-rel">16× great-grandfather &middot; the trail&rsquo;s deepest firm node</div><div class="tname">Hieronymus Fabricius ab Aquapendente</div><div class="tmeta"><span class="tinst">University of Padua</span><span class="dot">&middot;</span><span class="tyr">1559</span></div></div></div>
   <div class="wisp" style="top:2910px">&hellip; and earlier; the record thins</div>
 </div>
