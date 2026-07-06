@@ -1,6 +1,6 @@
 ---
 layout: page
-title: academic lineage
+title:
 permalink: /group/lineage/
 nav: false
 description:
@@ -160,7 +160,7 @@ description:
 <header class="head">
   <p class="eyebrow">Barnes Research Group</p>
   <h1>Academic <em>Lineage</em></h1>
-  <p>Eight generations of academic lineage dating back to 19th-century physiology and physics &mdash; with a less certain doctoral trail running four centuries further back, to Renaissance Padua.</p>
+  <p>Nine generations of academic lineage dating back to 19th-century physiology and physics &mdash; with a less certain doctoral trail running four centuries further back, to Renaissance Padua.</p>
   <div class="span"><b>1559</b><span class="bar"></span><b>2012</b><span class="cont" aria-hidden="true"></span></div>
 </header>
 
