@@ -19,8 +19,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v4
-      - name: Install Prettier 💾
-        run: npm install --save-dev --save-exact prettier @shopify/prettier-plugin-liquid
+        with:
+          cache: npm
+      # Install from the lockfile, not whatever npm serves today. Resolving
+      # versions at run time meant CI silently adopted new prettier/plugin
+      # releases and failed PRs that changed nothing related to the finding.
+      - name: Install dependencies 💾
+        run: npm ci
       - name: Prettier Check 🔎
         id: prettier
         run: npx prettier . --check
