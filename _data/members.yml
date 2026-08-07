@@ -27,6 +27,12 @@ current:
     image: people/rebecca-baiman.jpg
     website: https://www.rebeccabaiman.com
 
+  - name: Kevin Chan
+    role: PhD Student
+    affiliation: BU
+    email: kchan@bu.edu
+    image: people/kevin-chan.png
+
   - name: Mu-Ting Chien
     role: Postdoc
     affiliation: CSU/BU
