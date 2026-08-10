@@ -10,7 +10,7 @@ nav_order: 8
 ## Boston University
 
 **EE 516A — Multivariate Analysis for Geographers**{:.course-title} _(Fall 2026)_
-This course provides graduate students and advanced undergraduates with the tools to apply multivariate data analysis to environmental problems with spatial and temporal context, emphasizing interpretation of real data. [[course github]](https://github.com/eabarnes1010/course_objective_analysis)
+This course provides graduate students and advanced undergraduates with the tools to apply multivariate data analysis to environmental problems with spatial and temporal context, emphasizing interpretation of real data. [course github](https://github.com/eabarnes1010/course_objective_analysis)
 
 ## Colorado State University
 
