@@ -30,4 +30,4 @@ Basics of atmospheric dynamics and geophysical fluid dynamics on a rotating sphe
 
 ## Tutorials & resources
 
-**Machine Learning Tutorial** — slides and code introducing applied machine learning methods to earth scientists. [doi.org/10.5281/zenodo.6686879](https://doi.org/10.5281/zenodo.6686879)
+**Machine Learning Tutorial**{:.course-title} — slides and code introducing applied machine learning methods to earth scientists. [doi.org/10.5281/zenodo.6686879](https://doi.org/10.5281/zenodo.6686879)
