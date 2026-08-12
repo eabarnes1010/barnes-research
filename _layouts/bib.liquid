@@ -222,18 +222,49 @@
       <div class="periodical pub-note">{{ note_text }}</div>
     {%- endif -%}
 
-    {%- comment -%} Barnes-lab: build a plain-text citation for the "Cite" copy button. {%- endcomment -%}
+    {%- comment -%}
+      Barnes-lab: build a plain-text Chicago 17th author-date citation for the "Cite" copy button:
+      Last, First, First Last, and First Last. Year. "Title." Venue Volume (Issue): Pages. https://doi.org/...
+      Every element after the authors is optional and is simply omitted when the bib entry lacks it.
+      A bibtex "and others" arrives as an author named `others`; render that as "et al." instead.
+    {%- endcomment -%}
     {%- capture cite_authors -%}
       {%- for author in entry.author_array -%}
-        {{- author.first }} {{ author.last }}{% unless forloop.last %}, {% endunless -%}
+        {%- assign cite_last = author.last | strip -%}
+        {%- if cite_last == 'others' -%}
+          , et al.
+        {%- else -%}
+          {%- unless forloop.first -%}, {% if forloop.last %}and {% endif %}{%- endunless -%}
+          {%- if forloop.first -%}{{ cite_last }}, {{ author.first | strip }}{%- else -%}{{ author.first | strip }} {{ cite_last }}{%- endif -%}
+        {%- endif -%}
       {%- endfor -%}
     {%- endcapture -%}
     {%- assign cite_authors = cite_authors | regex_replace: '[*∗†‡§¶‖&^]', '' | strip -%}
     {%- capture cite_venue -%}
       {%- if entry.journal -%}{{ entry.journal }}{%- elsif entry.booktitle -%}In {{ entry.booktitle }}{%- elsif entry.school -%}{{ entry.school }}{%- endif -%}
     {%- endcapture -%}
+    {%- assign cite_venue = cite_venue | strip -%}
+    {%- comment -%} Volume, (issue) and pages only make sense hanging off a venue, so build them together. {%- endcomment -%}
+    {%- capture cite_source -%}
+      {%- if cite_venue != '' -%}
+        {{ cite_venue }}
+        {%- if entry.volume %} {{ entry.volume | strip }}{% endif -%}
+        {%- if entry.number %} ({{ entry.number | strip }}){% endif -%}
+        {%- if entry.pages %}: {{ entry.pages | strip | replace: '--', '–' }}{% endif -%}
+        .
+      {%- endif -%}
+    {%- endcapture -%}
+    {%- comment -%} A trailing "et al." already carries its own period, and a title ending in ? or ! keeps that mark instead of taking a period. {%- endcomment -%}
+    {%- assign cite_authors_tail = cite_authors | slice: -1 -%}
+    {%- assign cite_title = entry.title | strip -%}
+    {%- assign cite_title_tail = cite_title | slice: -1 -%}
     {%- capture cite_text -%}
-      {{- cite_authors }}{% if entry.year %} ({{ entry.year }}){% endif %}. {{ entry.title | strip }}.{% if cite_venue != "" %} {{ cite_venue | strip }}.{% endif %}{% if entry.doi %} https://doi.org/{{ entry.doi }}{% elsif entry.url %} {{ entry.url }}{% endif -%}
+      {{- cite_authors -}}
+      {%- if cite_authors != '' and cite_authors_tail != '.' %}.{% endif -%}
+      {%- if entry.year %} {{ entry.year }}.{% endif %} "{{ cite_title }}
+      {%- unless cite_title_tail == '?' or cite_title_tail == '!' %}.{% endunless %}"
+      {%- if cite_source != '' %} {{ cite_source | strip }}{% endif -%}
+      {%- if entry.doi %} https://doi.org/{{ entry.doi }}.{% elsif entry.url %} {{ entry.url }}.{% endif -%}
     {%- endcapture -%}
 
     <!-- Links/Buttons -->
