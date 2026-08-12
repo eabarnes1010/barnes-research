@@ -19,3 +19,4 @@ vendor
 # Claude Code runtime
 .claude/scheduled_tasks.lock
 .claude/worktrees/
+worktrees/
