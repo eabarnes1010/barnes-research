@@ -28,10 +28,7 @@
     {% else %}
       {% capture entrytype %}{% endcapture %}
     {% endif %}
-    {% assign entrymonth = '' %}
-    {% if entry.month %}
-      {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
-    {% endif %}
+    {%- comment -%} Barnes-lab: the bib `month` field is deliberately never printed — the date shown is the year alone. {%- endcomment -%}
     {% assign entryyear = '' %}
     {% if entry.year %}
       {% capture entryyear %}{{ " " }}{{ entry.year }}{% endcapture %}
@@ -48,7 +45,7 @@
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
     {%- comment -%} Barnes-lab: Chicago 17th ordering — the date is its own element placed right after the authors, ahead of the venue. {%- endcomment -%}
-    {% capture pubdate %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {% capture pubdate %}{{ entryyear }}{% endcapture %}
     {% capture periodical %}{{ entrytype }}{% endcapture %}
 
     <!-- Author -->
@@ -244,13 +241,12 @@
       {%- if entry.journal -%}{{ entry.journal }}{%- elsif entry.booktitle -%}In {{ entry.booktitle }}{%- elsif entry.school -%}{{ entry.school }}{%- endif -%}
     {%- endcapture -%}
     {%- assign cite_venue = cite_venue | strip -%}
-    {%- comment -%} Volume, (issue) and pages only make sense hanging off a venue, so build them together. {%- endcomment -%}
+    {%- comment -%} Volume and (issue) only make sense hanging off a venue, so build them together. Page numbers are deliberately never printed. {%- endcomment -%}
     {%- capture cite_source -%}
       {%- if cite_venue != '' -%}
         {{ cite_venue }}
         {%- if entry.volume %} {{ entry.volume | strip }}{% endif -%}
         {%- if entry.number %} ({{ entry.number | strip }}){% endif -%}
-        {%- if entry.pages %}: {{ entry.pages | strip | replace: '--', '–' }}{% endif -%}
         .
       {%- endif -%}
     {%- endcapture -%}
