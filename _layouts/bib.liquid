@@ -28,10 +28,7 @@
     {% else %}
       {% capture entrytype %}{% endcapture %}
     {% endif %}
-    {% assign entrymonth = '' %}
-    {% if entry.month %}
-      {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
-    {% endif %}
+    {%- comment -%} Barnes-lab: the bib `month` field is deliberately never printed — the date shown is the year alone. {%- endcomment -%}
     {% assign entryyear = '' %}
     {% if entry.year %}
       {% capture entryyear %}{{ " " }}{{ entry.year }}{% endcapture %}
@@ -47,7 +44,9 @@
       {% include hook/bib.liquid %}
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
-    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {%- comment -%} Barnes-lab: Chicago 17th ordering — the date is its own element placed right after the authors, ahead of the venue. {%- endcomment -%}
+    {% capture pubdate %}{{ entryyear }}{% endcapture %}
+    {% capture periodical %}{{ entrytype }}{% endcapture %}
 
     <!-- Author -->
     <div class="author">
@@ -124,32 +123,29 @@
         {%- endunless -%}
 
         {%- if forloop.length > 1 -%}
-          {% if forloop.first == false -%}
-            {%- if forloop.length > 2 %}, {% elsif forloop.length == 2 %}  {% endif %}
-          {%- endif %}
+          {%- comment -%} Barnes-lab: always a comma before the next author — the inverted first author already ends in a given name, so "Barnes, Elizabeth A. and X" would misread. {%- endcomment -%}
+          {% if forloop.first == false %}, {% endif %}
           {%- if forloop.last and author_array_limit == author_array_size %}and {% endif -%}
         {% endif %}
+        {%- comment -%} Barnes-lab: Chicago 17th bibliography — only the FIRST author is inverted to "Last, First"; every other author stays "First Last". {%- endcomment -%}
+        {%- capture author_display -%}
+          {%- if forloop.first -%}
+            {{- author_last_html }}, {{ author.first -}}
+          {%- else -%}
+            {{- author.first }} {{ author_last_html -}}
+          {%- endif -%}
+        {%- endcapture -%}
         {%- if author_is_group -%}
           {%- if coauthor_url -%}
-            <a class="author-group" href="{{ coauthor_url }}">
-              {{- author.first }}
-              {{ author_last_html -}}
-            </a>
+            <a class="author-group" href="{{ coauthor_url }}">{{ author_display }}</a>
           {%- else -%}
-            <span class="author-group">
-              {{- author.first }}
-              {{ author_last_html -}}
-            </span>
+            <span class="author-group">{{ author_display }}</span>
           {%- endif -%}
         {%- else -%}
           {%- if coauthor_url -%}
-            <a href="{{ coauthor_url }}">
-              {{- author.first }}
-              {{ author_last_html -}}
-            </a>
+            <a href="{{ coauthor_url }}">{{ author_display }}</a>
           {%- else -%}
-            {{- author.first }}
-            {{ author_last_html -}}
+            {{- author_display -}}
           {% endif %}
         {%- endif -%}
       {% endfor %}
@@ -198,14 +194,18 @@
         >
         </i>
       {%- endif -%}
-      {%- comment -%} Barnes-lab: venue + year on the same line as the authors (compact), with the not-yet-published (no DOI) status appended INLINE right after the year so it can't be skimmed past as published. {%- endcomment -%}
+      {%- comment -%} Barnes-lab: year then venue on the same line as the authors (Chicago 17th author-date order, compact), with the not-yet-published (no DOI) status appended INLINE at the end so it can't be skimmed past as published. {%- endcomment -%}
+      {%- assign pubdate_text = pubdate | strip -%}
       {%- assign periodical_text = periodical | strip -%}
+      {%- if pubdate_text != '' -%}
+        . <span class="periodical">{{ pubdate_text }}</span>
+      {%- endif -%}
       {%- if periodical_text != '' -%}
         . <span class="periodical">{{ periodical_text }}</span>
       {%- endif -%}
       {%- comment -%} Barnes-lab: flag as not-yet-published only when there is NO link to a published version (doi/html/url/website). Preprints (which carry only a `preprint` link) still flag; a published paper with no DOI but an article URL — e.g. an Eos opinion piece — does not. Set `hide_status = {true}` on an entry to force-hide the flag (e.g. a permanent preprint that will never be published) while keeping its Preprint button. {%- endcomment -%}
       {%- unless entry.doi or entry.html or entry.url or entry.website or entry.hide_status -%}
-        {% if periodical_text != '' %}
+        {% if periodical_text != '' or pubdate_text != '' %}
           <span class="pub-status">&middot;&nbsp;Submitted&nbsp;/&nbsp;Preprint</span>
         {%- else %}
           <span class="pub-status">Submitted&nbsp;/&nbsp;Preprint</span>
@@ -219,18 +219,48 @@
       <div class="periodical pub-note">{{ note_text }}</div>
     {%- endif -%}
 
-    {%- comment -%} Barnes-lab: build a plain-text citation for the "Cite" copy button. {%- endcomment -%}
+    {%- comment -%}
+      Barnes-lab: build a plain-text Chicago 17th author-date citation for the "Cite" copy button:
+      Last, First, First Last, and First Last. Year. "Title." Venue Volume (Issue): Pages. https://doi.org/...
+      Every element after the authors is optional and is simply omitted when the bib entry lacks it.
+      A bibtex "and others" arrives as an author named `others`; render that as "et al." instead.
+    {%- endcomment -%}
     {%- capture cite_authors -%}
       {%- for author in entry.author_array -%}
-        {{- author.first }} {{ author.last }}{% unless forloop.last %}, {% endunless -%}
+        {%- assign cite_last = author.last | strip -%}
+        {%- if cite_last == 'others' -%}
+          , et al.
+        {%- else -%}
+          {%- unless forloop.first -%}, {% if forloop.last %}and {% endif %}{%- endunless -%}
+          {%- if forloop.first -%}{{ cite_last }}, {{ author.first | strip }}{%- else -%}{{ author.first | strip }} {{ cite_last }}{%- endif -%}
+        {%- endif -%}
       {%- endfor -%}
     {%- endcapture -%}
     {%- assign cite_authors = cite_authors | regex_replace: '[*∗†‡§¶‖&^]', '' | strip -%}
     {%- capture cite_venue -%}
       {%- if entry.journal -%}{{ entry.journal }}{%- elsif entry.booktitle -%}In {{ entry.booktitle }}{%- elsif entry.school -%}{{ entry.school }}{%- endif -%}
     {%- endcapture -%}
+    {%- assign cite_venue = cite_venue | strip -%}
+    {%- comment -%} Volume and (issue) only make sense hanging off a venue, so build them together. Page numbers are deliberately never printed. {%- endcomment -%}
+    {%- capture cite_source -%}
+      {%- if cite_venue != '' -%}
+        {{ cite_venue }}
+        {%- if entry.volume %} {{ entry.volume | strip }}{% endif -%}
+        {%- if entry.number %} ({{ entry.number | strip }}){% endif -%}
+        .
+      {%- endif -%}
+    {%- endcapture -%}
+    {%- comment -%} A trailing "et al." already carries its own period, and a title ending in ? or ! keeps that mark instead of taking a period. {%- endcomment -%}
+    {%- assign cite_authors_tail = cite_authors | slice: -1 -%}
+    {%- assign cite_title = entry.title | strip -%}
+    {%- assign cite_title_tail = cite_title | slice: -1 -%}
     {%- capture cite_text -%}
-      {{- cite_authors }}{% if entry.year %} ({{ entry.year }}){% endif %}. {{ entry.title | strip }}.{% if cite_venue != "" %} {{ cite_venue | strip }}.{% endif %}{% if entry.doi %} https://doi.org/{{ entry.doi }}{% elsif entry.url %} {{ entry.url }}{% endif -%}
+      {{- cite_authors -}}
+      {%- if cite_authors != '' and cite_authors_tail != '.' %}.{% endif -%}
+      {%- if entry.year %} {{ entry.year }}.{% endif %} "{{ cite_title }}
+      {%- unless cite_title_tail == '?' or cite_title_tail == '!' %}.{% endunless %}"
+      {%- if cite_source != '' %} {{ cite_source | strip }}{% endif -%}
+      {%- if entry.doi %} https://doi.org/{{ entry.doi }}.{% elsif entry.url %} {{ entry.url }}.{% endif -%}
     {%- endcapture -%}
 
     <!-- Links/Buttons -->
