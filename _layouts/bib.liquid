@@ -47,7 +47,9 @@
       {% include hook/bib.liquid %}
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
-    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {%- comment -%} Barnes-lab: Chicago 17th ordering — the date is its own element placed right after the authors, ahead of the venue. {%- endcomment -%}
+    {% capture pubdate %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {% capture periodical %}{{ entrytype }}{% endcapture %}
 
     <!-- Author -->
     <div class="author">
@@ -124,32 +126,29 @@
         {%- endunless -%}
 
         {%- if forloop.length > 1 -%}
-          {% if forloop.first == false -%}
-            {%- if forloop.length > 2 %}, {% elsif forloop.length == 2 %}  {% endif %}
-          {%- endif %}
+          {%- comment -%} Barnes-lab: always a comma before the next author — the inverted first author already ends in a given name, so "Barnes, Elizabeth A. and X" would misread. {%- endcomment -%}
+          {% if forloop.first == false %}, {% endif %}
           {%- if forloop.last and author_array_limit == author_array_size %}and {% endif -%}
         {% endif %}
+        {%- comment -%} Barnes-lab: Chicago 17th bibliography — only the FIRST author is inverted to "Last, First"; every other author stays "First Last". {%- endcomment -%}
+        {%- capture author_display -%}
+          {%- if forloop.first -%}
+            {{- author_last_html }}, {{ author.first -}}
+          {%- else -%}
+            {{- author.first }} {{ author_last_html -}}
+          {%- endif -%}
+        {%- endcapture -%}
         {%- if author_is_group -%}
           {%- if coauthor_url -%}
-            <a class="author-group" href="{{ coauthor_url }}">
-              {{- author.first }}
-              {{ author_last_html -}}
-            </a>
+            <a class="author-group" href="{{ coauthor_url }}">{{ author_display }}</a>
           {%- else -%}
-            <span class="author-group">
-              {{- author.first }}
-              {{ author_last_html -}}
-            </span>
+            <span class="author-group">{{ author_display }}</span>
           {%- endif -%}
         {%- else -%}
           {%- if coauthor_url -%}
-            <a href="{{ coauthor_url }}">
-              {{- author.first }}
-              {{ author_last_html -}}
-            </a>
+            <a href="{{ coauthor_url }}">{{ author_display }}</a>
           {%- else -%}
-            {{- author.first }}
-            {{ author_last_html -}}
+            {{- author_display -}}
           {% endif %}
         {%- endif -%}
       {% endfor %}
@@ -198,14 +197,18 @@
         >
         </i>
       {%- endif -%}
-      {%- comment -%} Barnes-lab: venue + year on the same line as the authors (compact), with the not-yet-published (no DOI) status appended INLINE right after the year so it can't be skimmed past as published. {%- endcomment -%}
+      {%- comment -%} Barnes-lab: year then venue on the same line as the authors (Chicago 17th author-date order, compact), with the not-yet-published (no DOI) status appended INLINE at the end so it can't be skimmed past as published. {%- endcomment -%}
+      {%- assign pubdate_text = pubdate | strip -%}
       {%- assign periodical_text = periodical | strip -%}
+      {%- if pubdate_text != '' -%}
+        . <span class="periodical">{{ pubdate_text }}</span>
+      {%- endif -%}
       {%- if periodical_text != '' -%}
         . <span class="periodical">{{ periodical_text }}</span>
       {%- endif -%}
       {%- comment -%} Barnes-lab: flag as not-yet-published only when there is NO link to a published version (doi/html/url/website). Preprints (which carry only a `preprint` link) still flag; a published paper with no DOI but an article URL — e.g. an Eos opinion piece — does not. Set `hide_status = {true}` on an entry to force-hide the flag (e.g. a permanent preprint that will never be published) while keeping its Preprint button. {%- endcomment -%}
       {%- unless entry.doi or entry.html or entry.url or entry.website or entry.hide_status -%}
-        {% if periodical_text != '' %}
+        {% if periodical_text != '' or pubdate_text != '' %}
           <span class="pub-status">&middot;&nbsp;Submitted&nbsp;/&nbsp;Preprint</span>
         {%- else %}
           <span class="pub-status">Submitted&nbsp;/&nbsp;Preprint</span>
