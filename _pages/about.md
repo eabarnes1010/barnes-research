@@ -1,5 +1,10 @@
 ---
 layout: home
+# Keep `title`. It is what the navbar prints for this page — dropping it removes
+# "home" from the nav entirely. It also makes the share card read "Barnes
+# Research Group | home", since the theme builds og:title as
+# "<site title> | <page title>" and offers no page-level og:title override.
+# The nav is worth more than the card wording.
 title: home
 permalink: /
 selected_papers: true # shows papers marked selected={true} on the landing
