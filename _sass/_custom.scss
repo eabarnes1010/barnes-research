@@ -25,6 +25,13 @@
 html[data-theme="dark"] {
   --global-theme-color: #ff4c4c; // lighter scarlet for contrast on dark bg
   --global-hover-color: #ff7070;
+
+  // These two were previously only set in :root, so every var(--bu-red) stayed
+  // at BU scarlet on a dark background and each spot that noticed got its own
+  // hardcoded lighter red instead. Redefining them here means the whole file
+  // adapts from one place, matching --global-theme-color above.
+  --bu-red: #ff4c4c;
+  --bu-red-dark: #ff7070; // hover: on dark the hover shade goes lighter, not deeper
 }
 
 // ---- Typography: characterful heading font, clean body --------------------
@@ -74,10 +81,8 @@ h6,
 html[data-theme="dark"] .lab-banner {
   background-image: linear-gradient(170deg, #14233a 0%, #182230 55%, #2c1c1c 100%);
 }
-html[data-theme="dark"] .lab-title,
-html[data-theme="dark"] .lab-sub a {
-  color: #ff5a5a; // lighter scarlet so the red reads on the dark banner
-}
+// The hero title and .lab-sub links both use var(--bu-red), which now resolves
+// to #ff4c4c in dark mode, so they no longer need their own override here.
 // No scrim/wash — the image is left exactly as-is. Text is colored for
 // readability instead of recoloring the background.
 .lab-banner-content {
@@ -94,34 +99,18 @@ html[data-theme="dark"] .lab-sub a {
   color: var(--bu-red);
   margin: 0 0 0.4rem;
 }
+// Byline under the title: group name plus institution. Sits between the title
+// and the tagline, so it takes the breathing room the wordmark used to have.
 .lab-sub {
   font-size: clamp(1.05rem, 2.4vw, 1.6rem);
   font-weight: 500;
-  margin: 0 0 1.1rem;
+  margin: clamp(0.8rem, 2.4vw, 1.5rem) 0 clamp(1.1rem, 2.8vw, 1.8rem);
   color: var(--global-text-color);
 }
 .lab-sub a {
   color: var(--bu-red);
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-// BU wordmark in place of the plain-text affiliation line; sized to sit under
-// the title like the old .lab-sub did.
-.lab-sub-logo {
-  // BU brand clear-space: keep generous vertical breathing room (~half the
-  // wordmark height) above and below so nothing crowds the logo.
-  display: inline-block;
-  margin: clamp(1rem, 3vw, 1.9rem) 0 clamp(1.2rem, 3.2vw, 2.1rem);
-}
-.lab-bu-logo {
-  display: block;
-  height: clamp(30px, 5vw, 52px);
-  width: auto;
-}
-// Dark banner: lift the BU red toward the lighter scarlet used for the title
-// so the wordmark stays legible on the dusk gradient.
-html[data-theme="dark"] .lab-bu-logo {
-  filter: brightness(1.35) saturate(0.95);
 }
 
 // The gem sets every page's description (the lede under the title, e.g. on
@@ -554,10 +543,10 @@ footer.sticky-bottom {
 }
 html[data-theme="dark"] .research-pager__btn {
   background: rgba(40, 40, 46, 0.85);
-  color: #ff5a5a;
+  color: var(--bu-red);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 html[data-theme="dark"] .research-pager__btn:hover {
   background: #2c2c32;
-  color: #ff8080;
+  color: var(--bu-red-dark);
 }

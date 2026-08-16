@@ -12,7 +12,7 @@ description:
     {% include figure.liquid loading="eager" path="assets/img/people/prof_pic.jpg" title="Elizabeth A. Barnes" class="img-fluid rounded z-depth-1" %}
   </div>
   <div class="col-sm-8 mt-3 mt-md-0">
-    <p><strong>Dr. Elizabeth (Libby) Barnes</strong> is the Dalton Family Chair in Environmental Data Science &amp; Sustainability, Professor of Computing &amp; Data Sciences, and Professor of Earth &amp; Environment at Boston University, which she joined in 2025.</p>
+    <p><strong>Dr. Elizabeth Barnes</strong> is the Dalton Family Chair in Environmental Data Science &amp; Sustainability, Professor of Computing &amp; Data Sciences, and Professor of Earth &amp; Environment at Boston University, which she joined in 2025.</p>
     <p>Her group's research focuses on understanding Earth system variability, predictability, and change across time and space, with an emphasis on developing and implementing artificial intelligence tools in a way that reflects scientific reasoning to improve intrinsic interpretability. An overarching research goal of her group is to responsibly harness AI to anticipate human-Earth system futures in support of a thriving society in the decades ahead.</p>
     <details class="bio-more">
       <summary>Read full bio</summary>
