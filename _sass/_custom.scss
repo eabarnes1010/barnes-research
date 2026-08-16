@@ -29,8 +29,7 @@ html[data-theme="dark"] {
   // These two were previously only set in :root, so every var(--bu-red) stayed
   // at BU scarlet on a dark background and each spot that noticed got its own
   // hardcoded lighter red instead. Redefining them here means the whole file
-  // adapts from one place, and #ff4c4c matches both --global-theme-color above
-  // and the institution line in the dark lockup SVG.
+  // adapts from one place, matching --global-theme-color above.
   --bu-red: #ff4c4c;
   --bu-red-dark: #ff7070; // hover: on dark the hover shade goes lighter, not deeper
 }
