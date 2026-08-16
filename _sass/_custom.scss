@@ -25,6 +25,14 @@
 html[data-theme="dark"] {
   --global-theme-color: #ff4c4c; // lighter scarlet for contrast on dark bg
   --global-hover-color: #ff7070;
+
+  // These two were previously only set in :root, so every var(--bu-red) stayed
+  // at BU scarlet on a dark background and each spot that noticed got its own
+  // hardcoded lighter red instead. Redefining them here means the whole file
+  // adapts from one place, and #ff4c4c matches both --global-theme-color above
+  // and the institution line in the dark lockup SVG.
+  --bu-red: #ff4c4c;
+  --bu-red-dark: #ff7070; // hover: on dark the hover shade goes lighter, not deeper
 }
 
 // ---- Typography: characterful heading font, clean body --------------------
@@ -74,10 +82,8 @@ h6,
 html[data-theme="dark"] .lab-banner {
   background-image: linear-gradient(170deg, #14233a 0%, #182230 55%, #2c1c1c 100%);
 }
-html[data-theme="dark"] .lab-title,
-html[data-theme="dark"] .lab-sub a {
-  color: #ff5a5a; // lighter scarlet so the red reads on the dark banner
-}
+// The hero title and .lab-sub links both use var(--bu-red), which now resolves
+// to #ff4c4c in dark mode, so they no longer need their own override here.
 // No scrim/wash — the image is left exactly as-is. Text is colored for
 // readability instead of recoloring the background.
 .lab-banner-content {
@@ -538,10 +544,10 @@ footer.sticky-bottom {
 }
 html[data-theme="dark"] .research-pager__btn {
   background: rgba(40, 40, 46, 0.85);
-  color: #ff5a5a;
+  color: var(--bu-red);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 html[data-theme="dark"] .research-pager__btn:hover {
   background: #2c2c32;
-  color: #ff8080;
+  color: var(--bu-red-dark);
 }
