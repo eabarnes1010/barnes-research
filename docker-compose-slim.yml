@@ -3,6 +3,10 @@ services:
   jekyll:
     image: amirpourmand/al-folio:slim
     #build: .
+    # Without this the prebuilt image runs its own baked-in copy of
+    # entry_point.sh, so fixes made in this repo never take effect. Match
+    # docker-compose.yml and run the mounted script instead.
+    command: /srv/jekyll/bin/entry_point.sh
     ports:
       - 8080:8080
       - 35729:35729

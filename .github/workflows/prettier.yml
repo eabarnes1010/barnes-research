@@ -14,6 +14,11 @@ jobs:
   check:
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
+    # Declaring any permissions drops the rest to none, so contents: read is
+    # needed for checkout and pull-requests: write to post the failure comment.
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
@@ -45,9 +50,25 @@ jobs:
           name: HTML Diff
           path: diff.html
           retention-days: 7
-      - name: Dispatch information to repository 🗣️
+      # This used to fire a repository_dispatch that a second workflow listened
+      # for, in order to post the comment. That cannot work with GITHUB_TOKEN:
+      # the dispatch API needs contents: write, and events raised with
+      # GITHUB_TOKEN deliberately do not start further workflow runs, so the
+      # listener would never fire even once the permission was granted. It
+      # needed a personal access token. Commenting from this job instead needs
+      # no secret, and gh is preinstalled on the runner, so no action version to
+      # keep current either.
+      #
+      # --edit-last --create-if-none updates the existing comment on repeated
+      # failures rather than stacking a new one each push.
+      - name: Comment on the pull request 💬
         if: ${{ failure() && steps.prettier.conclusion == 'failure' && github.event_name == 'pull_request' }}
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          event-type: prettier-failed-on-pr
-          client-payload: '{"pr_number": "${{ github.event.number }}", "artifact_url": "${{ steps.artifact-upload.outputs.artifact-url }}", "run_id": "${{ github.run_id }}"}'
+        # A pull_request from a fork gets a read-only token, so this cannot
+        # comment there. The prettier failure itself still blocks the PR; only
+        # the convenience comment is missing, so don't fail the job over it.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment "${{ github.event.number }}" --edit-last --create-if-none --body \
+            "Failed [prettier code check](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}). Check [this file](${{ steps.artifact-upload.outputs.artifact-url }}) for more information."
