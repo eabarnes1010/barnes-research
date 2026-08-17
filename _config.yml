@@ -2,7 +2,12 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Barnes Research Group # the website title (if blank, full name will be used instead)
+# Shortened from "Barnes Research Group" so the browser tab reads "Barnes
+# Research" — a tab strip crops long titles and the last word was the first to
+# go. This key feeds only the <title>, og:site_name and og:title; the group's
+# full name is hardcoded in the hero, the intro paragraph and the site
+# description, so it still reads in full everywhere on the page.
+title: Barnes Research # the website title (if blank, full name will be used instead)
 first_name: Elizabeth
 middle_name: A.
 last_name: Barnes
@@ -14,7 +19,7 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
 footer_text: "" # removed the "Powered by Jekyll / al-folio / GitHub Pages" credit line
 keywords: climate, machine learning, explainable AI, environmental data science, Boston University, atmospheric science # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: favicon.png # favicon: BU-red box with white "EDS" (assets/img/favicon.png)
+icon: favicon.png # favicon: BU-red box with white "BR" (assets/img/favicon.png, from bin/build_mark.sh)
 
 url: https://barnes-research.com # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root (custom domain)

@@ -12,7 +12,7 @@
 #   bin/build_og_card.sh
 #   bin/build_og_card.sh assets/img/people/group_photo_FA26.png
 #
-# Requires ImageMagick (`magick`) and the Arial Bold font, same as bin/build_eds.sh.
+# Requires ImageMagick (`magick`) and the Arial Bold font, same as bin/build_mark.sh.
 set -euo pipefail
 
 SRC="${1:-assets/img/people/group_photo_SP26.png}"
