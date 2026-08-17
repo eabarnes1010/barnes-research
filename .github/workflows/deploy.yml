@@ -7,6 +7,14 @@ on:
       - main
     paths:
       - "assets/**"
+      # Icons served from the site root. Browsers probe these paths directly
+      # for bookmarks and iOS home screens, so they are published files, not
+      # build inputs. They sit outside assets/ and match none of the extension
+      # patterns below, so without naming them a change to either one merges to
+      # main without ever deploying — which is exactly what happened when they
+      # were added.
+      - "favicon.ico"
+      - "apple-touch-icon.png"
       - "**.bib"
       - "**.html"
       - "**.js"
