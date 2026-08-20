@@ -1,4 +1,6 @@
 nbconvert
+pytest
 pyyaml
 rendercv[full]
 scholarly
+
