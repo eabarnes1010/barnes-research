@@ -3,4 +3,3 @@ pytest
 pyyaml
 rendercv[full]
 scholarly
-
