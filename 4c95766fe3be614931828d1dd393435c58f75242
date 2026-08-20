@@ -1,0 +1,16 @@
+[SIGNOFF 200a7d2]: human comprehension and risk attestation
+
+Signoff-Spec-Version: 1.0
+Signoff-Status: VERIFIED_BY_HUMAN
+Signoff-Timestamp: 2026-08-20T16:58:47Z
+Signoff-Base-SHA: 041f87ba943f9e98f0d27a42517e198b2a86c138
+Signoff-Reviewed-Commit-SHA: 200a7d22ce8d326101061d119da9ef4f77bab8eb
+Signoff-Reviewed-Tree-SHA: 4c95766fe3be614931828d1dd393435c58f75242
+Signoff-Harness-ID: antigravity-cli
+Signoff-Conversation-ID: 5d401586-c97d-4616-9536-a4013fada8eb
+Signoff-Transcript-Digest: sha256:014d7337c189314aebb752fa83531e9f4740a847af3e8d6fdf36f47be2b7edf6
+Signoff-Transcript-Bytes: 273257
+Signoff-Tradeoff: Included un-synced pub_peryear count drift from prior commit (+2 papers)
+Signoff-Risk: none
+Signoff-Verified-By: jerrylin247365@gmail.com
+Signoff-Agent: harness=antigravity-cli/N/A model=gemini-3.7-flash reasoning=N/A interview=standard/software-general
