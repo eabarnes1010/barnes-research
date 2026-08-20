@@ -23,6 +23,10 @@ on:
       - "**.yml"
       - "Gemfile"
       - "Gemfile.lock"
+      - "requirements.txt"
+      - "bin/**"
+      - "test/**"
+      - "**.py"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/broken-links.yml"
       - "!.github/workflows/deploy-docker-tag.yml"
@@ -77,6 +81,10 @@ jobs:
           cache: "npm"
       - name: Install JS deps 📦
         run: npm ci
+      - name: Install Python deps & Run tests 🧪
+        run: |
+          pip3 install pytest pyyaml
+          python3 -m pytest test/ -v
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
