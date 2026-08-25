@@ -15,6 +15,11 @@ nav_order: 5
 
 <div class="publications">
 
+<!-- Legend: defines the group-led badge once, so flagged entries never repeat the explanation. -->
+<p class="pub-legend">
+  <span class="pub-authorship">group-led</span> — written independently by Barnes Group members during their time in the group; Barnes is not an author, and these appear here as group output.
+</p>
+
 {% bibliography %}
 
 </div>

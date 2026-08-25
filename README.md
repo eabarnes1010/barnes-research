@@ -33,7 +33,7 @@ Edit [`_bibliography/papers.bib`](_bibliography/papers.bib). The `/publications/
   journal     = {Geophysical Research Letters},
   year        = {2026},
   bibtex_show = {true},                    # shows the "BibTeX" button on the site
-  selected    = {true}                     # optional: also feature it on the home page
+  group_led   = {true}                     # optional: written independently by group members, Barnes not an author
 }
 ```
 
