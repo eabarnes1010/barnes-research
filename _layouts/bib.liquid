@@ -206,8 +206,16 @@
       {%- if periodical_text != '' -%}
         . <span class="periodical">{{ periodical_text }}</span>
       {%- endif -%}
-      {%- comment -%} Barnes-lab: flag as not-yet-published only when there is NO link to a published version (doi/html/url/website). Preprints (which carry only a `preprint` link) still flag; a published paper with no DOI but an article URL — e.g. an Eos opinion piece — does not. Set `hide_status = {true}` on an entry to force-hide the flag (e.g. a permanent preprint that will never be published) while keeping its Preprint button. {%- endcomment -%}
-      {%- unless entry.doi or entry.html or entry.url or entry.website or entry.hide_status -%}
+      {%- comment -%} Barnes-lab: accepted but not yet assigned a DOI. `in_press = {true}` prints "In Press" instead of the Submitted/Preprint flag; drop the field and add the `doi` once it is issued. {%- endcomment -%}
+      {%- if entry.in_press -%}
+        {% if periodical_text != '' or pubdate_text != '' %}
+          <span class="pub-status">&middot;&nbsp;In&nbsp;Press</span>
+        {%- else %}
+          <span class="pub-status">In&nbsp;Press</span>
+        {%- endif %}
+      {%- endif -%}
+      {%- comment -%} Barnes-lab: flag as not-yet-published only when there is NO link to a published version (doi/html/url/website) and the paper is not already flagged in press. Preprints (which carry only a `preprint` link) still flag; a published paper with no DOI but an article URL — e.g. an Eos opinion piece — does not. Set `hide_status = {true}` on an entry to force-hide the flag (e.g. a permanent preprint that will never be published) while keeping its Preprint button. {%- endcomment -%}
+      {%- unless entry.doi or entry.html or entry.url or entry.website or entry.hide_status or entry.in_press -%}
         {% if periodical_text != '' or pubdate_text != '' %}
           <span class="pub-status">&middot;&nbsp;Submitted&nbsp;/&nbsp;Preprint</span>
         {%- else %}

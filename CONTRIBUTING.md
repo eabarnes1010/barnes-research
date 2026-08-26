@@ -26,6 +26,7 @@ Edit **`_bibliography/papers.bib`** and paste a new entry at the top. One paper 
 ```
 
 - **citekey** (`lastname2026keyword`) must be unique.
+- `in_press = {true}` marks a paper accepted but not yet assigned a DOI; the entry prints `In Press` instead of `Submitted / Preprint`, and you delete the field when you add the real `doi`.
 - `group_led = {true}` marks a paper written independently by group members during their time in the group, with Barnes not an author; it prints a `group-led` badge next to the entry and tags the entry's HTML with `data-authorship="group-led"` so tooling can filter it by rule.
 - Optional fields: `html`, `pdf`, `code`, `abbr` (journal badge), `preview` (a thumbnail image placed in `assets/img/publication_preview/`).
 - `preprint = {https://...}` adds a **Preprint** button (use the full preprint URL, e.g. arXiv/ESSOAr; or a filename under `assets/pdf/` for a local copy). Shows alongside the published-paper button.
