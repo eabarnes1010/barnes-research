@@ -23,5 +23,10 @@ module.exports = {
     // and page chrome (scroll-progress bar, ToC) bleeds through a zoomed image.
     "medium-zoom-overlay",
     "medium-zoom-image--opened",
+    // vanilla-back-to-top creates #back-to-top at runtime, so the id never
+    // appears in the scanned HTML and every rule for it was being purged. That
+    // left production on the library's own defaults while dev builds showed the
+    // gem's translucent grey styling — safelist it so both render the same.
+    "back-to-top",
   ],
 };
