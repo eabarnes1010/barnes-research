@@ -297,9 +297,7 @@
       {% if entry.hal %}
         <a href="https://hal.science/{{ entry.hal }}" class="btn btn-sm z-depth-0" role="button">HAL</a>
       {% endif %}
-      {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-      {% endif %}
+      {%- comment -%} Barnes-lab: the "Bib" button and its hidden BibTeX block are deliberately removed — "Cite" copies a plain-text citation instead. `bibtex_show` in papers.bib is now inert. {%- endcomment -%}
       <a class="citation-copy btn btn-sm z-depth-0" role="button" data-citation="{{ cite_text | strip | escape }}">Cite</a>
       {% if entry.html %}
         {% if entry.html contains '://' %}
@@ -465,15 +463,6 @@
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
         <p>{{ entry.abstract }}</p>
-      </div>
-    {% endif %}
-
-    {% if entry.bibtex_show %}
-      <!-- Hidden bibtex block -->
-      <div class="bibtex hidden">
-        {% highlight bibtex %}
-        {{- entry.bibtex | hideCustomBibtex -}}
-        {% endhighlight %}
       </div>
     {% endif %}
 
