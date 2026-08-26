@@ -74,17 +74,17 @@ current:
     image: people/lucas-howard.jpg
     website: https://www.lucasjhoward.com
 
-  - name: Will Kamp
-    role: Postdoc
-    affiliation: BU
-    email: wkamp@bu.edu
-    image: people/will-kamp.jpg
-
   - name: Clark Ikezu
     role: PhD Student
     affiliation: BU
     email: tcikezu@bu.edu
     image: people/clark-ikezu.jpg
+
+  - name: Will Kamp
+    role: Postdoc
+    affiliation: BU
+    email: wkamp@bu.edu
+    image: people/will-kamp.jpg
 
   - name: Jacob Landsberg
     role: PhD Student
