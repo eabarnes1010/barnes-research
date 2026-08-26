@@ -12,10 +12,18 @@
 <div class="row">
   {%- comment -%} Barnes-lab: venue/thumbnail left column removed — publications render as a single full-width column. Status (Submitted/Preprint) now lives under the title in the main column below. {%- endcomment -%}
   <!-- Entry bib key -->
-  {%- comment -%} Barnes-lab: `group_led = {true}` marks a paper written independently by group members
-  (Barnes not an author). Emits a stable data-authorship hook so tooling (e.g. the CV diff) can exclude
-  these by rule instead of by eye. {%- endcomment -%}
-  <div id="{{ entry.key }}" class="col-sm-12"{% if entry.group_led %} data-authorship="group-led"{% endif %}>
+  {%- comment -%}
+    Barnes-lab: `group_led = {true}` marks a paper written independently by group members
+    (Barnes not an author). Emits a stable data-authorship hook so tooling (e.g. the CV diff) can exclude
+    these by rule instead of by eye.
+  {%- endcomment -%}
+  <div
+    id="{{ entry.key }}"
+    class="col-sm-12"
+    {% if entry.group_led %}
+      data-authorship="group-led"
+    {% endif %}
+  >
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
 
