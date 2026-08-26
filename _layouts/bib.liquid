@@ -171,10 +171,12 @@
       {%- assign more_authors = author_array_size | minus: author_array_limit -%}
 
       {%- assign more_authors_hide = more_authors | append: ' more author' -%}
+      {%- comment -%} With an `and others` tail the revealed list ends in "et al", so the collapsed label has to say so too — otherwise it promises N names and expands to N plus an unbounded tail. {%- endcomment -%}
       {% if more_authors > 0 %}
         {%- if more_authors > 1 -%}
           {% assign more_authors_hide = more_authors_hide | append: 's' %}
         {%- endif -%}
+        {%- if has_etal -%}{%- assign more_authors_hide = more_authors_hide | append: ', et al' -%}{%- endif -%}
         {% assign more_authors_show = '' %}
         {%- for author in entry.author_array offset: author_array_limit limit: more_authors -%}
           {% assign more_authors_show = more_authors_show | append: author.first | append: ' ' | append: author.last %}
@@ -207,7 +209,10 @@
       {%- endif -%}
       {%- comment -%} Barnes-lab: "et al." stands in for the BibTeX `and others` tail. {%- endcomment -%}
       {%- comment -%} No trailing period: the year/venue separator right below supplies it. {%- endcomment -%}
-      {%- if has_etal and more_authors == 0 -%}, et al{%- endif -%}
+      {%- if has_etal and more_authors == 0 -%}
+        {%- if author_array_limit > 0 -%}, {% endif -%}
+        et al
+      {%- endif -%}
       {%- if entry.annotation -%}
         <i
           class="fa-solid fa-circle-info ml-1"
@@ -228,7 +233,8 @@
         . <span class="periodical">{{ periodical_text }}</span>
       {%- endif -%}
       {%- comment -%} Barnes-lab: accepted but not yet assigned a DOI. `in_press = {true}` prints "In Press" instead of the Submitted/Preprint flag; drop the field and add the `doi` once it is issued. {%- endcomment -%}
-      {%- if entry.in_press -%}
+      {%- comment -%} Guarded like the flag below: once a published version is linked, an `in_press` field left behind is stale and must not print. {%- endcomment -%}
+      {%- if entry.in_press and entry.doi == null and entry.html == null and entry.url == null and entry.website == null -%}
         {% if periodical_text != '' or pubdate_text != '' %}
           <span class="pub-status">&middot;&nbsp;In&nbsp;Press</span>
         {%- else %}
