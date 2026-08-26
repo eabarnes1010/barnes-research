@@ -353,12 +353,42 @@ footer.sticky-bottom {
 // (Button text is gem-generated; swap it via CSS on the doi.org link.)
 // font-size must match the sibling buttons, which inherit .btn-sm (0.64rem) —
 // hardcoding 0.875rem made "Paper" render larger than Bib/Cite.
-.publications .links a.btn[href*="doi.org"] {
+.publications .links a.btn.pub-paper {
   font-size: 0;
 }
-.publications .links a.btn[href*="doi.org"]::after {
+.publications .links a.btn.pub-paper::after {
   content: "Paper";
   font-size: 0.64rem;
+}
+
+// Back-to-top button, pinned to the vanilla-back-to-top defaults — the solid
+// black 56px circle with the 24px chevron that the live site shows. The gem
+// otherwise overrides those defaults with --global-back-to-top-bg-color, which
+// is rgba(0,0,0,0.4) in light mode (a translucent grey circle) at 40px, and
+// offsets it 30px from the corner instead of the library's 20px. Opacity is
+// left alone: the library animates it and `bottom` over 0.2s on appearance,
+// and #back-to-top.hidden must keep winning that.
+// Specificity matters here: the gem's own rules are `:root #back-to-top` (1,1,0)
+// and `html[data-theme-setting=dark] #back-to-top` (1,1,1), so a bare
+// `#back-to-top` (1,0,0) is discarded no matter where it sits in the file.
+// Match those selectors so these actually apply — in both themes, since the gem
+// re-points the colour variables under the dark selector.
+:root #back-to-top {
+  background: #000;
+  bottom: 20px;
+  color: #fff;
+  height: 56px;
+  right: 20px;
+  width: 56px;
+}
+html[data-theme-setting="dark"] #back-to-top {
+  background: #000;
+  color: #fff;
+}
+:root #back-to-top svg {
+  height: 24px;
+  margin: 16px auto 0;
+  width: 24px;
 }
 
 // "Submitted / Preprint" indicator on publications that have no DOI yet, so a
@@ -369,6 +399,22 @@ footer.sticky-bottom {
 .publications .pub-status {
   font-size: 0.8em; // a touch smaller than the venue/year it trails
   color: var(--global-theme-color); // BU red, dark-mode aware
+}
+
+// "group-led" badge: papers written independently by group members, with Barnes
+// not an author. Quiet outlined chip — must NOT compete with the BU-red
+// pub-status flag, which carries a different meaning (not yet published).
+.publications .pub-authorship {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0 0.4em;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 3px;
+  font-size: 0.7em;
+  line-height: 1.5;
+  vertical-align: 0.08em;
+  color: var(--global-text-color-light);
+  white-space: nowrap;
 }
 
 // "non-refereed" tag, kept only for non-peer-reviewed work. Quiet/muted.

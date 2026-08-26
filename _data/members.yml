@@ -132,13 +132,6 @@ current:
     email: laura.thapa@colostate.edu
     image: people/laura-thapa.jpg
 
-  - name: Jolan von Plutzner
-    role: Masters Student
-    affiliation: CSU/BU
-    email: j.vonplutzner@colostate.edu
-    image: people/jolan-vonplutzner.jpg
-    website: https://jvp-portfolio.com
-
   - name: Annabel Wade
     role: PhD Student
     affiliation: BU
@@ -153,6 +146,11 @@ current:
     image: people/brandon-wolf.jpg
 
 former:
+  - name: Jolan von Plutzner
+    role: Masters
+    years: 2024-2025
+    affiliation: CSU/BU
+    image: people/jolan-vonplutzner.jpg
   - name: Kelsey Ennis
     role: Masters
     affiliation: CSU

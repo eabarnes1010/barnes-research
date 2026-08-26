@@ -32,12 +32,11 @@ Edit [`_bibliography/papers.bib`](_bibliography/papers.bib). The `/publications/
   author      = {Doe, Jane and Barnes, Elizabeth A.},
   journal     = {Geophysical Research Letters},
   year        = {2026},
-  bibtex_show = {true},                    # shows the "BibTeX" button on the site
-  selected    = {true}                     # optional: also feature it on the home page
+  group_led   = {true}                     # optional: written independently by group members, Barnes not an author
 }
 ```
 
-**To update a paper** (e.g. a submitted paper gets accepted), find its entry and edit the fields in place — remove `note = {submitted}`, fix the `journal` and `year`, and so on. For a paper still in review, add `note = {submitted}`.
+**To update a paper** (e.g. a submitted paper gets accepted), find its entry and edit the fields in place — fix the `journal` and `year`, and add the `doi` once it is issued. The "Submitted / Preprint" flag is driven by the _absence_ of a `doi`/`html` link, so adding the DOI clears it; keep the `preprint` line and the entry shows both a Paper and a Preprint button. Accepted but no DOI yet: add `in_press = {true}` and delete it when the DOI arrives.
 
 ### Add someone
 

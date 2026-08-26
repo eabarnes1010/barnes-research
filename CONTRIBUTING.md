@@ -21,14 +21,13 @@ Edit **`_bibliography/papers.bib`** and paste a new entry at the top. One paper 
   volume    = {53},
   pages     = {1--12},
   year      = {2026},
-  doi       = {10.1029/2026GL000000},
-  bibtex_show = {true},
-  selected  = {true}
+  doi       = {10.1029/2026GL000000}
 }
 ```
 
 - **citekey** (`lastname2026keyword`) must be unique.
-- `selected = {true}` makes the paper appear on the **front page**. Use it only for a few highlights; delete the line otherwise.
+- `in_press = {true}` marks a paper accepted but not yet assigned a DOI; the entry prints `In Press` instead of `Submitted / Preprint`, and you delete the field when you add the real `doi`.
+- `group_led = {true}` marks a paper written independently by group members during their time in the group, with Barnes not an author; it prints a `group-led` badge next to the entry and tags the entry's HTML with `data-authorship="group-led"` so tooling can filter it by rule.
 - Optional fields: `html`, `pdf`, `code`, `abbr` (journal badge), `preview` (a thumbnail image placed in `assets/img/publication_preview/`).
 - `preprint = {https://...}` adds a **Preprint** button (use the full preprint URL, e.g. arXiv/ESSOAr; or a filename under `assets/pdf/` for a local copy). Shows alongside the published-paper button.
 - **Bulk import:** export BibTeX from [ORCID](https://orcid.org/0000-0003-4284-9320) or [Google Scholar](https://scholar.google.com/citations?user=zs-BY1sAAAAJ) and paste the entries in.
