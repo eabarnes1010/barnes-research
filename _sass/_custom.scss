@@ -353,10 +353,10 @@ footer.sticky-bottom {
 // (Button text is gem-generated; swap it via CSS on the doi.org link.)
 // font-size must match the sibling buttons, which inherit .btn-sm (0.64rem) —
 // hardcoding 0.875rem made "Paper" render larger than Bib/Cite.
-.publications .links a.btn[href*="doi.org"] {
+.publications .links a.btn.pub-paper {
   font-size: 0;
 }
-.publications .links a.btn[href*="doi.org"]::after {
+.publications .links a.btn.pub-paper::after {
   content: "Paper";
   font-size: 0.64rem;
 }
