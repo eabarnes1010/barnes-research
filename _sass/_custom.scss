@@ -361,6 +361,29 @@ footer.sticky-bottom {
   font-size: 0.64rem;
 }
 
+// Back-to-top button. The gem styles it with --global-back-to-top-bg-color,
+// which is rgba(0,0,0,0.4) in light mode — a translucent grey circle. Make it
+// solid instead (black on light, near-white on dark), keep the gem's 40px
+// footprint, and centre the chevron with flexbox rather than the library's
+// fixed top margin. Opacity is left alone: the library animates it and `bottom`
+// over 0.2s on appearance, and #back-to-top.hidden must keep winning that.
+#back-to-top {
+  align-items: center;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+html[data-theme="dark"] #back-to-top {
+  background: #e8e8e8;
+  color: #000;
+}
+#back-to-top svg {
+  height: 20px;
+  margin: 0;
+  width: 20px;
+}
+
 // "Submitted / Preprint" indicator on publications that have no DOI yet, so a
 // not-yet-published paper isn't read as a published paper of that year.
 // Inline, right after the venue/year — BU red (normal weight) so it reads as a
