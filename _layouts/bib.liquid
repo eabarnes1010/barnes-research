@@ -54,6 +54,14 @@
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
+      {%- comment -%} Barnes-lab: a BibTeX "and others" arrives as an author literally named `others`; it is not a person, so keep it out of the count and print "et al." after the list instead of "and 1 more author". {%- endcomment -%}
+      {%- assign has_etal = false -%}
+      {%- assign last_author = entry.author_array | last -%}
+      {%- assign last_author_last = last_author.last | strip | downcase -%}
+      {%- if last_author_last == 'others' -%}
+        {%- assign has_etal = true -%}
+        {%- assign author_array_size = author_array_size | minus: 1 -%}
+      {%- endif -%}
 
       {% assign author_array_limit = author_array_size %}
       {% if site.max_author_limit and author_array_size > site.max_author_limit %}
@@ -128,7 +136,7 @@
         {%- if forloop.length > 1 -%}
           {%- comment -%} Barnes-lab: always a comma before the next author — the inverted first author already ends in a given name, so "Barnes, Elizabeth A. and X" would misread. {%- endcomment -%}
           {% if forloop.first == false %}, {% endif %}
-          {%- if forloop.last and author_array_limit == author_array_size %}and {% endif -%}
+          {%- if forloop.last and author_array_limit == author_array_size and has_etal == false %}and {% endif -%}
         {% endif %}
         {%- comment -%} Barnes-lab: Chicago 17th bibliography — only the FIRST author is inverted to "Last, First"; every other author stays "First Last". {%- endcomment -%}
         {%- capture author_display -%}
@@ -160,13 +168,15 @@
           {% assign more_authors_hide = more_authors_hide | append: 's' %}
         {%- endif -%}
         {% assign more_authors_show = '' %}
-        {%- for author in entry.author_array offset: author_array_limit -%}
+        {%- for author in entry.author_array offset: author_array_limit limit: more_authors -%}
           {% assign more_authors_show = more_authors_show | append: author.first | append: ' ' | append: author.last %}
           {% unless forloop.last %}
             {% assign more_authors_show = more_authors_show | append: ', ' %}
           {% endunless %}
         {%- endfor -%}
         {%- assign more_authors_show = more_authors_show | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
+        {%- comment -%} Barnes-lab: with a BibTeX `and others` tail, "et al" belongs inside the revealed name list, not stacked after "and N more authors". {%- endcomment -%}
+        {%- if has_etal -%}{%- assign more_authors_show = more_authors_show | append: ', et al' -%}{%- endif -%}
         , and
         <span
           class="more-authors"
@@ -187,6 +197,9 @@
           {{- more_authors_hide -}}
         </span>
       {%- endif -%}
+      {%- comment -%} Barnes-lab: "et al." stands in for the BibTeX `and others` tail. {%- endcomment -%}
+      {%- comment -%} No trailing period: the year/venue separator right below supplies it. {%- endcomment -%}
+      {%- if has_etal and more_authors == 0 -%}, et al{%- endif -%}
       {%- if entry.annotation -%}
         <i
           class="fa-solid fa-circle-info ml-1"
