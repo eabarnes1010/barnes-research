@@ -80,6 +80,12 @@ current:
     email: wkamp@bu.edu
     image: people/will-kamp.jpg
 
+  - name: Clark Ikezu
+    role: PhD Student
+    affiliation: BU
+    email: tcikezu@bu.edu
+    image: people/clark-ikezu.jpg
+
   - name: Jacob Landsberg
     role: PhD Student
     affiliation: CSU/BU

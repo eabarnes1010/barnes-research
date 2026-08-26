@@ -15,6 +15,10 @@ node_modules/
 output/playwright/
 test-results/
 vendor
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
 
 # Claude Code runtime
 .claude/scheduled_tasks.lock
