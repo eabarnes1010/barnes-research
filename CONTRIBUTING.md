@@ -21,8 +21,7 @@ Edit **`_bibliography/papers.bib`** and paste a new entry at the top. One paper 
   volume    = {53},
   pages     = {1--12},
   year      = {2026},
-  doi       = {10.1029/2026GL000000},
-  bibtex_show = {true}
+  doi       = {10.1029/2026GL000000}
 }
 ```
 
