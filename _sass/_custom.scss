@@ -353,10 +353,10 @@ footer.sticky-bottom {
 // (Button text is gem-generated; swap it via CSS on the doi.org link.)
 // font-size must match the sibling buttons, which inherit .btn-sm (0.64rem) —
 // hardcoding 0.875rem made "Paper" render larger than Bib/Cite.
-.publications .links a.btn[href*="doi.org"] {
+.publications .links a.btn.pub-paper {
   font-size: 0;
 }
-.publications .links a.btn[href*="doi.org"]::after {
+.publications .links a.btn.pub-paper::after {
   content: "Paper";
   font-size: 0.64rem;
 }
@@ -369,6 +369,22 @@ footer.sticky-bottom {
 .publications .pub-status {
   font-size: 0.8em; // a touch smaller than the venue/year it trails
   color: var(--global-theme-color); // BU red, dark-mode aware
+}
+
+// "group-led" badge: papers written independently by group members, with Barnes
+// not an author. Quiet outlined chip — must NOT compete with the BU-red
+// pub-status flag, which carries a different meaning (not yet published).
+.publications .pub-authorship {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0 0.4em;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 3px;
+  font-size: 0.7em;
+  line-height: 1.5;
+  vertical-align: 0.08em;
+  color: var(--global-text-color-light);
+  white-space: nowrap;
 }
 
 // "non-refereed" tag, kept only for non-peer-reviewed work. Quiet/muted.

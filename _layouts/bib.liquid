@@ -12,7 +12,10 @@
 <div class="row">
   {%- comment -%} Barnes-lab: venue/thumbnail left column removed — publications render as a single full-width column. Status (Submitted/Preprint) now lives under the title in the main column below. {%- endcomment -%}
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="col-sm-12">
+  {%- comment -%} Barnes-lab: `group_led = {true}` marks a paper written independently by group members
+  (Barnes not an author). Emits a stable data-authorship hook so tooling (e.g. the CV diff) can exclude
+  these by rule instead of by eye. {%- endcomment -%}
+  <div id="{{ entry.key }}" class="col-sm-12"{% if entry.group_led %} data-authorship="group-led"{% endif %}>
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
 
@@ -51,6 +54,14 @@
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
+      {%- comment -%} Barnes-lab: a BibTeX "and others" arrives as an author literally named `others`; it is not a person, so keep it out of the count and print "et al." after the list instead of "and 1 more author". {%- endcomment -%}
+      {%- assign has_etal = false -%}
+      {%- assign last_author = entry.author_array | last -%}
+      {%- assign last_author_last = last_author.last | strip | downcase -%}
+      {%- if last_author_last == 'others' -%}
+        {%- assign has_etal = true -%}
+        {%- assign author_array_size = author_array_size | minus: 1 -%}
+      {%- endif -%}
 
       {% assign author_array_limit = author_array_size %}
       {% if site.max_author_limit and author_array_size > site.max_author_limit %}
@@ -125,7 +136,7 @@
         {%- if forloop.length > 1 -%}
           {%- comment -%} Barnes-lab: always a comma before the next author — the inverted first author already ends in a given name, so "Barnes, Elizabeth A. and X" would misread. {%- endcomment -%}
           {% if forloop.first == false %}, {% endif %}
-          {%- if forloop.last and author_array_limit == author_array_size %}and {% endif -%}
+          {%- if forloop.last and author_array_limit == author_array_size and has_etal == false %}and {% endif -%}
         {% endif %}
         {%- comment -%} Barnes-lab: Chicago 17th bibliography — only the FIRST author is inverted to "Last, First"; every other author stays "First Last". {%- endcomment -%}
         {%- capture author_display -%}
@@ -157,13 +168,15 @@
           {% assign more_authors_hide = more_authors_hide | append: 's' %}
         {%- endif -%}
         {% assign more_authors_show = '' %}
-        {%- for author in entry.author_array offset: author_array_limit -%}
+        {%- for author in entry.author_array offset: author_array_limit limit: more_authors -%}
           {% assign more_authors_show = more_authors_show | append: author.first | append: ' ' | append: author.last %}
           {% unless forloop.last %}
             {% assign more_authors_show = more_authors_show | append: ', ' %}
           {% endunless %}
         {%- endfor -%}
         {%- assign more_authors_show = more_authors_show | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
+        {%- comment -%} Barnes-lab: with a BibTeX `and others` tail, "et al" belongs inside the revealed name list, not stacked after "and N more authors". {%- endcomment -%}
+        {%- if has_etal -%}{%- assign more_authors_show = more_authors_show | append: ', et al' -%}{%- endif -%}
         , and
         <span
           class="more-authors"
@@ -184,6 +197,9 @@
           {{- more_authors_hide -}}
         </span>
       {%- endif -%}
+      {%- comment -%} Barnes-lab: "et al." stands in for the BibTeX `and others` tail. {%- endcomment -%}
+      {%- comment -%} No trailing period: the year/venue separator right below supplies it. {%- endcomment -%}
+      {%- if has_etal and more_authors == 0 -%}, et al{%- endif -%}
       {%- if entry.annotation -%}
         <i
           class="fa-solid fa-circle-info ml-1"
@@ -203,14 +219,26 @@
       {%- if periodical_text != '' -%}
         . <span class="periodical">{{ periodical_text }}</span>
       {%- endif -%}
-      {%- comment -%} Barnes-lab: flag as not-yet-published only when there is NO link to a published version (doi/html/url/website). Preprints (which carry only a `preprint` link) still flag; a published paper with no DOI but an article URL — e.g. an Eos opinion piece — does not. Set `hide_status = {true}` on an entry to force-hide the flag (e.g. a permanent preprint that will never be published) while keeping its Preprint button. {%- endcomment -%}
-      {%- unless entry.doi or entry.html or entry.url or entry.website or entry.hide_status -%}
+      {%- comment -%} Barnes-lab: accepted but not yet assigned a DOI. `in_press = {true}` prints "In Press" instead of the Submitted/Preprint flag; drop the field and add the `doi` once it is issued. {%- endcomment -%}
+      {%- if entry.in_press -%}
+        {% if periodical_text != '' or pubdate_text != '' %}
+          <span class="pub-status">&middot;&nbsp;In&nbsp;Press</span>
+        {%- else %}
+          <span class="pub-status">In&nbsp;Press</span>
+        {%- endif %}
+      {%- endif -%}
+      {%- comment -%} Barnes-lab: flag as not-yet-published only when there is NO link to a published version (doi/html/url/website) and the paper is not already flagged in press. Preprints (which carry only a `preprint` link) still flag; a published paper with no DOI but an article URL — e.g. an Eos opinion piece — does not. Set `hide_status = {true}` on an entry to force-hide the flag (e.g. a permanent preprint that will never be published) while keeping its Preprint button. {%- endcomment -%}
+      {%- unless entry.doi or entry.html or entry.url or entry.website or entry.hide_status or entry.in_press -%}
         {% if periodical_text != '' or pubdate_text != '' %}
           <span class="pub-status">&middot;&nbsp;Submitted&nbsp;/&nbsp;Preprint</span>
         {%- else %}
           <span class="pub-status">Submitted&nbsp;/&nbsp;Preprint</span>
         {%- endif %}
       {%- endunless -%}
+      {%- comment -%} Barnes-lab: group-led badge, inline after the venue/status. Deliberately unexplained on the page — no legend. {%- endcomment -%}
+      {%- if entry.group_led -%}
+        <span class="pub-authorship">group-led</span>
+      {%- endif -%}
     </div>
 
     {%- comment -%} Barnes-lab: note line kept ONLY for non-peer-reviewed work (workshop papers, reports, book chapters, etc.); in-press is treated as published. {%- endcomment -%}
@@ -273,8 +301,15 @@
       {% if entry.abstract %}
         <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
       {% endif %}
+      {%- comment -%} Barnes-lab: the published-version button, relabelled "Paper" by CSS on .pub-paper. A DOI wins; a venue without DOIs (e.g. JMLR, Eos) falls back to its `html` URL so the paper still gets a Paper button rather than a stray "HTML" one. {%- endcomment -%}
       {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
+        <a href="https://doi.org/{{ entry.doi }}" class="pub-paper btn btn-sm z-depth-0" role="button">DOI</a>
+      {% elsif entry.html %}
+        {% if entry.html contains '://' %}
+          <a href="{{ entry.html }}" class="pub-paper btn btn-sm z-depth-0" role="button">HTML</a>
+        {% else %}
+          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="pub-paper btn btn-sm z-depth-0" role="button">HTML</a>
+        {% endif %}
       {% endif %}
       {%- comment -%} Barnes-lab: preprint link (external URL or local PDF under /assets/pdf/). {%- endcomment -%}
       {% if entry.preprint %}
@@ -290,11 +325,10 @@
       {% if entry.hal %}
         <a href="https://hal.science/{{ entry.hal }}" class="btn btn-sm z-depth-0" role="button">HAL</a>
       {% endif %}
-      {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-      {% endif %}
+      {%- comment -%} Barnes-lab: the "Bib" button and its hidden BibTeX block are deliberately removed — "Cite" copies a plain-text citation instead. `bibtex_show` in papers.bib is now inert. {%- endcomment -%}
       <a class="citation-copy btn btn-sm z-depth-0" role="button" data-citation="{{ cite_text | strip | escape }}">Cite</a>
-      {% if entry.html %}
+      {%- comment -%} Barnes-lab: a separate HTML button only when the entry already spent its Paper button on a DOI. {%- endcomment -%}
+      {% if entry.html and entry.doi %}
         {% if entry.html contains '://' %}
           <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
         {% else %}
@@ -458,15 +492,6 @@
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
         <p>{{ entry.abstract }}</p>
-      </div>
-    {% endif %}
-
-    {% if entry.bibtex_show %}
-      <!-- Hidden bibtex block -->
-      <div class="bibtex hidden">
-        {% highlight bibtex %}
-        {{- entry.bibtex | hideCustomBibtex -}}
-        {% endhighlight %}
       </div>
     {% endif %}
 
