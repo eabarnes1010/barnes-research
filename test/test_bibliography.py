@@ -1,4 +1,5 @@
 from collections import Counter
+from datetime import date
 from pathlib import Path
 import re
 import sys
@@ -59,5 +60,10 @@ def test_pub_peryear_generator_runs():
 
     years = list(entry_years(BIB_FILE.read_text(encoding="utf-8")))
     assert years, "No years parsed from papers.bib"
+    # Tripwires, not targets. The chart shows the RECENT_YEARS most recent years
+    # ending at max(years), so a mistyped year (2026 -> 2062) silently publishes a
+    # window of empty bars; bounding the range close to today catches that. The
+    # count floor catches a parse that loses most of the bibliography.
+    assert len(years) >= 100, f"Only {len(years)} papers parsed; the bib parser likely broke"
     assert min(years) > 1980, f"Implausible earliest year: {min(years)}"
-    assert max(years) < 2100, f"Implausible latest year: {max(years)}"
+    assert max(years) <= date.today().year + 2, f"Implausible latest year: {max(years)}"

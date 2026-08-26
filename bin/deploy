@@ -65,6 +65,14 @@ if ! git diff-index --quiet HEAD --; then
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
 fi
 
+# The chart data is regenerated below, before the build. Fail here, while the
+# tree is still untouched, rather than after the deploy branch has been created.
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "python3 not found; it is needed to refresh the publications chart data."
+    echo "Aborting."
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
+fi
+
 # Check if there are any untracked files
 if ! test -z "$(git ls-files --exclude-standard --others)"; then
     echo "There are untracked files:"
@@ -94,7 +102,11 @@ export JEKYLL_ENV=production
 
 # Refresh the home-page papers-per-year chart data from papers.bib. The
 # committed _data/pub_peryear.yml is allowed to lag (CI regenerates it too),
-# so regenerate here or a manual deploy publishes a stale chart.
+# so regenerate here or a manual deploy publishes a stale chart. The trap
+# restores the file if anything below aborts under `set -e`; without it a failed
+# deploy leaves it modified and the change rides back onto the source branch,
+# where it then trips this script's own uncommitted-changes guard.
+trap 'git checkout -- _data/pub_peryear.yml 2>/dev/null || true' EXIT
 python3 bin/build_pub_peryear.py
 
 # Build site
