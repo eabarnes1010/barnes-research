@@ -374,7 +374,6 @@ footer.sticky-bottom {
 // "group-led" badge: papers written independently by group members, with Barnes
 // not an author. Quiet outlined chip — must NOT compete with the BU-red
 // pub-status flag, which carries a different meaning (not yet published).
-// The definition lives once in the legend on /publications/, never per entry.
 .publications .pub-authorship {
   display: inline-block;
   margin-left: 0.4em;
@@ -386,17 +385,6 @@ footer.sticky-bottom {
   vertical-align: 0.08em;
   color: var(--global-text-color-light);
   white-space: nowrap;
-}
-
-// Legend that defines the "group-led" badge, printed once at the top of
-// /publications/ rather than repeated on every flagged entry.
-.publications .pub-legend {
-  margin-bottom: 1.5rem;
-  font-size: 0.8rem;
-  color: var(--global-text-color-light);
-}
-.publications .pub-legend .pub-authorship {
-  margin-left: 0;
 }
 
 // "non-refereed" tag, kept only for non-peer-reviewed work. Quiet/muted.
