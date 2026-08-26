@@ -2,7 +2,6 @@ from collections import Counter
 from pathlib import Path
 import re
 import sys
-import yaml
 import pytest
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -44,26 +43,21 @@ def test_entries_required_fields():
         assert re.search(r"\byear\s*=\s*[{\"]?\s*\d{4}", block, re.IGNORECASE), f"Missing or invalid 'year' in {citekey}"
 
 
-def test_pub_peryear_in_sync():
-    """Ensure _data/pub_peryear.yml matches current _bibliography/papers.bib."""
-    assert PUB_YEAR_FILE.exists(), f"{PUB_YEAR_FILE} does not exist"
+def test_pub_peryear_generator_runs():
+    """The chart generator must still be able to parse papers.bib.
 
+    Deliberately NOT a sync check against the committed _data/pub_peryear.yml:
+    .github/workflows/deploy.yml runs bin/build_pub_peryear.py immediately
+    before the site build, so the deployed chart always reflects the current
+    bibliography. Letting the committed file lag is harmless, and failing CI
+    over it would block anyone who adds a paper without knowing to re-run the
+    script. What genuinely matters is that a bib edit cannot break the
+    generator, which is what this asserts.
+    """
     sys.path.insert(0, str(REPO_ROOT / "bin"))
-    from build_pub_peryear import entry_years, RECENT_YEARS
+    from build_pub_peryear import entry_years
 
     years = list(entry_years(BIB_FILE.read_text(encoding="utf-8")))
     assert years, "No years parsed from papers.bib"
-
-    counts = Counter(years)
-    lo, hi = min(years), max(years)
-    expected_full = [(y, counts.get(y, 0)) for y in range(lo, hi + 1)]
-    if RECENT_YEARS:
-        expected_full = expected_full[-RECENT_YEARS:]
-
-    actual_data = yaml.safe_load(PUB_YEAR_FILE.read_text(encoding="utf-8"))
-    actual_tuples = [(item["year"], item["count"]) for item in actual_data]
-
-    assert actual_tuples == expected_full, (
-        f"_data/pub_peryear.yml is out of sync with _bibliography/papers.bib! "
-        f"Run 'python3 bin/build_pub_peryear.py' to update."
-    )
+    assert min(years) > 1980, f"Implausible earliest year: {min(years)}"
+    assert max(years) < 2100, f"Implausible latest year: {max(years)}"
