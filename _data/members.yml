@@ -47,12 +47,6 @@ current:
     image: people/eunkyoung-choi.jpg
     website: https://kyoungyi.github.io/
 
-  - name: Cameron Dong
-    role: Postdoc
-    affiliation: CSU
-    email: c.dong@colostate.edu
-    image: people/cameron-dong.jpg
-
   - name: Ashley Dwyer
     role: PhD Candidate
     affiliation: CSU/BU
@@ -126,12 +120,6 @@ current:
     email: ztang20@bu.edu
     image: people/ziqi-tang.png
 
-  - name: Laura Thapa
-    role: Postdoc
-    affiliation: CSU
-    email: laura.thapa@colostate.edu
-    image: people/laura-thapa.jpg
-
   - name: Annabel Wade
     role: PhD Student
     affiliation: BU
@@ -146,6 +134,16 @@ current:
     image: people/brandon-wolf.jpg
 
 former:
+  - name: Cameron Dong
+    role: Postdoc
+    affiliation: CSU
+    years: 2025–2026
+    image: people/cameron-dong.jpg
+  - name: Laura Thapa
+    role: Postdoc
+    affiliation: CSU
+    years: 2024–2026
+    image: people/laura-thapa.jpg
   - name: Jolan von Plutzner
     role: Masters
     years: 2024-2025
