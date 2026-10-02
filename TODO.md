@@ -39,4 +39,3 @@ not all tools support PnP cleanly (Playwright in particular), so it needs testin
 Note: `.claude/skills` and `.codex/skills` are symlinks to `.agents/skills` and
 will also trip Drive's symlink limitation; they are intentional sharing links, so
 leave them unless the skills layout is restructured.
-
