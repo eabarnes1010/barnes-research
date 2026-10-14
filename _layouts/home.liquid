@@ -26,6 +26,11 @@ layout: default
       AI for Science &middot;&nbsp; Science of AI &nbsp;&middot;&nbsp; Daily-to-decadal prediction<br>
       Coupled Human-Earth system futures
     </p>
+    {%- if page.hiring %}
+      <p class="lab-hiring">
+        <a href="{{ page.hiring.url | relative_url }}">{{ page.hiring.text }}</a>
+      </p>
+    {%- endif %}
   </div>
 </section>
 
