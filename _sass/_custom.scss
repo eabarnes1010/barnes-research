@@ -126,6 +126,18 @@ html[data-theme="dark"] .lab-banner {
   margin: 0 auto;
   max-width: 760px;
 }
+// Optional hiring notice under the tagline, set by `hiring:` in about.md.
+.lab-hiring {
+  font-size: clamp(0.82rem, 1.3vw, 0.95rem);
+  font-weight: 400;
+  margin: clamp(0.9rem, 2vw, 1.3rem) 0 0;
+}
+.lab-hiring a {
+  color: var(--bu-red);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 
 // ---- Three feature cards (consistent BU-red accent) -----------------------
 .lab-features {

@@ -7,6 +7,11 @@ layout: home
 # The nav is worth more than the card wording.
 title: home
 permalink: /
+# Hiring notice shown in the home banner (_layouts/home.liquid). Delete these
+# lines to remove it.
+hiring:
+  text: We are hiring multiple postdoctoral researchers!
+  url: /assets/pdf/postdoc-positions-2026.pdf
 ---
 
 We are the **Barnes Research Group**, led by [Prof. Elizabeth Barnes](/prof-barnes/) and based in [Computing &amp; Data Sciences](https://www.bu.edu/cds-faculty/) and [Earth &amp; Environment](https://www.bu.edu/earth/) at [Boston University](https://www.bu.edu/). We study Earth system variability, predictability, and change across time and space, developing **interpretable AI** tools for scientific discovery.
