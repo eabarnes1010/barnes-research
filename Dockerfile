@@ -1,7 +1,7 @@
-# Pinned for reproducibility: matches ruby-version in .github/workflows/deploy.yml (3.3.5).
+# Pinned for reproducibility: matches ruby-version in .github/workflows/deploy.yml (3.3 series).
 # -slim-bookworm pins the Debian release too. For fully byte-reproducible builds years
-# from now, pin by digest instead, e.g.:  FROM ruby:3.3.5-slim-bookworm@sha256:<digest>
-FROM ruby:3.3.5-slim-bookworm
+# from now, pin by digest instead, e.g.:  FROM ruby:3.3.14-slim-bookworm@sha256:<digest>
+FROM ruby:3.3.14-slim-bookworm
 
 # uncomment these if you are having this issue with the build:
 # /usr/local/bundle/gems/jekyll-4.3.4/lib/jekyll/site.rb:509:in `initialize': Permission denied @ rb_sysopen - /srv/jekyll/.jekyll-cache/.gitignore (Errno::EACCES)

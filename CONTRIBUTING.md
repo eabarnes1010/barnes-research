@@ -100,6 +100,6 @@ Upload images through **Add file → Upload files** into:
 ## 👀 Previewing before publishing
 
 - **Easiest:** open a **Pull Request** instead of committing to `main`. The Action builds your PR and reports success/failure; a maintainer can merge it.
-- **Local preview** (optional, for maintainers): see `README.md` / `docs/INSTALL.md`. Either Docker (`docker compose up`) or a local Ruby 3.3.5 + `bundle exec jekyll serve`.
+- **Local preview** (optional, for maintainers): see `README.md` / `docs/INSTALL.md`. Either Docker (`docker compose up`) or a local Ruby 3.3 + `bundle exec jekyll serve`.
 
 If a build fails, check the **Actions** tab on GitHub for the error.
