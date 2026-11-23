@@ -31,6 +31,7 @@ jobs:
       - name: Updated toc on all markdown changed files
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          GH_TOC_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl https://raw.githubusercontent.com/george-gca/github-markdown-toc/main/gh-md-toc -o gh-md-toc
           chmod a+x gh-md-toc
