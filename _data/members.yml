@@ -21,7 +21,7 @@ current:
     image: people/prof_pic.jpg
 
   - name: Rebecca Baiman
-    role: Research Scientist
+    role: Research Sci.
     affiliation: CSU/BU
     email: rbaiman.earth@gmail.com
     image: people/rebecca-baiman.jpg
@@ -34,7 +34,7 @@ current:
     image: people/kevin-chan.png
 
   - name: Mu-Ting Chien
-    role: Research Scientist
+    role: Research Sci.
     affiliation: CSU/BU
     email: Mu-Ting.Chien@colostate.edu
     image: people/muting-chien.jpg
